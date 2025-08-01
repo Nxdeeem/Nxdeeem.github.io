@@ -6,111 +6,97 @@
   <title>About - Nadeem Najumudeen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-[#0F172A] text-white font-sans">
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-4" data-aos="fade-up">
-    <!-- Profile Image -->
-    <img src="profile.jpg" alt="Nadeem Najumudeen" class="w-40 h-40 object-cover rounded-full border-4 border-white shadow-lg mb-6 transition-transform duration-500 hover:scale-110" />
+  <!-- Profile Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center px-4 pt-24" data-aos="fade-up">
+    <img src="profile.jpg" alt="Profile" class="w-40 h-40 rounded-full mb-6 shadow-lg hover:scale-105 transition duration-500" />
     <h1 class="text-4xl font-bold mb-4">About Me</h1>
-    <p class="text-lg text-gray-300 max-w-3xl">
-      I'm a computer science student with a strong passion for business, technology, and entrepreneurship.
-      I love exploring innovative startup ideas and leveraging tech to solve real-world challenges.
-
-      <br /><br />
-      Alongside my academic and entrepreneurial interests, I’m also passionate about gaming — especially FPS titles — and enjoy analyzing gameplay mechanics, strategy, and performance.
-      This fuels my curiosity and creativity when building tech-driven solutions, including projects that blend gaming and development.
-
-      <br /><br />
+    <p class="text-lg max-w-2xl text-center text-gray-300">
+      I'm a computer science student with a strong passion for business, technology, and entrepreneurship. I love exploring innovative startup ideas and leveraging tech to solve real-world challenges.<br><br>
+      Alongside my academic and entrepreneurial interests, I’m also passionate about gaming — especially FPS titles — and enjoy analyzing gameplay mechanics, strategy, and performance. This fuels my curiosity and creativity when building tech-driven solutions, including projects that blend gaming and development.<br><br>
       I’m eager to connect with fellow entrepreneurs, developers, and gamers to collaborate on impactful projects.
     </p>
-
-    <a href="https://github.com/Nxdeeem" class="mt-4 text-blue-400 hover:underline text-lg">View My GitHub</a>
   </section>
 
   <!-- Skills Section -->
-  <section class="py-16 px-6 bg-gray-900" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 text-gray-300">
-
+  <section class="py-20 px-6" data-aos="fade-down">
+    <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
       <div>
-        <h3 class="text-xl font-semibold text-white mb-2">Programming Languages</h3>
-        <ul class="list-disc list-inside space-y-1">
+        <h3 class="text-2xl font-semibold mb-2">Programming Languages</h3>
+        <ul class="list-disc list-inside text-gray-300 mb-6">
           <li>Python</li>
           <li>C</li>
           <li>Bash</li>
         </ul>
-      </div>
 
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-2">Web Development</h3>
-        <div class="ml-4 space-y-2">
-          <div>
-            <p class="font-semibold">Languages</p>
-            <ul class="list-disc list-inside">
-              <li>HTML</li>
-              <li>JavaScript</li>
-              <li>CSS</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold mt-2">Code Editors</p>
-            <ul class="list-disc list-inside">
-              <li>VS Code</li>
-              <li>Notepad</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold mt-2">UI/UX Tools</p>
-            <ul class="list-disc list-inside">
-              <li>Canva</li>
-              <li>Blush</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold mt-2">Frontend</p>
-            <ul class="list-disc list-inside">
-              <li>Tailwind CSS</li>
-              <li>React</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold mt-2">Development & Deployment</p>
-            <ul class="list-disc list-inside">
-              <li>GitHub</li>
-              <li>Vercel</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold mt-2">Backend</p>
-            <ul class="list-disc list-inside">
-              <li>Node.js + Express</li>
-            </ul>
-          </div>
-        </div>
+        <h3 class="text-2xl font-semibold mb-2">Web Development</h3>
+
+        <h4 class="font-semibold text-white">Languages</h4>
+        <ul class="list-disc list-inside text-gray-300 mb-4">
+          <li>HTML</li>
+          <li>JavaScript</li>
+          <li>CSS</li>
+        </ul>
+
+        <h4 class="font-semibold text-white">Code Editors</h4>
+        <ul class="list-disc list-inside text-gray-300 mb-4">
+          <li>VS Code</li>
+          <li>Notepad</li>
+        </ul>
+
+        <h4 class="font-semibold text-white">UI/UX Tools</h4>
+        <ul class="list-disc list-inside text-gray-300 mb-4">
+          <li>Canva</li>
+          <li>Blush</li>
+        </ul>
+
+        <h4 class="font-semibold text-white">Frontend</h4>
+        <ul class="list-disc list-inside text-gray-300 mb-4">
+          <li>Tailwind CSS</li>
+          <li>React</li>
+        </ul>
+
+        <h4 class="font-semibold text-white">Development & Deployment</h4>
+        <ul class="list-disc list-inside text-gray-300 mb-4">
+          <li>GitHub</li>
+          <li>Vercel</li>
+        </ul>
+
+        <h4 class="font-semibold text-white">Backend</h4>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Node.js + Express</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Goals Section -->
-  <section class="py-16 bg-black px-6" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center text-white mb-6">Goals</h2>
-    <p class="text-center text-gray-400 text-lg">Coming soon...</p>
+  <section class="py-20 px-6" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-center mb-8">Goals</h2>
+    <ul class="max-w-3xl mx-auto list-disc text-lg list-inside text-gray-300 space-y-3">
+      <li>Become a skilled ethical hacker and Cybersecurity analyst</li>
+      <li>Be a good programmer with strong problem-solving skills</li>
+      <li>Build and launch an online multiplayer game (FPS or RPG)</li>
+      <li>Continuously learn and innovate with tech for real-world impact</li>
+    </ul>
   </section>
 
   <!-- Back to Home -->
-  <div class="text-center py-6">
-    <a href="index.html" class="text-red-400 hover:underline">&larr; Back to Home</a>
+  <div class="text-center pb-10">
+    <a href="index.html" class="text-red-400 hover:underline text-lg">← Back to Home</a>
   </div>
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 py-4 text-center text-gray-500">
-    &copy; 2025 Nadeem Najumudeen
-  </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
+
 </body>
 </html>
