@@ -39,12 +39,13 @@
         <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
         <li><a href="index.html#contact" class="hover:text-white transition">CONTACT</a></li>
       </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </nav>
+
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
       <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
@@ -69,7 +70,7 @@
 
   <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
 
-  <!-- Skills -->
+  <!-- Skills Section -->
   <section class="px-4 pb-20" data-aos="fade-up">
     <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
     <div class="max-w-4xl mx-auto space-y-4">
@@ -131,7 +132,7 @@
     </ul>
   </section>
 
-  <!-- Back Home Button -->
+  <!-- Back to Home -->
   <div class="fixed bottom-6 right-6 z-50">
     <a href="index.html"
       class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
@@ -144,32 +145,41 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-  AOS.init({ duration: 800, once: false });
+    AOS.init({ duration: 800, once: false });
 
-  // Accordion
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const content = header.nextElementSibling;
-      content.classList.toggle('active');
-    });
-  });
-
-  // Page Transition Fix
-  document.body.classList.add('fade-in');
-  document.querySelectorAll('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    if (!link.target && href && !href.startsWith('#')) {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.body.classList.remove('fade-in');
-        setTimeout(() => {
-          window.location.href = href;
-        }, 300);
+    // Accordion
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
       });
-    }
-  });
-</script>
+    });
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Page Transition Fix
+    document.body.classList.add('fade-in');
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!link.target && href && !href.startsWith('#')) {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          document.body.classList.remove('fade-in');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300);
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
