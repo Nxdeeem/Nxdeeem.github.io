@@ -144,26 +144,32 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: false });
+  AOS.init({ duration: 800, once: false });
 
-    document.body.classList.add('fade-in');
+  // Accordion
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      content.classList.toggle('active');
+    });
+  });
 
-    // Accordion
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.classList.toggle('active');
+  // Page Transition Fix
+  document.body.classList.add('fade-in');
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!link.target && href && !href.startsWith('#')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.remove('fade-in');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
       });
-    });
+    }
+  });
+</script>
 
-    // Hamburger Menu
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
 </body>
 </html>
