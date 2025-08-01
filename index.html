@@ -15,7 +15,9 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
@@ -23,32 +25,51 @@
     body.fade-in {
       opacity: 1;
     }
+
+    @keyframes dropdownOpen {
+      0% { opacity: 0; transform: scaleY(0.8); }
+      100% { opacity: 1; transform: scaleY(1); }
+    }
+    .animate-dropdown {
+      animation: dropdownOpen 0.3s ease-out forwards;
+      transform-origin: top right;
+    }
   </style>
 </head>
 
 <body class="bg-black text-white font-sans">
 
-  <!-- Navbar -->
+  <!-- Navbar with Hamburger -->
   <header class="bg-gray-900 shadow-md py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 flex items-center justify-between">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
 
-      <!-- Hamburger Icon (Mobile) -->
-      <button id="menu-toggle" class="text-white md:hidden" aria-label="Toggle navigation">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <!-- Hamburger (Mobile Only) -->
+      <div class="md:hidden relative">
+        <button id="menu-toggle" aria-label="Toggle Menu" class="text-white focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
 
-      <!-- Navigation Links -->
-      <ul id="nav-links"
-        class="hidden md:flex space-x-6 text-gray-300 md:items-center md:static absolute top-full left-0 w-full bg-gray-900 md:bg-transparent md:w-auto md:flex-row flex-col text-center z-40">
-        <li><a href="#home" class="block px-4 py-2 hover:text-white transition" aria-label="Home">HOME</a></li>
-        <li><a href="about.html" class="block px-4 py-2 hover:text-white transition" aria-label="About">ABOUT</a></li>
-        <li><a href="projects.html" class="block px-4 py-2 hover:text-white transition" aria-label="Projects">PROJECTS</a></li>
-        <li><a href="#contact" class="block px-4 py-2 hover:text-white transition" aria-label="Contact">CONTACT</a></li>
+        <!-- Mobile Dropdown -->
+        <ul id="mobile-menu"
+            class="absolute right-0 mt-2 w-40 bg-gray-800 rounded-lg shadow-lg text-gray-300 py-2 px-4 space-y-2 hidden transition-all duration-300 origin-top-right">
+          <li><a href="#home" class="block hover:text-white">HOME</a></li>
+          <li><a href="about.html" class="block hover:text-white">ABOUT</a></li>
+          <li><a href="projects.html" class="block hover:text-white">PROJECTS</a></li>
+          <li><a href="#contact" class="block hover:text-white">CONTACT</a></li>
+        </ul>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6 text-gray-300">
+        <li><a href="#home" class="hover:text-white transition">HOME</a></li>
+        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="#contact" class="hover:text-white transition">CONTACT</a></li>
       </ul>
     </nav>
   </header>
@@ -93,14 +114,31 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    // Fade-in on page load
     window.onload = () => {
       document.body.classList.add('fade-in');
     };
 
-    // Mobile Navbar Toggle
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      const nav = document.getElementById('nav-links');
-      nav.classList.toggle('hidden');
+    // Page transitions
+    document.querySelectorAll('a[href]').forEach(link => {
+      if (!link.target && link.getAttribute('href') !== '#') {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          document.body.classList.remove('fade-in');
+          setTimeout(() => window.location.href = href, 300);
+        });
+      }
+    });
+
+    // Hamburger toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const dropdown = document.getElementById('mobile-menu');
+
+    toggleBtn.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden');
+      dropdown.classList.toggle('animate-dropdown');
     });
   </script>
 </body>
