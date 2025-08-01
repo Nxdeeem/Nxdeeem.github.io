@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,13 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
+    body {
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
     .typing::after {
       content: '|';
       animation: blink 0.8s infinite;
@@ -21,14 +28,7 @@
   </style>
 </head>
 
-<body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans transition duration-500">
-
-  <!-- Theme Toggle -->
-  <div class="fixed top-4 right-4 z-50">
-    <button id="themeToggle" class="bg-gray-700 hover:bg-gray-500 text-white px-4 py-2 rounded">
-      Toggle Theme
-    </button>
-  </div>
+<body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans">
 
   <!-- Profile Card -->
   <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-4" data-aos="fade-down">
@@ -43,7 +43,6 @@
     </div>
   </section>
 
-  <!-- Divider -->
   <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
 
   <!-- Accordion Skills Section -->
@@ -116,7 +115,6 @@
     </ul>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-gray-800 py-4 text-center text-gray-400">
     &copy; 2025 Nadeem Najumudeen
   </footer>
@@ -134,11 +132,17 @@
       });
     });
 
-    // Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('bg-white');
-      document.body.classList.toggle('text-black');
+    // Page Transition
+    document.body.classList.add('fade-in');
+    document.querySelectorAll('a[href]').forEach(link => {
+      if (!link.target) {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          document.body.classList.remove('fade-in');
+          setTimeout(() => window.location.href = href, 300);
+        });
+      }
     });
   </script>
 </body>
