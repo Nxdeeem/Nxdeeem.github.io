@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nadeem Najumudeen</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
@@ -35,7 +44,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20" data-aos="fade-up">
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24" data-aos="fade-up">
     <h1 class="text-5xl font-bold text-white mb-4">Welcome to My World</h1>
     <p class="text-xl text-gray-300">I'm <span class="text-white font-semibold">Nadeem Najumudeen</span></p>
   </section>
@@ -70,21 +79,13 @@
     &copy; 2025 Nadeem Najumudeen
   </footer>
 
-  <!-- Scripts -->
+  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-    document.body.classList.add('fade-in');
-    document.querySelectorAll('a[href]').forEach(link => {
-      if (!link.target) {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const href = link.getAttribute('href');
-          document.body.classList.remove('fade-in');
-          setTimeout(() => window.location.href = href, 300);
-        });
-      }
-    });
+    window.onload = () => {
+      document.body.classList.add('fade-in');
+    };
   </script>
 </body>
 </html>
