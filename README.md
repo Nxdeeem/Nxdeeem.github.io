@@ -1,4 +1,5 @@
 🖥️ Personal Portfolio Website – Nadeem Najumudeen
+
 Welcome to the source code for my personal website: Welcome to My World
 
 Live at: https://nxdeeem.github.io
@@ -21,46 +22,46 @@ Live at: https://nxdeeem.github.io
 
 🌐 Technologies Used
 
-.HTML5 – Structure of the website
+• HTML5 – Structure of the website
 
-.CSS3 & Tailwind CSS – Styling and layout
+• CSS3 & Tailwind CSS – Styling and layout
 
-.JavaScript – Interactivity and animations
+• JavaScript – Interactivity and animations
 
-.AOS (Animate on Scroll) – Smooth scroll-based animations
+• AOS (Animate on Scroll) – Smooth scroll-based animations
 
-.Icons8 Icons – Platform icons (email, GitHub, LinkedIn, etc.)
+• Icons8 Icons – Platform icons (email, GitHub, LinkedIn, etc.)
 
-.Responsive Design – Mobile-friendly using Tailwind's utility classes
+• Responsive Design – Mobile-friendly using Tailwind's utility classes
 
 🎯 Key Features
 
-.💡 Smooth scroll-based fade animations
+•💡 Smooth scroll-based fade animations
 
-.🌓 Theme switcher (Dark/Light mode – optional on certain pages)
+• 🌓 Theme switcher (Dark/Light mode – optional on certain pages)
 
-.🧭 Animated hamburger menu on small screens
+• 🧭 Animated hamburger menu on small screens
 
-.🖼️ Profile hover card on About Me
+• 🖼️ Profile hover card on About Me
 
-.🎯 Accordion-based skills section with icons
+• 🎯 Accordion-based skills section with icons
 
-.🧠 Typing text effect for animated headings
+• 🧠 Typing text effect for animated headings
 
-.🧩 Page transitions (fade-in and fade-out)
+• 🧩 Page transitions (fade-in and fade-out)
 
-.📱 Fully mobile responsive
+• 📱 Fully mobile responsive
 
-.🔗 External links with hover animations
+• 🔗 External links with hover animations
 
-.🏠 Back to Home button on About and Projects pages
+• 🏠 Back to Home button on About and Projects pages
 
 
 ✨ Future Additions
 
-.Add live project showcases
+• Add live project showcases
 
-.Add FPS Game Benchmark App
+• Add FPS Game Benchmark App
 
-.Add blog or journal section
+• Add blog or journal section
 
