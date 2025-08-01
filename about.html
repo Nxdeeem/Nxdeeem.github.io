@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,116 +7,139 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    html { scroll-behavior: smooth; }
+    .typing::after {
+      content: '|';
+      animation: blink 0.8s infinite;
     }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .accordion-content { display: none; }
+    .accordion-content.active { display: block; }
   </style>
 </head>
-<body class="bg-[#0F172A] text-white font-sans">
 
-  <!-- Profile Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center px-4 pt-24" data-aos="fade-up">
-    <img src="profile.jpg" alt="Profile" class="w-40 h-40 rounded-full mb-6 shadow-lg hover:scale-105 transition duration-500" />
-    <h1 class="text-4xl font-bold mb-4">About Me</h1>
-    <p class="text-lg max-w-2xl text-center text-gray-300">
-      I'm a computer science student with a strong passion for business, technology, and entrepreneurship. I love exploring innovative startup ideas and leveraging tech to solve real-world challenges.<br><br>
-      Alongside my academic and entrepreneurial interests, I’m also passionate about gaming — especially FPS titles — and enjoy analyzing gameplay mechanics, strategy, and performance. This fuels my curiosity and creativity when building tech-driven solutions, including projects that blend gaming and development.<br><br>
-      I’m eager to connect with fellow entrepreneurs, developers, and gamers to collaborate on impactful projects.
-    </p>
+<body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans transition duration-500">
+
+  <!-- Theme Toggle -->
+  <div class="fixed top-4 right-4 z-50">
+    <button id="themeToggle" class="bg-gray-700 hover:bg-gray-500 text-white px-4 py-2 rounded">
+      Toggle Theme
+    </button>
+  </div>
+
+  <!-- Profile Card -->
+  <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-4" data-aos="fade-down">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-500 max-w-lg text-center">
+      <img src="profile.jpg" alt="Profile" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" />
+      <h1 class="text-4xl font-bold mt-4 typing text-white">About Me</h1>
+      <p class="text-gray-300 mt-4">
+        I'm a computer science student with a passion for business, tech, and gaming. I explore startup ideas and blend development with creativity—especially in FPS games. 
+        <br><br>
+        <a href="https://github.com/Nxdeeem" target="_blank" class="underline text-blue-400">GitHub — Nxdeeem</a>
+      </p>
+    </div>
   </section>
 
-  <!-- Skills Section -->
-  <!-- Skills Section -->
-<section class="py-20 px-6" data-aos="fade-up">
-  <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+  <!-- Divider -->
+  <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
 
-    <!-- Left Column -->
-    <div>
-      <h3 class="text-2xl font-semibold mb-4">Programming Languages</h3>
-      <ul class="list-disc list-inside text-gray-300 space-y-2">
-        <li>Python</li>
-        <li>C</li>
-        <li>Bash</li>
-      </ul>
-    </div>
+  <!-- Accordion Skills Section -->
+  <section class="px-4 pb-20" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
 
-    <!-- Right Column -->
-    <div>
-      <h3 class="text-2xl font-semibold mb-4">Web Development</h3>
-
-      <div class="mb-6">
-        <h4 class="font-semibold text-white">Languages</h4>
-        <ul class="list-disc list-inside text-gray-300 ml-4">
-          <li>HTML</li>
-          <li>JavaScript</li>
-          <li>CSS</li>
-        </ul>
-      </div>
-
-      <div class="mb-6">
-        <h4 class="font-semibold text-white">Code Editors</h4>
-        <ul class="list-disc list-inside text-gray-300 ml-4">
-          <li>VS Code</li>
-          <li>Notepad</li>
-        </ul>
-      </div>
-
-      <div class="mb-6">
-        <h4 class="font-semibold text-white">UI/UX Tools</h4>
-        <ul class="list-disc list-inside text-gray-300 ml-4">
-          <li>Canva</li>
-          <li>Blush</li>
-        </ul>
-      </div>
-
-      <div class="mb-6">
-        <h4 class="font-semibold text-white">Frontend</h4>
-        <ul class="list-disc list-inside text-gray-300 ml-4">
-          <li>Tailwind CSS</li>
-          <li>React</li>
-        </ul>
-      </div>
-
-      <div class="mb-6">
-        <h4 class="font-semibold text-white">Development & Deployment</h4>
-        <ul class="list-disc list-inside text-gray-300 ml-4">
-          <li>GitHub</li>
-          <li>Vercel</li>
-        </ul>
-      </div>
-
+    <div class="max-w-4xl mx-auto space-y-4">
       <div>
-        <h4 class="font-semibold text-white">Backend</h4>
-        <ul class="list-disc list-inside text-gray-300 ml-4">
-          <li>Node.js + Express</li>
-        </ul>
+        <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white">
+          💻 Programming Languages
+        </button>
+        <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
+          <ul class="list-disc list-inside">
+            <li>🐍 Python</li>
+            <li>🔧 C</li>
+            <li>🖥️ Bash</li>
+          </ul>
+
+          <div class="mt-6">
+            <h4 class="text-white font-bold mb-2">🌐 Web Development</h4>
+
+            <p class="font-semibold">Languages</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>📄 HTML</li>
+              <li>🧠 JavaScript</li>
+              <li>🎨 CSS</li>
+            </ul>
+
+            <p class="font-semibold mt-3">Code Editors</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>📝 VS Code</li>
+              <li>📃 Notepad</li>
+            </ul>
+
+            <p class="font-semibold mt-3">UI/UX Tools</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🎨 Canva</li>
+              <li>🧸 Blush</li>
+            </ul>
+
+            <p class="font-semibold mt-3">Frontend</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🌬️ Tailwind CSS</li>
+              <li>⚛️ React</li>
+            </ul>
+
+            <p class="font-semibold mt-3">Development & Deployment</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🐙 GitHub</li>
+              <li>🚀 Vercel</li>
+            </ul>
+
+            <p class="font-semibold mt-3">Backend</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🖥️ Node.js + Express</li>
+            </ul>
+          </div>
+        </div>
       </div>
-
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Goals Section -->
-  <section class="py-20 px-6" data-aos="fade-up">
-    <h2 class="text-4xl font-bold text-center mb-8">Goals</h2>
-    <ul class="max-w-3xl mx-auto list-disc text-lg list-inside text-gray-300 space-y-3">
-      <li>Become a skilled ethical hacker and Cybersecurity analyst</li>
-      <li>Be a good programmer with strong problem-solving skills</li>
-      <li>Build and launch an online multiplayer game (FPS or RPG)</li>
-      <li>Continuously learn and innovate with tech for real-world impact</li>
+  <section class="px-4 pb-20" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-6">🎯 Goals</h2>
+    <ul class="max-w-3xl mx-auto list-disc list-inside text-gray-300 text-lg space-y-2">
+      <li>💻 Become a skilled ethical hacker and Cybersecurity analyst</li>
+      <li>🧠 Be a good programmer with strong problem-solving skills</li>
+      <li>🎮 Build and launch an online multiplayer game (FPS or RPG)</li>
     </ul>
   </section>
 
-  <!-- Back to Home -->
-  <div class="text-center pb-10">
-    <a href="index.html" class="text-red-400 hover:underline text-lg">← Back to Home</a>
-  </div>
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
+    &copy; 2025 Nadeem Najumudeen
+  </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    AOS.init({ duration: 800, once: false });
 
+    // Accordion
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+      });
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+    });
+  </script>
 </body>
 </html>
