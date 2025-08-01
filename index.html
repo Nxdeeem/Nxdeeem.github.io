@@ -4,20 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nadeem Najumudeen</title>
-
-  <!-- Favicon -->
   <link rel="icon" href="favicon.png" type="image/png" />
-
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
@@ -25,47 +16,16 @@
     body.fade-in {
       opacity: 1;
     }
-
-    @keyframes dropdownOpen {
-      0% { opacity: 0; transform: scaleY(0.8); }
-      100% { opacity: 1; transform: scaleY(1); }
-    }
-    .animate-dropdown {
-      animation: dropdownOpen 0.3s ease-out forwards;
-      transform-origin: top right;
-    }
   </style>
 </head>
 
 <body class="bg-black text-white font-sans">
 
-  <!-- Navbar with Hamburger -->
+  <!-- Navbar -->
   <header class="bg-gray-900 shadow-md py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex items-center justify-between">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-
-      <!-- Hamburger (Mobile Only) -->
-      <div class="md:hidden relative">
-        <button id="menu-toggle" aria-label="Toggle Menu" class="text-white focus:outline-none">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
-               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-
-        <!-- Mobile Dropdown -->
-        <ul id="mobile-menu"
-            class="absolute right-0 mt-2 w-40 bg-gray-800 rounded-lg shadow-lg text-gray-300 py-2 px-4 space-y-2 hidden transition-all duration-300 origin-top-right">
-          <li><a href="#home" class="block hover:text-white">HOME</a></li>
-          <li><a href="about.html" class="block hover:text-white">ABOUT</a></li>
-          <li><a href="projects.html" class="block hover:text-white">PROJECTS</a></li>
-          <li><a href="#contact" class="block hover:text-white">CONTACT</a></li>
-        </ul>
-      </div>
-
-      <!-- Desktop Menu -->
-      <ul class="hidden md:flex space-x-6 text-gray-300">
+      <ul class="flex space-x-6 text-gray-300">
         <li><a href="#home" class="hover:text-white transition">HOME</a></li>
         <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
         <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
@@ -85,22 +45,8 @@
     <div class="max-w-3xl mx-auto text-center px-6">
       <h2 class="text-4xl font-bold mb-10 text-white">CONTACTS</h2>
       <div class="space-y-6 text-lg">
-        <div class="flex items-center justify-center space-x-3 hover:text-blue-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" />
-          <a href="mailto:nadeemnajumudeen@gmail.com" class="underline">nadeemnajumudeen@gmail.com</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-blue-500 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" />
-          <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline">LinkedIn</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-pink-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" />
-          <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline">@__nxdeem__</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-gray-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" />
-          <a href="https://github.com/Nxdeeem" target="_blank" class="underline">GitHub</a>
-        </div>
+        <!-- Contact links go here (email, linkedin, etc.) -->
+        <!-- ... -->
       </div>
     </div>
   </section>
@@ -114,31 +60,21 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-
-    // Fade-in on page load
     window.onload = () => {
       document.body.classList.add('fade-in');
     };
 
-    // Page transitions
     document.querySelectorAll('a[href]').forEach(link => {
-      if (!link.target && link.getAttribute('href') !== '#') {
+      const href = link.getAttribute('href');
+      if (!link.target && href && !href.startsWith('#')) {
         link.addEventListener('click', e => {
           e.preventDefault();
-          const href = link.getAttribute('href');
           document.body.classList.remove('fade-in');
-          setTimeout(() => window.location.href = href, 300);
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300);
         });
       }
-    });
-
-    // Hamburger toggle
-    const toggleBtn = document.getElementById('menu-toggle');
-    const dropdown = document.getElementById('mobile-menu');
-
-    toggleBtn.addEventListener('click', () => {
-      dropdown.classList.toggle('hidden');
-      dropdown.classList.toggle('animate-dropdown');
     });
   </script>
 </body>
