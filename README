@@ -1,0 +1,73 @@
+# 🌐 Nadeem Najumudeen - Personal Portfolio Website
+
+Welcome to my personal portfolio website! This project is built to showcase who I am, what I do, and how to connect with me. It includes smooth animations, responsive design, a dark/light theme toggle, and interactive features — all crafted with modern web tools.
+
+---
+
+## 🚀 Features
+
+- 🌓 **Dark/Light Theme Toggle**
+- 🧭 **Smooth Page Transitions**
+- 🎯 **Scroll Animations using AOS (Animate On Scroll)**
+- 📱 **Mobile-Responsive Design with Hamburger Menu**
+- 🧠 **Typing Animation on About Page**
+- 🧩 **Accordion Toggle for Skills Section**
+- 📇 **Hover-Animated Profile Card**
+- 📎 **Professional Contact Section with Icons**
+- 🎨 **Gradient Background and Section Styling**
+- 📄 **Favicon with ND branding**
+
+---
+
+## 🧱 File Structure
+
+/ (Root)
+├── index.html # Homepage with hero and contact section
+├── about.html # About me with skills and goals
+├── projects.html # Projects (Coming soon)
+├── style.css # [Optional] External CSS if used
+├── favicon.png # ND icon for browser tab
+├── profile.jpg # Circular profile picture for About page
+└── README.md # Project info and documentation
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5** – Structure
+- **CSS3 + Tailwind CSS** – Styling & Responsiveness
+- **JavaScript** – Interactivity and animations
+- **AOS (Animate On Scroll)** – Scroll-triggered animations
+- **Icons8** – Platform icons (GitHub, Email, LinkedIn, etc.)
+- **GitHub Pages** – Deployment
+
+---
+
+## 💡 Future Improvements
+
+- Add a **Projects** section with interactive cards.
+- Improve accessibility with more `aria-label`s and keyboard support.
+- Add animations to contact icons on hover.
+- Optimize for SEO and performance.
+
+---
+
+## 🔗 Live Website
+
+Visit: [https://nxdeeem.github.io](https://nxdeeem.github.io)  
+📌 *(Update this with your actual GitHub Pages link)*
+
+---
+
+## 🙌 Author
+
+**Nadeem Najumudeen**  
+- 💼 [LinkedIn](https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/)  
+- 🐙 [GitHub](https://github.com/Nxdeeem)  
+- 📷 [Instagram](https://www.instagram.com/___nxdeem___)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
