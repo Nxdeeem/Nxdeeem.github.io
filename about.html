@@ -31,7 +31,7 @@
 
   <!-- Navbar -->
   <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
         <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
@@ -58,7 +58,7 @@
   <!-- Profile Card -->
   <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-4" data-aos="fade-down">
     <div class="bg-gray-800 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-500 max-w-lg text-center">
-      <img src="profile.jpg" alt="Profile" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" />
+      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" />
       <h1 class="text-4xl font-bold mt-4 typing text-white">About Me</h1>
       <p class="text-gray-300 mt-4">
         I'm a computer science student with a passion for business, tech, and gaming. I explore startup ideas and blend development with creativity—especially in FPS games. 
@@ -70,7 +70,7 @@
 
   <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section class="px-4 pb-20" data-aos="fade-up">
     <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
     <div class="max-w-4xl mx-auto space-y-4">
@@ -147,37 +147,40 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: false });
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800 });
 
-    // Accordion
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.classList.toggle('active');
+      // Fade-in transition
+      document.body.classList.add('fade-in');
+
+      // Page transitions for non-anchor links
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!link.target && href && !href.startsWith('#')) {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.remove('fade-in');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          });
+        }
       });
-    });
 
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-
-    // Page Transition Fix
-    document.body.classList.add('fade-in');
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!link.target && href && !href.startsWith('#')) {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          document.body.classList.remove('fade-in');
-          setTimeout(() => {
-            window.location.href = href;
-          }, 300);
+      // Accordion
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          content.classList.toggle('active');
         });
-      }
+      });
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     });
   </script>
 
