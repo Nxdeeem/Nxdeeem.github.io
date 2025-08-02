@@ -21,7 +21,7 @@
 
   <!-- Navbar -->
   <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
         <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
@@ -45,8 +45,8 @@
     </div>
   </header>
 
-  <!-- Main Section -->
-  <section class="min-h-screen flex items-center justify-center pt-24 px-4" data-aos="fade-up">
+  <!-- Main Content -->
+  <main class="min-h-screen flex items-center justify-center pt-24 px-4" data-aos="fade-up">
     <div class="text-center max-w-2xl">
       <h2 class="text-5xl font-bold mb-6">🚧 Projects Coming Soon</h2>
       <p class="text-lg text-gray-300">
@@ -54,9 +54,9 @@
         Stay tuned for portfolio updates and live project showcases!
       </p>
     </div>
-  </section>
+  </main>
 
-  <!-- Back Home Button -->
+  <!-- Back to Home -->
   <div class="fixed bottom-6 right-6 z-50">
     <a href="index.html"
       class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
@@ -64,6 +64,7 @@
     </a>
   </div>
 
+  <!-- Footer -->
   <footer class="bg-gray-800 py-4 text-center text-gray-400">
     &copy; 2025 Nadeem Najumudeen
   </footer>
@@ -71,29 +72,32 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: false });
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800 });
 
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+      // Fade-in on load
+      document.body.classList.add('fade-in');
 
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
+      // Page transition
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!link.target && href && !href.startsWith('#')) {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.remove('fade-in');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          });
+        }
+      });
 
-    // Page Transition Fix
-    document.body.classList.add('fade-in');
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!link.target && href && !href.startsWith('#')) {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          document.body.classList.remove('fade-in');
-          setTimeout(() => {
-            window.location.href = href;
-          }, 300);
-        });
-      }
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     });
   </script>
 
