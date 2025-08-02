@@ -13,7 +13,9 @@
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
     }
-    body.fade-in { opacity: 1; }
+    body.fade-in {
+      opacity: 1;
+    }
   </style>
 </head>
 
@@ -21,7 +23,7 @@
 
   <!-- Navbar -->
   <header class="bg-gray-900 shadow-md py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
         <li><a href="#home" class="hover:text-white transition">HOME</a></li>
@@ -84,30 +86,31 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
-    window.onload = () => {
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ once: true });
+
       document.body.classList.add('fade-in');
-    };
 
-    // Page transition with fade
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!link.target && href && !href.startsWith('#')) {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          document.body.classList.remove('fade-in');
-          setTimeout(() => {
-            window.location.href = href;
-          }, 300);
-        });
-      }
-    });
+      // Smooth page transitions (excluding anchor # links)
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!link.target && href && !href.startsWith('#')) {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.remove('fade-in');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          });
+        }
+      });
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+      // Toggle mobile menu
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     });
   </script>
 
