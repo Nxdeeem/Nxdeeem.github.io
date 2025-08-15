@@ -1,231 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Nadeem Najumudeen</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0d0d0d;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: #1a1a1a;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #00e6e6;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                position: absolute;
-                top: 70px;
-                right: 0;
-                background: #1a1a1a;
-                flex-direction: column;
-                width: 200px;
-                display: none;
-            }
-            nav ul.active {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-            }
-        }
-
-        /* Profile Section */
-        .about-section {
-            text-align: center;
-            padding: 3rem 1rem;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #00e6e6;
-            object-fit: cover;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .about-section h1 {
-            margin-top: 1rem;
-            font-size: 2rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 2rem;
-            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .skills h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #00e6e6;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-card {
-            background: #1a1a1a;
-            padding: 1rem;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: scale(1.05);
-            background: #262626;
-        }
-
-        .skill-card i {
-            font-size: 2rem;
-            color: #00e6e6;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Goals Section */
-        .goals {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .goals h2 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid #00e6e6;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-        }
-
-        .goals ul {
-            list-style: none;
-            padding: 0;
-            line-height: 2rem;
-        }
-
-        .goals ul li::before {
-            content: "✔";
-            color: #00e6e6;
-            margin-right: 0.5rem;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Nadeem Najumudeen</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    body.fade-in { opacity: 1; }
+    .accordion-content { display: none; }
+    .accordion-content.active { display: block; }
+    .typing::after {
+      content: '|';
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
 </head>
-<body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">Nadeem Najumudeen</div>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html" class="active">ABOUT</a></li>
-            <li><a href="projects.html">PROJECTS</a></li>
-            <li><a href="index.html#contacts">CONTACT</a></li>
-        </ul>
-        <div class="hamburger"><i class="fas fa-bars"></i></div>
+<body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
+    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
+      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
+      <ul class="hidden md:flex space-x-6 text-gray-300">
+        <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
+        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition">CONTACT</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </nav>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-        <h1>About Me</h1>
-        <p>Hello! I’m Nadeem Najumudeen, a Computer Science student passionate about programming, cybersecurity, and creating cool projects. I love gaming, coding, and learning new technologies.</p>
-    </section>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
+      <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
+      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
+      <a href="index.html#contact" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+    </div>
+  </header>
 
-    <!-- Skills Section -->
-    <section class="skills">
-        <h2>Skills</h2>
-        <div class="skills-list">
-            <div class="skill-card"><i class="fab fa-python"></i><p>Python</p></div>
-            <div class="skill-card"><i class="fas fa-code"></i><p>C</p></div>
-            <div class="skill-card"><i class="fas fa-terminal"></i><p>Bash</p></div>
-            <div class="skill-card"><i class="fab fa-html5"></i><p>HTML</p></div>
-            <div class="skill-card"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
-            <div class="skill-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
-            <div class="skill-card"><i class="fab fa-github"></i><p>GitHub</p></div>
-            <div class="skill-card"><i class="fas fa-shield-alt"></i><p>Cybersecurity</p></div>
+  <!-- Profile Card -->
+  <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-4" data-aos="fade-down">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-500 max-w-lg text-center">
+      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" />
+      <h1 class="text-4xl font-bold mt-4 typing text-white">About Me</h1>
+      <p class="text-gray-300 mt-4">
+        I'm a computer science student with a passion for business, tech, and gaming. I explore startup ideas and blend development with creativity—especially in FPS games. 
+        <br><br>
+        <a href="https://github.com/Nxdeeem" target="_blank" class="underline text-blue-400">GitHub — Nxdeeem</a>
+      </p>
+    </div>
+  </section>
+
+  <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
+
+  <!-- Skills -->
+  <section class="px-4 pb-20" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
+    <div class="max-w-4xl mx-auto space-y-4">
+      <div>
+        <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white">
+          💻 Programming Languages
+        </button>
+        <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
+          <ul class="list-disc list-inside">
+            <li>🐍 Python</li>
+            <li>🔧 C</li>
+            <li>🖥️ Bash</li>
+          </ul>
+          <div class="mt-6">
+            <h4 class="text-white font-bold mb-2">🌐 Web Development</h4>
+            <p class="font-semibold">Languages</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>📄 HTML</li>
+              <li>🧠 JavaScript</li>
+              <li>🎨 CSS</li>
+            </ul>
+            <p class="font-semibold mt-3">Code Editors</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>📝 VS Code</li>
+              <li>📃 Notepad</li>
+            </ul>
+            <p class="font-semibold mt-3">UI/UX Tools</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🎨 Canva</li>
+              <li>🧸 Blush</li>
+            </ul>
+            <p class="font-semibold mt-3">Frontend</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🌬️ Tailwind CSS</li>
+              <li>⚛️ React</li>
+            </ul>
+            <p class="font-semibold mt-3">Development & Deployment</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🐙 GitHub</li>
+              <li>🚀 Vercel</li>
+            </ul>
+            <p class="font-semibold mt-3">Backend</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>🖥️ Node.js + Express</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Goals Section -->
-    <section class="goals">
-        <h2>Goals</h2>
-        <ul>
-            <li>Become a skilled ethical hacker and cybersecurity analyst</li>
-            <li>Master programming and problem-solving skills</li>
-            <li>Build an online multiplayer game (FPS or RPG)</li>
-        </ul>
-    </section>
+  <!-- Goals -->
+  <section class="px-4 pb-20" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-6">🎯 Goals</h2>
+    <ul class="max-w-3xl mx-auto list-disc list-inside text-gray-300 text-lg space-y-2">
+      <li>💻 Become a skilled ethical hacker and Cybersecurity analyst</li>
+      <li>🧠 Be a good programmer with strong problem-solving skills</li>
+      <li>🎮 Build and launch an online multiplayer game (FPS or RPG)</li>
+    </ul>
+  </section>
 
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('nav ul');
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+  <!-- Back to Home -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="index.html"
+      class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
+      ⬅ Back Home
+    </a>
+  </div>
+
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
+    &copy; 2025 Nadeem Najumudeen
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800 });
+
+      // Fade-in transition
+      document.body.classList.add('fade-in');
+
+      // Page transitions for non-anchor links
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!link.target && href && !href.startsWith('#')) {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.remove('fade-in');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          });
+        }
+      });
+
+      // Accordion
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          content.classList.toggle('active');
         });
-    </script>
+      });
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    });
+  </script>
 
 </body>
 </html>
