@@ -1,181 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Nadeem Najumudeen</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #000;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        body.fade-in {
-            opacity: 1;
-        }
-
-        header {
-            background: #111;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: cyan;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .projects-section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .project-card {
-            background: #111;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 500px;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        .project-card img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .project-card h3 {
-            margin-top: 15px;
-            font-size: 1.2rem;
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background: #111;
-                position: absolute;
-                top: 50px;
-                right: 20px;
-                padding: 10px;
-                border-radius: 8px;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Nadeem Najumudeen</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    body.fade-in { opacity: 1; }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Nadeem Najumudeen</div>
-            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-            <ul id="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="projects.html" style="color: cyan;">PROJECTS</a></li>
-                <li><a href="index.html#contact">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section class="projects-section">
-        <h1>Projects</h1>
-        <div class="project-card">
-            <img src="reactrush-thumbnail.jpg" alt="ReactRush Game">
-            <h3>ReactRush - Reaction Time Tester</h3>
-            <p>A fun and challenging reaction time game. Try to beat your best score!</p>
-            <a href="reactrush.html" style="color: cyan; text-decoration: none;">Play Now</a>
-        </div>
+<body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans">
 
-        <div class="project-card">
-            <img src="coming-soon.jpg" alt="Coming Soon">
-            <h3>More Projects Coming Soon</h3>
-            <p>Stay tuned for more exciting creations.</p>
-        </div>
-    </section>
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
+    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
+      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
+      <ul class="hidden md:flex space-x-6 text-gray-300">
+        <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
+        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition">CONTACT</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.body.classList.add("fade-in");
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
+      <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
+      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
+      <a href="index.html#contact" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+    </div>
+  </header>
 
-            const menuToggle = document.getElementById("menu-toggle");
-            const navLinks = document.getElementById("nav-links");
+  <main class="min-h-screen flex items-center justify-center pt-24 px-4" data-aos="fade-up">
+    <div class="text-center max-w-2xl">
+      <h2 class="text-5xl font-bold mb-6">🚧 Projects Coming Soon</h2>
+      <p class="text-lg text-gray-300">
+        I'm currently working on exciting web apps and gaming tools.<br />
+        Stay tuned for portfolio updates and live project showcases!
+      </p>
+    </div>
+  </main>
 
-            menuToggle.addEventListener("click", () => {
-                navLinks.classList.toggle("show");
-            });
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="index.html"
+      class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
+      ⬅ Back Home
+    </a>
+  </div>
 
-            document.querySelectorAll("a").forEach(link => {
-                link.addEventListener("click", e => {
-                    if (link.href.includes(window.location.host)) {
-                        e.preventDefault();
-                        document.body.classList.remove("fade-in");
-                        setTimeout(() => {
-                            window.location.href = link.href;
-                        }, 300);
-                    }
-                });
-            });
-        });
-    </script>
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
+    &copy; 2025 Nadeem Najumudeen
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800 });
+
+      // Fade-in on load
+      document.body.classList.add('fade-in');
+
+      // Page transition
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!link.target && href && !href.startsWith('#')) {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.remove('fade-in');
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          });
+        }
+      });
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    });
+  </script>
+
 </body>
 </html>
