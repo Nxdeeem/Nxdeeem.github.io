@@ -3,186 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Nadeem Najumudeen</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>About Me - Nadeem Najumudeen</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
+    /* Page fade effect with safe fallback */
     body {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    body.fade-out {
       opacity: 0;
-      transition: opacity 0.6s ease-in-out;
     }
-    body.fade-in { opacity: 1; }
-    .accordion-content { display: none; }
-    .accordion-content.active { display: block; }
-    .typing::after {
-      content: '|';
-      animation: blink 0.8s infinite;
+    /* Smooth mobile menu animation */
+    #mobileMenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
     }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+    #mobileMenu.open {
+      max-height: 500px; /* enough to fit links */
     }
   </style>
 </head>
-
-<body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans">
+<body class="bg-gray-900 text-white">
 
   <!-- Navbar -->
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
-      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-      <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
-        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
-        <li><a href="index.html#contact" class="hover:text-white transition">CONTACT</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  <header class="fixed top-0 left-0 w-full bg-gray-800 shadow-md z-50">
+    <div class="container mx-auto flex justify-between items-center px-4 py-4">
+      <a href="index.html" class="text-2xl font-bold">Welcome to My World</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-gray-400">HOME</a>
+        <a href="about.html" class="text-gray-400">ABOUT</a>
+        <a href="projects.html" class="hover:text-gray-400">PROJECTS</a>
+        <a href="#contacts" class="hover:text-gray-400">CONTACT</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-    </nav>
-
+    </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
+    <div id="mobileMenu" class="bg-gray-800 md:hidden">
       <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700 text-gray-400">ABOUT</a>
       <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="index.html#contact" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+      <a href="#contacts" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
     </div>
   </header>
 
-  <!-- Profile Card -->
-  <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-4" data-aos="fade-down">
-    <div class="bg-gray-800 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-500 max-w-lg text-center">
-      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" />
-      <h1 class="text-4xl font-bold mt-4 typing text-white">About Me</h1>
-      <p class="text-gray-300 mt-4">
-        I'm a computer science student with a passion for business, tech, and gaming. I explore startup ideas and blend development with creativity—especially in FPS games. 
-        <br><br>
-        <a href="https://github.com/Nxdeeem" target="_blank" class="underline text-blue-400">GitHub — Nxdeeem</a>
-      </p>
-    </div>
-  </section>
+  <!-- Page Content -->
+  <main class="pt-24 container mx-auto px-4" data-aos="fade-up">
+    <section>
+      <h1 class="text-4xl font-bold mb-4">About Me</h1>
+      <p class="mb-6">This is where your About Me content goes. We’ll later add animations, icons, and sections as planned.</p>
+    </section>
+    <section id="contacts" class="mt-12" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">CONTACTS</h2>
+      <ul class="space-y-2">
+        <li><a href="mailto:your@email.com" class="hover:text-gray-400">Email</a></li>
+        <li><a href="https://linkedin.com" target="_blank" class="hover:text-gray-400">LinkedIn</a></li>
+        <li><a href="https://github.com/Nxdeeem" target="_blank" class="hover:text-gray-400">GitHub</a></li>
+        <li><a href="https://instagram.com" target="_blank" class="hover:text-gray-400">Instagram</a></li>
+      </ul>
+    </section>
+  </main>
 
-  <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
-
-  <!-- Skills -->
-  <section class="px-4 pb-20" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
-    <div class="max-w-4xl mx-auto space-y-4">
-      <div>
-        <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white">
-          💻 Programming Languages
-        </button>
-        <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
-          <ul class="list-disc list-inside">
-            <li>🐍 Python</li>
-            <li>🔧 C</li>
-            <li>🖥️ Bash</li>
-          </ul>
-          <div class="mt-6">
-            <h4 class="text-white font-bold mb-2">🌐 Web Development</h4>
-            <p class="font-semibold">Languages</p>
-            <ul class="list-disc list-inside text-gray-300">
-              <li>📄 HTML</li>
-              <li>🧠 JavaScript</li>
-              <li>🎨 CSS</li>
-            </ul>
-            <p class="font-semibold mt-3">Code Editors</p>
-            <ul class="list-disc list-inside text-gray-300">
-              <li>📝 VS Code</li>
-              <li>📃 Notepad</li>
-            </ul>
-            <p class="font-semibold mt-3">UI/UX Tools</p>
-            <ul class="list-disc list-inside text-gray-300">
-              <li>🎨 Canva</li>
-              <li>🧸 Blush</li>
-            </ul>
-            <p class="font-semibold mt-3">Frontend</p>
-            <ul class="list-disc list-inside text-gray-300">
-              <li>🌬️ Tailwind CSS</li>
-              <li>⚛️ React</li>
-            </ul>
-            <p class="font-semibold mt-3">Development & Deployment</p>
-            <ul class="list-disc list-inside text-gray-300">
-              <li>🐙 GitHub</li>
-              <li>🚀 Vercel</li>
-            </ul>
-            <p class="font-semibold mt-3">Backend</p>
-            <ul class="list-disc list-inside text-gray-300">
-              <li>🖥️ Node.js + Express</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Goals -->
-  <section class="px-4 pb-20" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-6">🎯 Goals</h2>
-    <ul class="max-w-3xl mx-auto list-disc list-inside text-gray-300 text-lg space-y-2">
-      <li>💻 Become a skilled ethical hacker and Cybersecurity analyst</li>
-      <li>🧠 Be a good programmer with strong problem-solving skills</li>
-      <li>🎮 Build and launch an online multiplayer game (FPS or RPG)</li>
-    </ul>
-  </section>
-
-  <!-- Back to Home -->
-  <div class="fixed bottom-6 right-6 z-50">
-    <a href="index.html"
-      class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
-      ⬅ Back Home
-    </a>
-  </div>
-
-  <footer class="bg-gray-800 py-4 text-center text-gray-400">
-    &copy; 2025 Nadeem Najumudeen
-  </footer>
-
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800 });
+    // Init AOS
+    AOS.init();
 
-      // Fade-in transition
-      document.body.classList.add('fade-in');
-
-      // Page transitions for non-anchor links
-      document.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (!link.target && href && !href.startsWith('#')) {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            document.body.classList.remove('fade-in');
-            setTimeout(() => {
-              window.location.href = href;
-            }, 300);
-          });
-        }
-      });
-
-      // Accordion
-      document.querySelectorAll('.accordion-header').forEach(header => {
-        header.addEventListener('click', () => {
-          const content = header.nextElementSibling;
-          content.classList.toggle('active');
+    // Page fade-out on link click
+    document.querySelectorAll('a[href]').forEach(link => {
+      if (link.host === window.location.host) {
+        link.addEventListener('click', e => {
+          if (link.getAttribute('href').startsWith('#')) return; // skip anchors
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location = link.href;
+          }, 300);
         });
-      });
+      }
+    });
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
     });
   </script>
-
 </body>
 </html>
