@@ -1,118 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nadeem Najumudeen</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-    body.fade-in {
-      opacity: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My World - Nadeem Najumudeen</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <style>
+        /* Smooth Page Fade In/Out */
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--bg-color, #000);
+            color: var(--text-color, #fff);
+        }
+        body.fade-in {
+            opacity: 1;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            color: var(--text-color, #fff);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ccc;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            background: var(--text-color, #fff);
+            height: 3px;
+            width: 25px;
+            margin: 4px;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            padding: 0 1rem;
+            animation: fadeUp 1s ease-in-out;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            max-width: 600px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                padding: 1rem;
+                border-radius: 0 0 0 10px;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-
-<body class="bg-black text-white font-sans">
-
-  <!-- Navbar -->
-  <header class="bg-gray-900 shadow-md py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
-      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-      <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="#home" class="hover:text-white transition">HOME</a></li>
-        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
-        <li><a href="#contact" class="hover:text-white transition">CONTACT</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Nadeem Najumudeen</div>
+        <ul id="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="#contacts">CONTACT</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
-      <a href="#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-      <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="#contact" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
-    </div>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to My World</h1>
+        <p>Cybersecurity enthusiast, gamer, and developer — exploring the intersection of coding, gaming, and security.</p>
+    </section>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24" data-aos="fade-up">
-    <h1 class="text-5xl font-bold text-white mb-4">Welcome to My World</h1>
-    <p class="text-xl text-gray-300">I'm <span class="text-white font-semibold">Nadeem Najumudeen</span></p>
-  </section>
+    <!-- Contacts -->
+    <section id="contacts" style="padding: 2rem; text-align: center;">
+        <h2>CONTACTS</h2>
+        <p>
+            <a href="mailto:your.email@example.com">Email</a> |
+            <a href="https://www.instagram.com/yourusername">Instagram</a> |
+            <a href="https://www.linkedin.com/in/yourlinkedin">LinkedIn</a> |
+            <a href="https://github.com/Nxdeeem">GitHub</a>
+        </p>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-[#0F172A] text-white py-20" data-aos="fade-up">
-    <div class="max-w-3xl mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold mb-10 text-white">CONTACTS</h2>
-      <div class="space-y-6 text-lg">
-        <div class="flex items-center justify-center space-x-3 hover:text-blue-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" />
-          <a href="mailto:nadeemnajumudeen@gmail.com" class="underline">nadeemnajumudeen@gmail.com</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-blue-500 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" />
-          <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline">LinkedIn</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-pink-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" />
-          <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline">@___nxdeem___</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-gray-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" />
-          <a href="https://github.com/Nxdeeem" target="_blank" class="underline">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        // Page Fade In
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('fade-in');
+        });
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 py-4 text-center text-gray-500">
-    &copy; 2025 Nadeem Najumudeen
-  </footer>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ once: true });
-
-      document.body.classList.add('fade-in');
-
-      // Smooth page transitions (excluding anchor # links)
-      document.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (!link.target && href && !href.startsWith('#')) {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            document.body.classList.remove('fade-in');
-            setTimeout(() => {
-              window.location.href = href;
-            }, 300);
-          });
-        }
-      });
-
-      // Toggle mobile menu
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    });
-  </script>
-
+        // Page Transition on Link Click
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+                if (link.getAttribute('href').includes('.html') || link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.body.classList.remove('fade-in');
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 300);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
