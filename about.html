@@ -1,127 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Nadeem Najumudeen</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #111;
-            color: white;
             margin: 0;
             font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: white;
             overflow-x: hidden;
         }
 
         /* Navbar */
         nav {
-            background-color: #1a1a1a;
-            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
+            background: #1a1a1a;
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 1000;
         }
 
-        nav a {
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
             color: white;
             text-decoration: none;
-            margin: 0 0.75rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #ccc;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
+        nav ul li a:hover {
+            color: #00e6e6;
         }
 
         .hamburger {
             display: none;
-            flex-direction: column;
+            font-size: 1.8rem;
             cursor: pointer;
         }
 
-        .hamburger span {
-            height: 3px;
-            width: 25px;
-            background: white;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        /* Mobile menu */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
+            nav ul {
                 position: absolute;
-                top: 60px;
+                top: 70px;
                 right: 0;
                 background: #1a1a1a;
+                flex-direction: column;
                 width: 200px;
-                padding: 1rem;
-                border-left: 1px solid #333;
+                display: none;
             }
-            .nav-links.active {
+            nav ul.active {
                 display: flex;
             }
             .hamburger {
-                display: flex;
+                display: block;
             }
         }
 
-        /* About section */
+        /* Profile Section */
         .about-section {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem;
-            animation: fadeIn 1.2s ease-in;
-        }
-
-        .about-photo {
             text-align: center;
+            padding: 3rem 1rem;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        .about-photo img {
+        .profile-pic {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            border: 4px solid #00e6e6;
             object-fit: cover;
-            border: 3px solid white;
-            transition: transform 0.4s ease;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .about-photo img:hover {
-            transform: scale(1.05);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
+        .about-section h1 {
+            margin-top: 1rem;
+            font-size: 2rem;
+        }
+
+        /* Skills Section */
         .skills {
-            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .skills h2 {
-            border-bottom: 2px solid #444;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #00e6e6;
+            display: inline-block;
             padding-bottom: 0.5rem;
         }
 
-        .skills ul {
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-card {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            background: #262626;
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: #00e6e6;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Goals Section */
+        .goals {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .goals h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #00e6e6;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .goals ul {
             list-style: none;
             padding: 0;
+            line-height: 2rem;
         }
 
-        .skills li {
-            padding: 0.3rem 0;
+        .goals ul li::before {
+            content: "✔";
+            color: #00e6e6;
+            margin-right: 0.5rem;
         }
 
-        /* Animation */
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -133,62 +177,55 @@
     <!-- Navbar -->
     <nav>
         <div class="logo">Nadeem Najumudeen</div>
-        <div class="hamburger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" role="navigation">
-            <a href="index.html">HOME</a>
-            <a href="about.html" aria-current="page">ABOUT</a>
-            <a href="projects.html">PROJECTS</a>
-            <a href="#contacts">CONTACT</a>
-        </div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html" class="active">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="index.html#contacts">CONTACT</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
     </nav>
 
     <!-- About Section -->
     <section class="about-section">
-        <div class="about-photo">
-            <img src="your-photo.jpg" alt="Photo of Nadeem Najumudeen">
-        </div>
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
         <h1>About Me</h1>
-        <p>
-            Hi! I'm Nadeem Najumudeen, a passionate Computer Science student specializing in Cybersecurity.
-            I love FPS games, coding, and building innovative projects.
-        </p>
+        <p>Hello! I’m Nadeem Najumudeen, a Computer Science student passionate about programming, cybersecurity, and creating cool projects. I love gaming, coding, and learning new technologies.</p>
+    </section>
 
-        <!-- Skills -->
-        <div class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Python, C, Bash</li>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Tailwind CSS, React</li>
-                <li>GitHub, Vercel</li>
-                <li>Node.js, Express</li>
-            </ul>
-        </div>
-
-        <!-- Goals -->
-        <div class="skills">
-            <h2>Goals</h2>
-            <ul>
-                <li>Become a skilled ethical hacker and cybersecurity analyst</li>
-                <li>Be a strong programmer with problem-solving skills</li>
-                <li>Build an online multiplayer game</li>
-            </ul>
+    <!-- Skills Section -->
+    <section class="skills">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill-card"><i class="fab fa-python"></i><p>Python</p></div>
+            <div class="skill-card"><i class="fas fa-code"></i><p>C</p></div>
+            <div class="skill-card"><i class="fas fa-terminal"></i><p>Bash</p></div>
+            <div class="skill-card"><i class="fab fa-html5"></i><p>HTML</p></div>
+            <div class="skill-card"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+            <div class="skill-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
+            <div class="skill-card"><i class="fab fa-github"></i><p>GitHub</p></div>
+            <div class="skill-card"><i class="fas fa-shield-alt"></i><p>Cybersecurity</p></div>
         </div>
     </section>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+    <!-- Goals Section -->
+    <section class="goals">
+        <h2>Goals</h2>
+        <ul>
+            <li>Become a skilled ethical hacker and cybersecurity analyst</li>
+            <li>Master programming and problem-solving skills</li>
+            <li>Build an online multiplayer game (FPS or RPG)</li>
+        </ul>
+    </section>
 
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
         });
     </script>
+
 </body>
 </html>
