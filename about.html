@@ -1,101 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me - Nadeem Najumudeen</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    /* Page fade effect with safe fallback */
-    body {
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
-    body.fade-out {
-      opacity: 0;
-    }
-    /* Smooth mobile menu animation */
-    #mobileMenu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    #mobileMenu.open {
-      max-height: 500px; /* enough to fit links */
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Nadeem Najumudeen</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #1a1a1a;
+                width: 200px;
+                padding: 1rem;
+                border-left: 1px solid #333;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* About section */
+        .about-section {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        .about-photo {
+            text-align: center;
+        }
+
+        .about-photo img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid white;
+            transition: transform 0.4s ease;
+        }
+
+        .about-photo img:hover {
+            transform: scale(1.05);
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skills h2 {
+            border-bottom: 2px solid #444;
+            padding-bottom: 0.5rem;
+        }
+
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li {
+            padding: 0.3rem 0;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body>
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full bg-gray-800 shadow-md z-50">
-    <div class="container mx-auto flex justify-between items-center px-4 py-4">
-      <a href="index.html" class="text-2xl font-bold">Welcome to My World</a>
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-gray-400">HOME</a>
-        <a href="about.html" class="text-gray-400">ABOUT</a>
-        <a href="projects.html" class="hover:text-gray-400">PROJECTS</a>
-        <a href="#contacts" class="hover:text-gray-400">CONTACT</a>
-      </nav>
-      <button id="menuBtn" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="bg-gray-800 md:hidden">
-      <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700 text-gray-400">ABOUT</a>
-      <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="#contacts" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
-    </div>
-  </header>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Nadeem Najumudeen</div>
+        <div class="hamburger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" role="navigation">
+            <a href="index.html">HOME</a>
+            <a href="about.html" aria-current="page">ABOUT</a>
+            <a href="projects.html">PROJECTS</a>
+            <a href="#contacts">CONTACT</a>
+        </div>
+    </nav>
 
-  <!-- Page Content -->
-  <main class="pt-24 container mx-auto px-4" data-aos="fade-up">
-    <section>
-      <h1 class="text-4xl font-bold mb-4">About Me</h1>
-      <p class="mb-6">This is where your About Me content goes. We’ll later add animations, icons, and sections as planned.</p>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-photo">
+            <img src="your-photo.jpg" alt="Photo of Nadeem Najumudeen">
+        </div>
+        <h1>About Me</h1>
+        <p>
+            Hi! I'm Nadeem Najumudeen, a passionate Computer Science student specializing in Cybersecurity.
+            I love FPS games, coding, and building innovative projects.
+        </p>
+
+        <!-- Skills -->
+        <div class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python, C, Bash</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Tailwind CSS, React</li>
+                <li>GitHub, Vercel</li>
+                <li>Node.js, Express</li>
+            </ul>
+        </div>
+
+        <!-- Goals -->
+        <div class="skills">
+            <h2>Goals</h2>
+            <ul>
+                <li>Become a skilled ethical hacker and cybersecurity analyst</li>
+                <li>Be a strong programmer with problem-solving skills</li>
+                <li>Build an online multiplayer game</li>
+            </ul>
+        </div>
     </section>
-    <section id="contacts" class="mt-12" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">CONTACTS</h2>
-      <ul class="space-y-2">
-        <li><a href="mailto:your@email.com" class="hover:text-gray-400">Email</a></li>
-        <li><a href="https://linkedin.com" target="_blank" class="hover:text-gray-400">LinkedIn</a></li>
-        <li><a href="https://github.com/Nxdeeem" target="_blank" class="hover:text-gray-400">GitHub</a></li>
-        <li><a href="https://instagram.com" target="_blank" class="hover:text-gray-400">Instagram</a></li>
-      </ul>
-    </section>
-  </main>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Init AOS
-    AOS.init();
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-    // Page fade-out on link click
-    document.querySelectorAll('a[href]').forEach(link => {
-      if (link.host === window.location.host) {
-        link.addEventListener('click', e => {
-          if (link.getAttribute('href').startsWith('#')) return; // skip anchors
-          e.preventDefault();
-          document.body.classList.add('fade-out');
-          setTimeout(() => {
-            window.location = link.href;
-          }, 300);
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+            hamburger.setAttribute('aria-expanded', !expanded);
         });
-      }
-    });
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-  </script>
+    </script>
 </body>
 </html>
