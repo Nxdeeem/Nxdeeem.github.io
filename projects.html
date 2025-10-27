@@ -14,13 +14,18 @@
       transition: opacity 0.6s ease-in-out;
     }
     body.fade-in { opacity: 1; }
+    /* Prevent mobile nav from blocking page transitions */
+    #mobile-menu a {
+      transition: background-color 0.3s ease;
+    }
   </style>
 </head>
 
 <body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans">
 
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
-    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
+  <!-- Header -->
+  <header class="bg-gray-900 shadow-md py-4 fixed top-0 w-full z-50">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
         <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
@@ -28,6 +33,7 @@
         <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
         <li><a href="index.html#contact" class="hover:text-white transition">CONTACT</a></li>
       </ul>
+      <!-- Mobile Menu Button -->
       <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -35,7 +41,8 @@
       </button>
     </nav>
 
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40 border border-gray-700">
       <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
       <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
       <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
@@ -43,23 +50,26 @@
     </div>
   </header>
 
-  <main class="min-h-screen flex items-center justify-center pt-24 px-4" data-aos="fade-up">
-    <div class="text-center max-w-2xl">
-      <h2 class="text-5xl font-bold mb-6">🚧 Projects Coming Soon</h2>
-      <p class="text-lg text-gray-300">
-        I'm currently working on exciting web apps and gaming tools.<br />
-        Stay tuned for portfolio updates and live project showcases!
+  <!-- Main Section -->
+  <main class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 text-center" data-aos="fade-up">
+    <div class="max-w-2xl">
+      <h2 class="text-4xl sm:text-5xl font-extrabold mb-6">🚧 Projects Coming Soon</h2>
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+        I’m currently building exciting web apps and interactive games.<br />
+        Stay tuned for live project demos and portfolio updates!
       </p>
+    </div>
+
+    <!-- Back Home Button -->
+    <div class="mt-10">
+      <a href="index.html"
+        class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
+        ⬅ Back Home
+      </a>
     </div>
   </main>
 
-  <div class="fixed bottom-6 right-6 z-50">
-    <a href="index.html"
-      class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
-      ⬅ Back Home
-    </a>
-  </div>
-
+  <!-- Footer -->
   <footer class="bg-gray-800 py-4 text-center text-gray-400">
     &copy; 2025 Nadeem Najumudeen
   </footer>
@@ -67,21 +77,20 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800 });
+      // Initialize AOS for scroll animations
+      AOS.init({ duration: 800, once: true });
 
-      // Fade-in on load
+      // Fade-in effect
       document.body.classList.add('fade-in');
 
-      // Page transition
+      // Smooth page transition for links
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
         if (!link.target && href && !href.startsWith('#')) {
           link.addEventListener('click', e => {
             e.preventDefault();
             document.body.classList.remove('fade-in');
-            setTimeout(() => {
-              window.location.href = href;
-            }, 300);
+            setTimeout(() => window.location.href = href, 300);
           });
         }
       });
@@ -94,6 +103,5 @@
       });
     });
   </script>
-
 </body>
 </html>
