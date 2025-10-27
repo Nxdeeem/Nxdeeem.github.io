@@ -7,6 +7,7 @@
   <link rel="icon" href="favicon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     html { scroll-behavior: smooth; }
     body {
@@ -14,8 +15,18 @@
       transition: opacity 0.6s ease-in-out;
     }
     body.fade-in { opacity: 1; }
-    .accordion-content { display: none; }
-    .accordion-content.active { display: block; }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .accordion-content.active {
+      max-height: 1000px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
     .typing::after {
       content: '|';
       animation: blink 0.8s infinite;
@@ -29,12 +40,13 @@
 
 <body class="bg-gradient-to-b from-[#0F172A] to-black text-white font-sans">
 
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50">
+  <!-- NAVBAR -->
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
     <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
         <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
-        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="about.html" class="text-white font-semibold">ABOUT</a></li>
         <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
         <li><a href="index.html#contact" class="hover:text-white transition">CONTACT</a></li>
       </ul>
@@ -45,36 +57,40 @@
       </button>
     </nav>
 
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
       <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="about.html" class="block px-4 py-2 bg-gray-700 font-semibold">ABOUT</a>
       <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
       <a href="index.html#contact" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
     </div>
   </header>
 
-  <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-4" data-aos="fade-down">
-    <div class="bg-gray-800 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-500 max-w-lg text-center">
-      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" />
+  <!-- ABOUT SECTION -->
+  <section class="min-h-screen flex flex-col items-center justify-center pt-28 px-4 text-center" data-aos="zoom-in">
+    <div class="bg-gray-800 rounded-2xl shadow-xl p-6 w-full max-w-lg">
+      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md" loading="lazy" />
       <h1 class="text-4xl font-bold mt-4 typing text-white">About Me</h1>
-      <p class="text-gray-300 mt-4">
-        I'm a computer science student with a passion for business, tech, and gaming. I explore startup ideas and blend development with creativity—especially in FPS games. 
-        <br><br>
-        <a href="https://github.com/Nxdeeem" target="_blank" class="underline text-blue-400">GitHub — Nxdeeem</a>
+      <p class="text-gray-300 mt-4 leading-relaxed">
+        I'm a computer science student with a passion for business, tech, and gaming. 
+        I explore startup ideas and blend development with creativity—especially in FPS games.
       </p>
+      <a href="https://github.com/Nxdeeem" target="_blank" class="underline text-blue-400 block mt-4 hover:text-blue-300 transition">GitHub — Nxdeeem</a>
     </div>
   </section>
 
-  <hr class="w-3/4 border-gray-600 my-12 mx-auto" />
+  <hr class="w-3/4 border-gray-700 my-12 mx-auto" />
 
+  <!-- SKILLS -->
   <section class="px-4 pb-20" data-aos="fade-up">
     <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
     <div class="max-w-4xl mx-auto space-y-4">
       <div>
-        <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white">
+        <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white flex justify-between items-center">
           💻 Programming Languages
+          <span class="arrow transition-transform duration-300">▼</span>
         </button>
-        <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
+        <div class="accordion-content bg-gray-800 px-6 py-0 text-gray-300 rounded-b-md">
           <ul class="list-disc list-inside">
             <li>🐍 Python</li>
             <li>🔧 C</li>
@@ -118,7 +134,8 @@
     </div>
   </section>
 
-  <section class="px-4 pb-20" data-aos="fade-up">
+  <!-- GOALS -->
+  <section class="px-4 pb-24" data-aos="fade-up">
     <h2 class="text-3xl font-bold text-center mb-6">🎯 Goals</h2>
     <ul class="max-w-3xl mx-auto list-disc list-inside text-gray-300 text-lg space-y-2">
       <li>💻 Become a skilled ethical hacker and Cybersecurity analyst</li>
@@ -127,6 +144,7 @@
     </ul>
   </section>
 
+  <!-- BACK BUTTON -->
   <div class="fixed bottom-6 right-6 z-50">
     <a href="index.html"
       class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out font-semibold">
@@ -138,37 +156,39 @@
     &copy; 2025 Nadeem Najumudeen
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800 });
+      // Initialize AOS with mobile animations enabled
+      AOS.init({ duration: 800, once: true, disable: false });
 
-      // Fade-in transition
-      document.body.classList.add('fade-in');
+      // Fade-in effect
+      document.body.classList.add("fade-in");
 
-      // Page transitions for non-anchor links
+      // Page transitions
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
         if (!link.target && href && !href.startsWith('#')) {
           link.addEventListener('click', e => {
             e.preventDefault();
             document.body.classList.remove('fade-in');
-            setTimeout(() => {
-              window.location.href = href;
-            }, 300);
+            setTimeout(() => (window.location.href = href), 300);
           });
         }
       });
 
       // Accordion
-      document.querySelectorAll('.accordion-header').forEach(header => {
-        header.addEventListener('click', () => {
+      document.querySelectorAll(".accordion-header").forEach(header => {
+        header.addEventListener("click", () => {
           const content = header.nextElementSibling;
-          content.classList.toggle('active');
+          const arrow = header.querySelector(".arrow");
+          content.classList.toggle("active");
+          arrow.classList.toggle("rotate-180");
         });
       });
 
-      // Mobile menu toggle
+      // Mobile Menu
       const menuBtn = document.getElementById("menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       menuBtn.addEventListener("click", () => {
@@ -176,6 +196,5 @@
       });
     });
   </script>
-
 </body>
 </html>
