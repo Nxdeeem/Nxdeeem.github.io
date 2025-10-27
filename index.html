@@ -7,21 +7,30 @@
   <link rel="icon" href="favicon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     html { scroll-behavior: smooth; }
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
     }
-    body.fade-in {
-      opacity: 1;
+    body.fade-in { opacity: 1; }
+
+    /* Scroll indicator animation */
+    .scroll-indicator {
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
     }
   </style>
 </head>
 
-<body class="bg-black text-white font-sans">
+<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
 
-  <header class="bg-gray-900 shadow-md py-4 fixed top-0 w-full z-50">
+  <!-- NAVBAR -->
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
     <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
@@ -31,13 +40,14 @@
         <li><a href="#contact" class="hover:text-white transition">CONTACT</a></li>
       </ul>
       <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </nav>
 
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
       <a href="#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
       <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
       <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
@@ -45,61 +55,69 @@
     </div>
   </header>
 
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24" data-aos="fade-up">
-    <h1 class="text-5xl font-bold text-white mb-4">Welcome to My World</h1>
-    <p class="text-xl text-gray-300">I'm <span class="text-white font-semibold">Nadeem Najumudeen</span></p>
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24" data-aos="zoom-in">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Welcome to My World</h1>
+    <p class="text-xl md:text-2xl text-gray-300">
+      I'm <span class="text-white font-semibold">Nadeem Najumudeen</span>
+    </p>
+
+    <div class="mt-10 scroll-indicator text-gray-400 text-sm">⬇ Scroll Down</div>
   </section>
 
+  <!-- CONTACT SECTION -->
   <section id="contact" class="bg-[#0F172A] text-white py-20" data-aos="fade-up">
     <div class="max-w-3xl mx-auto text-center px-6">
       <h2 class="text-4xl font-bold mb-10 text-white">CONTACTS</h2>
       <div class="space-y-6 text-lg">
         <div class="flex items-center justify-center space-x-3 hover:text-blue-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" />
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" loading="lazy" />
           <a href="mailto:nadeemnajumudeen@gmail.com" class="underline">nadeemnajumudeen@gmail.com</a>
         </div>
         <div class="flex items-center justify-center space-x-3 hover:text-blue-500 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" />
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" loading="lazy" />
           <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline">LinkedIn</a>
         </div>
         <div class="flex items-center justify-center space-x-3 hover:text-pink-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" />
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" loading="lazy" />
           <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline">@___nxdeem___</a>
         </div>
         <div class="flex items-center justify-center space-x-3 hover:text-gray-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" />
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" loading="lazy" />
           <a href="https://github.com/Nxdeeem" target="_blank" class="underline">GitHub</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-800 py-4 text-center text-gray-500">
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
     &copy; 2025 Nadeem Najumudeen
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ once: true });
+      // Initialize AOS for all devices
+      AOS.init({ duration: 800, once: true, disable: false });
 
-      document.body.classList.add('fade-in');
+      // Fade-in effect
+      document.body.classList.add("fade-in");
 
-      // Smooth page transitions (excluding anchor # links)
+      // Page transition for non-anchor links
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
         if (!link.target && href && !href.startsWith('#')) {
           link.addEventListener('click', e => {
             e.preventDefault();
             document.body.classList.remove('fade-in');
-            setTimeout(() => {
-              window.location.href = href;
-            }, 300);
+            setTimeout(() => (window.location.href = href), 300);
           });
         }
       });
 
-      // Toggle mobile menu
+      // Mobile menu toggle
       const menuBtn = document.getElementById("menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       menuBtn.addEventListener("click", () => {
