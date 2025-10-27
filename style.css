@@ -1,1 +1,147 @@
+/* ---------- GLOBAL SETTINGS ---------- */
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.6s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+/* ---------- NAVBAR ---------- */
+header {
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.85);
+  transition: background 0.3s ease;
+}
+
+nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- MOBILE MENU ---------- */
+#mobile-menu {
+  animation: fadeSlide 0.3s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  transition: all 0.6s ease-in-out;
+}
+
+/* ---------- PROFILE IMAGE ---------- */
+img.rounded-full {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+img.rounded-full:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- BUTTONS ---------- */
+button, a.btn, .back-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover, a.btn:hover, .back-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- ACCORDION ---------- */
+.accordion-header {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #334155;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.accordion-content.active {
+  max-height: 1000px;
+}
+
+/* ---------- FADE-IN ON SCROLL ---------- */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* ---------- CONTACT LINKS ---------- */
+#contact a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#contact a:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  border-top: 1px solid #1e293b;
+  background: linear-gradient(to right, #0f172a, #000);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  #mobile-menu {
+    width: 100%;
+    right: 0;
+    top: 64px;
+    text-align: center;
+  }
+}
