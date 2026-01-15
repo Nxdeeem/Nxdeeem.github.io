@@ -2,26 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact — Nadeem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Nadeem Najumudeen</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Custom Font (same as main site if any) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
 
-<body class="bg-black text-white min-h-screen flex items-center justify-center">
+<body class="bg-black text-white min-h-screen flex flex-col">
 
-<div class="text-center space-y-6">
-  <h1 class="text-4xl font-bold">Contact Me</h1>
+  <!-- ================= NAVBAR ================= -->
+  <header class="w-full px-6 py-4 flex justify-between items-center border-b border-white/10">
+    <a href="index.html" class="text-lg font-semibold hover:opacity-80">
+      ← Back to Home
+    </a>
+  </header>
 
-  <a href="mailto:nadeemnajumudeen@gmail.com" class="block underline">Email</a>
-  <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="block underline">LinkedIn</a>
-  <a href="https://www.instagram.com/___nxdeem___/#" target="_blank" class="block underline">Instagram</a>
-  <a href="https://github.com/Nxdeeem" target="_blank" class="block underline">GitHub</a>
+  <!-- ================= MAIN ================= -->
+  <main class="flex-1 flex items-center justify-center px-6">
+    <div class="max-w-xl w-full text-center">
 
-  <a href="index.html"
-     class="inline-block mt-6 px-6 py-3 border rounded-full hover:bg-white hover:text-black transition">
-    ⬅ Back Home
-  </a>
-</div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Get in Touch
+      </h1>
+
+      <p class="text-gray-400 mb-12">
+        Feel free to reach out for collaborations, opportunities, or just a quick chat.
+      </p>
+
+      <!-- CONTACT LINKS -->
+      <div class="space-y-6">
+
+        <a href="nadeemnajumudeen@gmail.com"
+           class="block py-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          📧 <span class="ml-2">Email</span>
+        </a>
+
+        <a href="in/nadeem-najumudeen-b6b731325"
+           target="_blank"
+           class="block py-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          💼 <span class="ml-2">LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/Nxdeeem"
+           target="_blank"
+           class="block py-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          🐙 <span class="ml-2">GitHub</span>
+        </a>
+
+        <a href="https://www.instagram.com/___nxdeem___/#"
+           target="_blank"
+           class="block py-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          📸 <span class="ml-2">Instagram</span>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="py-6 text-center text-gray-500 text-sm border-t border-white/10">
+    © 2026 Nadeem Najumudeen
+  </footer>
 
 </body>
 </html>
