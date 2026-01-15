@@ -52,3 +52,40 @@ img.rounded-full:hover {
 footer {
   border-top: 1px solid #1e293b;
 }
+
+/* ---------- SKILL CARDS ---------- */
+.skill-card {
+  background: #1f2933;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-card h3 {
+  margin-top: 10px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.3s ease;
+}
+
+.skill-card p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  background: #111827;
+}
+
+.skill-card:hover h3,
+.skill-card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
