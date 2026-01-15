@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nadeem Najumudeen</title>
+
   <link rel="icon" href="favicon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     html { scroll-behavior: smooth; }
@@ -17,116 +16,137 @@
       transition: opacity 0.6s ease-in-out;
     }
     body.fade-in { opacity: 1; }
-
-    /* Scroll indicator animation */
-    .scroll-indicator {
-      animation: bounce 1.5s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
   </style>
 </head>
 
 <body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
 
-  <!-- NAVBAR -->
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
-    <nav class="container mx-auto px-4 flex justify-between items-center" aria-label="Main Navigation">
-      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-      <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="#home" class="hover:text-white transition">HOME</a></li>
-        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
-        <li><a href="#contact" class="hover:text-white transition">CONTACT</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </nav>
+<!-- ================= NAVBAR ================= -->
+<header class="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur shadow-md">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Nadeem Najumudeen</h1>
 
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
-      <a href="#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-      <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="#contact" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
-    </div>
-  </header>
+    <ul class="hidden md:flex items-center space-x-6 text-gray-300">
+      <li><a href="#home" class="hover:text-white">HOME</a></li>
+      <li><a href="#about" class="hover:text-white">ABOUT</a></li>
+      <li><a href="#projects" class="hover:text-white">PROJECTS</a></li>
+      <li>
+        <a href="contact.html"
+           class="px-4 py-2 border border-white/60 rounded-full hover:bg-white hover:text-black transition">
+          Contact Me
+        </a>
+      </li>
+    </ul>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24" data-aos="zoom-in">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Welcome to My World</h1>
-    <p class="text-xl md:text-2xl text-gray-300">
-      I'm <span class="text-white font-semibold">Nadeem Najumudeen</span>
+    <button id="menu-btn" class="md:hidden">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-center">
+    <a href="#home" class="block py-3 hover:bg-gray-700">HOME</a>
+    <a href="#about" class="block py-3 hover:bg-gray-700">ABOUT</a>
+    <a href="#projects" class="block py-3 hover:bg-gray-700">PROJECTS</a>
+    <a href="contact.html" class="block py-3 hover:bg-gray-700">CONTACT</a>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="section min-h-screen flex items-center justify-center text-center pt-24">
+  <div>
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Welcome to My World</h1>
+    <p class="text-xl text-gray-300">
+      I’m <span class="text-white font-semibold">Nadeem Najumudeen</span>
     </p>
+    <div class="mt-10 text-gray-400 animate-bounce">⬇ Scroll</div>
+  </div>
+</section>
 
-    <div class="mt-10 scroll-indicator text-gray-400 text-sm">⬇ Scroll Down</div>
-  </section>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section min-h-screen flex items-center justify-center px-6">
+  <div class="max-w-3xl bg-gray-800 p-8 rounded-2xl shadow-xl text-center">
+    <img src="profile.jpg"
+         class="w-32 h-32 rounded-full mx-auto border-4 border-white mb-6" />
+    <h2 class="text-4xl font-bold mb-4">About Me</h2>
+    <p class="text-gray-300 leading-relaxed">
+      I’m a Computer Science student focused on Cybersecurity, startups,
+      and gaming. I love building clean, modern digital experiences.
+    </p>
+    <a href="https://github.com/Nxdeeem" target="_blank"
+       class="text-blue-400 underline block mt-4">
+      GitHub — Nxdeeem
+    </a>
+  </div>
+</section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="bg-[#0F172A] text-white py-20" data-aos="fade-up">
-    <div class="max-w-3xl mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold mb-10 text-white">CONTACTS</h2>
-      <div class="space-y-6 text-lg">
-        <div class="flex items-center justify-center space-x-3 hover:text-blue-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" loading="lazy" />
-          <a href="mailto:nadeemnajumudeen@gmail.com" class="underline">nadeemnajumudeen@gmail.com</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-blue-500 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" loading="lazy" />
-          <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline">LinkedIn</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-pink-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" loading="lazy" />
-          <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline">@___nxdeem___</a>
-        </div>
-        <div class="flex items-center justify-center space-x-3 hover:text-gray-400 transition duration-300">
-          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" loading="lazy" />
-          <a href="https://github.com/Nxdeeem" target="_blank" class="underline">GitHub</a>
-        </div>
-      </div>
+<!-- ================= SKILLS ================= -->
+<section class="section py-24 px-6">
+  <h2 class="text-3xl font-bold text-center mb-10">Skills</h2>
+  <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-6 text-gray-300">
+    <ul class="space-y-2 text-center">
+      <li>🐍 Python • 🔧 C • 🖥️ Bash</li>
+      <li>🌐 HTML • CSS • JavaScript</li>
+      <li>⚛️ React • 🌬️ Tailwind CSS</li>
+      <li>🐙 GitHub • 🚀 Vercel</li>
+      <li>🖥️ Node.js + Express</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="section min-h-screen flex items-center justify-center px-6">
+  <div class="text-center max-w-xl">
+    <h2 class="text-4xl font-bold mb-6">🚧 Projects Coming Soon</h2>
+    <p class="text-gray-300">
+      I’m building interactive apps and game-based projects.
+      This section will be updated soon.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CONTACT (FOOTER SECTION) ================= -->
+<section id="contact" class="section bg-[#0F172A] py-20">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10">CONTACTS</h2>
+
+    <div class="space-y-6 text-lg">
+      <a href="mailto:nadeemnajumudeen@gmail.com" class="block underline">Email</a>
+      <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="block underline">LinkedIn</a>
+      <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="block underline">Instagram</a>
+      <a href="https://github.com/Nxdeeem" target="_blank" class="block underline">GitHub</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-800 py-4 text-center text-gray-400">
-    &copy; 2025 Nadeem Najumudeen
-  </footer>
+<footer class="bg-gray-800 py-4 text-center text-gray-400">
+  &copy; 2025 Nadeem Najumudeen
+</footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Initialize AOS for all devices
-      AOS.init({ duration: 800, once: true, disable: false });
+<!-- ================= SCRIPTS ================= -->
+<script>
+  document.body.classList.add("fade-in");
 
-      // Fade-in effect
-      document.body.classList.add("fade-in");
+  // Mobile menu
+  document.getElementById("menu-btn").onclick = () => {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  };
 
-      // Page transition for non-anchor links
-      document.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (!link.target && href && !href.startsWith('#')) {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            document.body.classList.remove('fade-in');
-            setTimeout(() => (window.location.href = href), 300);
-          });
-        }
-      });
+  // Section reveal animation
+  const sections = document.querySelectorAll(".section");
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
     });
-  </script>
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
