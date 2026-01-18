@@ -82,7 +82,7 @@ Feel free to connect via the following:
 - Email: [nadeemnajumudeen@gmail.com](mailto:nadeemnajumudeen@gmail.com)  
 - LinkedIn: [https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/](https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/)  
 - GitHub: [https://github.com/Nxdeeem](https://github.com/Nxdeeem)  
-- Instagram: [@___nxdeem___]([https://www.instagram.com/___nxdeem___](https://www.instagram.com/___nxdeem___/#))  
+- Instagram: [@___nxdeem___]([https://www.instagram.com/___nxdeem___](https://www.instagram.com/___nxdeem___/#)
 
 ---
 
