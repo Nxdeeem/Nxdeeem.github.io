@@ -77,67 +77,108 @@
   </footer>
 
   <!-- ⭐ CONSTELLATION SCRIPT -->
-  <script>
-    const canvas = document.getElementById("stars-canvas");
-    const ctx = canvas.getContext("2d");
+ <script>
+  const canvas = document.getElementById("stars-canvas");
+  const ctx = canvas.getContext("2d");
 
-    let stars = [];
-    const COUNT = 120;
-    const MAX_DIST = 120;
+  let w, h;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resize);
+  resize();
 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resize);
-    resize();
+  /* ================= STAR SETTINGS ================= */
+  const STAR_COUNT = 160;
+  const CONNECT_DIST = 130;
 
-    for (let i = 0; i < COUNT; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3
-      });
-    }
+  const mouse = { x: null, y: null };
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  window.addEventListener("mousemove", e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
 
-      stars.forEach(s => {
-        s.x += s.vx;
-        s.y += s.vy;
+  window.addEventListener("mouseleave", () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
 
-        if (s.x < 0 || s.x > canvas.width) s.vx *= -1;
-        if (s.y < 0 || s.y > canvas.height) s.vy *= -1;
+  /* ================= STAR OBJECT ================= */
+  const stars = [];
 
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = "#fff";
-        ctx.fill();
-      });
+  for (let i = 0; i < STAR_COUNT; i++) {
+    stars.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      size: Math.random() * 1.5 + 0.5,
+      depth: Math.random() * 0.6 + 0.4   // ⭐ parallax depth
+    });
+  }
 
-      for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-          const dx = stars[i].x - stars[j].x;
-          const dy = stars[i].y - stars[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+  /* ================= ANIMATION ================= */
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
 
-          if (dist < MAX_DIST) {
-            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / MAX_DIST})`;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(stars[i].x, stars[i].y);
-            ctx.lineTo(stars[j].x, stars[j].y);
-            ctx.stroke();
-          }
+    for (let i = 0; i < stars.length; i++) {
+      const s = stars[i];
+
+      // 🌌 Parallax movement
+      s.x += s.vx * s.depth;
+      s.y += s.vy * s.depth;
+
+      if (s.x < 0 || s.x > w) s.vx *= -1;
+      if (s.y < 0 || s.y > h) s.vy *= -1;
+
+      // ✨ Draw star
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+
+      // 🔗 Lines between stars
+      for (let j = i + 1; j < stars.length; j++) {
+        const t = stars[j];
+        const dx = s.x - t.x;
+        const dy = s.y - t.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < CONNECT_DIST) {
+          ctx.strokeStyle = `rgba(255,255,255,${1 - dist / CONNECT_DIST})`;
+          ctx.lineWidth = 0.4;
+          ctx.beginPath();
+          ctx.moveTo(s.x, s.y);
+          ctx.lineTo(t.x, t.y);
+          ctx.stroke();
         }
       }
 
-      requestAnimationFrame(animate);
+      // 🖱 Mouse interaction
+      if (mouse.x && mouse.y) {
+        const dxm = s.x - mouse.x;
+        const dym = s.y - mouse.y;
+        const mdist = Math.sqrt(dxm * dxm + dym * dym);
+
+        if (mdist < 140) {
+          ctx.strokeStyle = `rgba(255,255,255,${1 - mdist / 140})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(s.x, s.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
     }
-    animate();
-  </script>
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
 
 </body>
 </html>
