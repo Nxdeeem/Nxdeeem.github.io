@@ -3,158 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Nadeem Najumudeen</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>Contact | Nadeem</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Devicon -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="fade-in">
 
-  <!-- STAR CANVAS -->
+  <!-- ⭐ STAR BACKGROUND -->
   <canvas id="stars-canvas"></canvas>
 
-  <!-- NAVBAR -->
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-      <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="index.html#hero" class="hover:text-white transition">HOME</a></li>
-        <li><a href="index.html#about" class="hover:text-white transition">ABOUT</a></li>
-        <li><a href="index.html#tools" class="hover:text-white transition">TOOLS</a></li>
-        <li><a href="index.html#skills" class="hover:text-white transition">SKILLS</a></li>
-        <li><a href="index.html#projects" class="hover:text-white transition">PROJECTS</a></li>
-        <li><a href="contact.html" class="text-white font-semibold transition">CONTACT</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full">
+    <nav class="flex justify-between items-center px-8 py-4">
+      <h1 class="text-xl font-bold">Nadeem</h1>
+      <div class="space-x-6 hidden md:block">
+        <a href="index.html">Home</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
-      <a href="index.html#hero" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="index.html#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-      <a href="index.html#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
-      <a href="index.html#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
-      <a href="index.html#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
-    </div>
   </header>
 
   <!-- CONTACT SECTION -->
-  <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
-    <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">CONTACT ME</h2>
-    <p class="text-gray-300 mb-12 text-lg" data-aos="fade-up" data-aos-delay="100">
-      Feel free to reach out through any of the platforms below!
-    </p>
-    <div class="flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
-      <a href="mailto:nadeem@example.com" class="hover:text-white transition flex flex-col items-center">
-        <img src="icons/email.png" class="w-12 h-12 mb-2" alt="Email">
-        Email
+  <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center">
+    <h2 class="text-4xl font-bold mb-6">CONTACTS</h2>
+
+    <div class="flex gap-8 text-3xl">
+
+      <a href="mailto:yourmail@gmail.com" target="_blank" title="Email">
+        📧
       </a>
-      <a href="https://www.linkedin.com/in/nadeem" target="_blank" class="hover:text-white transition flex flex-col items-center">
-        <img src="icons/linkedin.png" class="w-12 h-12 mb-2" alt="LinkedIn">
-        LinkedIn
+
+      <a href="https://github.com/Nxdeeem" target="_blank" title="GitHub">
+        <i class="devicon-github-original"></i>
       </a>
-      <a href="https://github.com/Nxdeeem" target="_blank" class="hover:text-white transition flex flex-col items-center">
-        <img src="icons/github.png" class="w-12 h-12 mb-2" alt="GitHub">
-        GitHub
+
+      <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+        <i class="devicon-linkedin-plain colored"></i>
       </a>
-      <a href="https://www.instagram.com/nadeem" target="_blank" class="hover:text-white transition flex flex-col items-center">
-        <img src="icons/instagram.png" class="w-12 h-12 mb-2" alt="Instagram">
-        Instagram
+
+      <a href="https://instagram.com" target="_blank" title="Instagram">
+        📸
       </a>
+
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 py-6 mt-24 text-center text-gray-400">
-    Designed and Developed by Nadeem 😎
+  <footer>
+    © 2026 Nadeem Najumudeen
   </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- ⭐ CONSTELLATION SCRIPT (same as index) -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, once: true, disable: false });
+    const canvas = document.getElementById("stars-canvas");
+    const ctx = canvas.getContext("2d");
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
+    let stars = [];
+    const COUNT = 120;
+    const MAX_DIST = 120;
 
-      // Stars canvas
-      const canvas = document.getElementById("stars-canvas");
-      const ctx = canvas.getContext("2d");
+    function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
 
-      const stars = [];
-      for(let i=0;i<150;i++){
-        stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2,dx:(Math.random()-0.5)*0.2,dy:(Math.random()-0.5)*0.2});
-      }
+    for (let i = 0; i < COUNT; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3
+      });
+    }
 
-      const shootingStars = [];
-      function createShootingStar(){
-        shootingStars.push({
-          x: Math.random()*canvas.width,
-          y: Math.random()*canvas.height/2,
-          len: Math.random()*200+100,
-          speed: Math.random()*10+6,
-          angle: Math.random()*Math.PI/6 - Math.PI/12
-        });
-      }
-      setInterval(createShootingStar,2000);
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      function animateStars(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+      stars.forEach(s => {
+        s.x += s.vx;
+        s.y += s.vy;
 
-        stars.forEach(s=>{
-          ctx.beginPath();
-          ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-          ctx.fillStyle="white";
-          ctx.fill();
-          s.x += s.dx; s.y += s.dy;
-          if(s.x>canvas.width || s.x<0) s.dx*=-1;
-          if(s.y>canvas.height || s.y<0) s.dy*=-1;
-        });
+        if (s.x < 0 || s.x > canvas.width) s.vx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.vy *= -1;
 
-        for(let i=shootingStars.length-1;i>=0;i--){
-          let s=shootingStars[i];
-          ctx.beginPath();
-          ctx.moveTo(s.x,s.y);
-          ctx.lineTo(s.x - s.len*Math.cos(s.angle), s.y - s.len*Math.sin(s.angle));
-          ctx.strokeStyle="white";
-          ctx.lineWidth=2;
-          ctx.stroke();
-          s.x += s.speed*Math.cos(s.angle);
-          s.y += s.speed*Math.sin(s.angle);
-          if(s.x>canvas.width || s.y>canvas.height) shootingStars.splice(i,1);
-        }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = "#fff";
+        ctx.fill();
+      });
 
-        // Constellation lines
-        const maxDist = 120;
-        for(let i=0;i<stars.length;i++){
-          for(let j=i+1;j<stars.length;j++){
-            const dx=stars[i].x-stars[j].x, dy=stars[i].y-stars[j].y;
-            const dist=Math.sqrt(dx*dx+dy*dy);
-            if(dist<maxDist){
-              ctx.beginPath();
-              ctx.moveTo(stars[i].x,stars[i].y);
-              ctx.lineTo(stars[j].x,stars[j].y);
-              ctx.strokeStyle="rgba(255,255,255,"+(1-dist/maxDist)+")";
-              ctx.lineWidth=0.2;
-              ctx.stroke();
-            }
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[i].x - stars[j].x;
+          const dy = stars[i].y - stars[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < MAX_DIST) {
+            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / MAX_DIST})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.stroke();
           }
         }
-
-        requestAnimationFrame(animateStars);
       }
-      animateStars();
-    });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
+
 </body>
 </html>
