@@ -9,11 +9,17 @@ Live at: [https://nxdeeem.github.io](https://nxdeeem.github.io)
 📦 root/
 
 ├── index.html # Home page with rotating hero text and night-sky effect
+
 ├── about.html # About Me section with skills, goals, and descriptions
+
 ├── projects.html # Projects showcase including Human Benchmark
+
 ├── contact.html # Contact page with working links
+
 ├── style.css # Custom CSS and Tailwind CSS utilities
+
 ├── favicon.png # Website favicon
+
 └── assets/ # Any additional images/icons
 
 ---
