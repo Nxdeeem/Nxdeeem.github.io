@@ -1,213 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Nadeem Najumudeen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nadeem Najumudeen</title>
+<link rel="icon" href="favicon.png" type="image/png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+
+<style>
+html { scroll-behavior: smooth; }
+body { opacity: 0; transition: opacity 0.6s ease-in-out; }
+body.fade-in { opacity: 1; }
+
+/* Scroll indicator animation */
+.scroll-indicator { animation: bounce 1.5s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* Night sky canvas overlay */
+#night-sky { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+</style>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
 
 <!-- NAVBAR -->
-<header class="fixed top-0 w-full z-50 backdrop-blur bg-black/70 border-b border-gray-800">
-  <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="font-bold text-lg">Nadeem Najumudeen</h1>
-    <ul class="hidden md:flex space-x-6 text-gray-300">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li>
-        <a href="contact.html" class="px-4 py-2 border border-gray-500 rounded-full hover:bg-white hover:text-black transition">
-          Contact
-        </a>
-      </li>
-    </ul>
-  </nav>
+<header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md backdrop-blur-sm">
+<nav class="container mx-auto px-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
+  <ul class="hidden md:flex space-x-6 text-gray-300">
+    <li><a href="#home" class="hover:text-white transition">HOME</a></li>
+    <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
+    <li><a href="#tools" class="hover:text-white transition">TOOLS</a></li>
+    <li><a href="#skills" class="hover:text-white transition">SKILLS</a></li>
+    <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
+    <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
+  </ul>
+  <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+</nav>
+
+<div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
+  <a href="#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
+  <a href="#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+  <a href="#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
+  <a href="#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
+  <a href="#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
+  <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+</div>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero-section min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden">
-  
-  <!-- Stars Background -->
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
+<!-- NIGHT SKY CANVAS -->
+<canvas id="night-sky"></canvas>
 
-  <div class="relative z-10" data-aos="fade-up">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
-      Hey, I'm <span class="text-white">Nadeem</span>
-    </h1>
-
-    <h2 class="text-xl md:text-3xl text-gray-300">
-      <span id="rotating-text" class="text-white font-semibold"></span>
-    </h2>
-  </div>
-
+<!-- HERO SECTION -->
+<section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
+  <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Hey, I’m Nadeem</h1>
+  <p class="text-xl md:text-2xl text-gray-300">
+    <span id="rotating-words" class="text-white font-semibold"></span>
+  </p>
+  <div class="mt-10 scroll-indicator text-gray-400 text-sm">⬇ Scroll Down</div>
 </section>
 
+<!-- ABOUT ME -->
+<section id="about" class="pt-20 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-6">About Me</h2>
+  <p class="text-gray-300 leading-relaxed text-lg">
+    I’m a passionate Computer Science Engineer and Cybersecurity aspirant. I love blending technology with creativity, building web apps, games, and exploring startups.
+    I thrive in solving problems, thinking critically, and learning new tools. I enjoy collaborating with like-minded people to turn ideas into reality.
+    Outside coding, I’m into gaming, tech discussions, and exploring innovative solutions to real-world challenges.
+  </p>
+</section>
 
-
-<!-- ABOUT -->
-<section id="about" class="py-32 px-6 bg-gradient-to-b from-black to-gray-900">
-  <div class="max-w-4xl mx-auto" data-aos="fade-up">
-    <h2 class="section-title">About Me</h2>
-    <p class="text-gray-300 leading-relaxed mt-6 text-lg">
-      I’m a Computer Science student with a strong interest in <span class="text-white font-semibold">Cybersecurity</span>,
-      system-level programming, and clean web design. I enjoy understanding how things work under the hood — from
-      networks and exploits to UI logic and performance.
-      <br><br>
-      Beyond tech, I’m creative, confident, and collaborative. I’ve participated in cultural events, team activities,
-      and social initiatives — shaping both leadership and communication skills. I believe consistency and curiosity
-      matter more than shortcuts.
-    </p>
+<!-- TOOLS I USE -->
+<section id="tools" class="pt-20 px-6 max-w-5xl mx-auto" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-center mb-8">💻 Tools I Use</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center text-gray-300">
+    <div class="tool hover:text-white transition" title="Python">🐍</div>
+    <div class="tool hover:text-white transition" title="C">🔧</div>
+    <div class="tool hover:text-white transition" title="Bash">🖥️</div>
+    <div class="tool hover:text-white transition" title="HTML">📄</div>
+    <div class="tool hover:text-white transition" title="JavaScript">🧠</div>
+    <div class="tool hover:text-white transition" title="CSS">🎨</div>
+    <div class="tool hover:text-white transition" title="VS Code">📝</div>
+    <div class="tool hover:text-white transition" title="GitHub">🐙</div>
+    <div class="tool hover:text-white transition" title="React">⚛️</div>
+    <div class="tool hover:text-white transition" title="Node.js">🖥️</div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="py-32 px-6">
-  <div class="max-w-6xl mx-auto" data-aos="fade-up">
-    <h2 class="section-title">Skills</h2>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-      <!-- Skill Card -->
-      <div class="skill-card">
-        <span>🐍</span>
-        <h4>Python</h4>
-        <p>Scripting, automation, logic building</p>
-      </div>
-
-      <div class="skill-card">
-        <span>💻</span>
-        <h4>C</h4>
-        <p>Memory, pointers, low-level logic</p>
-      </div>
-
-      <div class="skill-card">
-        <span>🌐</span>
-        <h4>HTML / CSS</h4>
-        <p>Semantic layouts, responsive UI</p>
-      </div>
-
-      <div class="skill-card">
-        <span>⚡</span>
-        <h4>JavaScript</h4>
-        <p>DOM, interactions, animations</p>
-      </div>
-
-      <div class="skill-card">
-        <span>🎨</span>
-        <h4>Tailwind CSS</h4>
-        <p>Modern utility-first design</p>
-      </div>
-
-      <div class="skill-card">
-        <span>🛡️</span>
-        <h4>Cybersecurity</h4>
-        <p>Ethical hacking fundamentals</p>
-      </div>
-
-      <div class="skill-card">
-        <span>🐙</span>
-        <h4>GitHub</h4>
-        <p>Version control & collaboration</p>
-      </div>
-
-      <div class="skill-card">
-        <span>🧠</span>
-        <h4>Problem Solving</h4>
-        <p>Logic-driven thinking</p>
-      </div>
-    </div>
-  </div>
+<section id="skills" class="pt-20 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6">🎯 Skills</h2>
+  <ul class="list-disc list-inside text-gray-300 space-y-3 text-left max-w-xl mx-auto">
+    <li><strong>Web Design:</strong> Creating responsive, visually appealing, and user-friendly websites.</li>
+    <li><strong>Problem Solving:</strong> Analyzing challenges and designing logical solutions efficiently.</li>
+    <li><strong>Critical & Logical Thinking:</strong> Breaking down complex problems into manageable parts.</li>
+    <li><strong>Teamwork & Collaboration:</strong> Working effectively with others to achieve shared goals.</li>
+    <li><strong>Creativity:</strong> Applying innovative thinking to design and development projects.</li>
+  </ul>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-32 px-6 bg-gray-900">
-  <div class="max-w-6xl mx-auto" data-aos="fade-up">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="grid md:grid-cols-2 gap-8 mt-12">
-      <div class="project-card">
-        <h3>🎯 Human Benchmark</h3>
-        <p>
-          A performance-testing web app inspired by Human Benchmark.
-          Includes reaction time, focus-based tests, and accuracy challenges.
-        </p>
-        <div class="icons">
-          ⚡ 🎯 ⌨️ 🧠
-        </div>
-      </div>
-
-      <div class="project-card opacity-60">
-        <h3>🚧 More Coming</h3>
-        <p>Cybersecurity tools & interactive web experiments.</p>
-      </div>
-    </div>
-  </div>
+<section id="projects" class="pt-20 px-6 min-h-screen text-center" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-6">🚀 Projects</h2>
+  <p class="text-gray-300">Coming soon: Human Benchmark and other interactive projects!</p>
 </section>
 
 <!-- CONTACT SECTION -->
-<section class="py-32 px-6 bg-[#0F172A] border-t border-gray-700">
-  <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="text-gray-400 mt-6">
-      Want to collaborate or talk tech?
-    </p>
-    <a href="contact.html" class="inline-block mt-8 px-8 py-3 border rounded-full hover:bg-white hover:text-black transition">
-      Contact Me →
-    </a>
+<section id="contact" class="pt-20 px-6 bg-gray-900 text-white py-20" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-8 text-center">CONTACT</h2>
+  <div class="max-w-3xl mx-auto space-y-6 text-lg text-center">
+    <div class="hover:text-blue-400 transition"><a href="mailto:nadeemnajumudeen@gmail.com">📧 nadeemnajumudeen@gmail.com</a></div>
+    <div class="hover:text-blue-500 transition"><a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank">🔗 LinkedIn</a></div>
+    <div class="hover:text-pink-400 transition"><a href="https://www.instagram.com/___nxdeem___" target="_blank">📸 Instagram</a></div>
+    <div class="hover:text-gray-400 transition"><a href="https://github.com/Nxdeeem" target="_blank">💻 GitHub</a></div>
   </div>
 </section>
 
-<footer class="py-6 text-center text-gray-500 bg-black">
-  © 2025 Nadeem Najumudeen
-</footer>
+<footer class="bg-gray-800 py-4 text-center text-gray-400">© 2026 Nadeem Najumudeen</footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({ duration: 800, once: true });</script>
 <script>
-  const roles = [
-    "Computer Science Engineer",
-    "Cybersecurity Aspirant",
-    "Developer",
-    "Problem Solver",
-    "Creative Thinker"
-  ];
+// ROTATING HERO WORDS
+const words = ["Web Designer","Game Developer","Cybersecurity Aspirant","Problem Solver","Creative Thinker"];
+let i = 0;
+const wordSpan = document.getElementById("rotating-words");
+function rotateWords(){ wordSpan.textContent = words[i]; i=(i+1)%words.length; }
+rotateWords(); setInterval(rotateWords, 2500);
 
-  let roleIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-  const speed = 90;
-  const holdDelay = 1500;
+// AOS INIT
+AOS.init({ duration: 800, once: true });
 
-  const text = document.getElementById("rotating-text");
+// FADE IN
+document.body.classList.add("fade-in");
 
-  function rotateText() {
-    const current = roles[roleIndex];
+// MOBILE MENU
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
 
-    if (!deleting) {
-      text.textContent = current.slice(0, ++charIndex);
-      if (charIndex === current.length) {
-        setTimeout(() => deleting = true, holdDelay);
-      }
-    } else {
-      text.textContent = current.slice(0, --charIndex);
-      if (charIndex === 0) {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-      }
-    }
+// NIGHT SKY EFFECT
+const canvas = document.getElementById("night-sky");
+const ctx = canvas.getContext("2d");
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
+const stars = [];
+const shootingStars = [];
 
-    setTimeout(rotateText, deleting ? speed / 2 : speed);
-  }
+function random(min,max){ return Math.random()*(max-min)+min; }
 
-  rotateText();
+// Stars
+for(let i=0;i<150;i++){ stars.push({x:random(0,w),y:random(0,h),r:random(0.5,1.5)}); }
+
+// Shooting Stars
+function createShootingStar(){ shootingStars.push({x:random(0,w),y:random(0,h/2),len:random(50,150),speed:random(10,20),angle:random(-0.3,0.3)}); }
+setInterval(createShootingStar,3000);
+
+// Draw
+function animateStars(){
+  ctx.clearRect(0,0,w,h);
+  stars.forEach(s=>{ ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle="white"; ctx.fill(); });
+  shootingStars.forEach((s,i)=>{ ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x+s.len*Math.cos(s.angle),s.y+s.len*Math.sin(s.angle)); ctx.strokeStyle="white"; ctx.stroke(); s.x+=s.speed*Math.cos(s.angle); s.y+=s.speed*Math.sin(s.angle); if(s.x> w || s.y>h) shootingStars.splice(i,1); });
+  requestAnimationFrame(animateStars);
+}
+animateStars();
+
+window.addEventListener("resize",()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
 </script>
-
-
 </body>
 </html>
