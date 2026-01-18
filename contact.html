@@ -9,8 +9,9 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
-  <!-- Stars Canvas -->
+<body class="fade-in">
+
+  <!-- STAR CANVAS -->
   <canvas id="stars-canvas"></canvas>
 
   <!-- NAVBAR -->
@@ -77,7 +78,6 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("fade-in");
       AOS.init({ duration: 800, once: true, disable: false });
 
       // Mobile menu toggle
@@ -117,8 +117,8 @@
           ctx.fillStyle="white";
           ctx.fill();
           s.x += s.dx; s.y += s.dy;
-          if(s.x>canvas.width)s.x=0; if(s.x<0)s.x=canvas.width;
-          if(s.y>canvas.height)s.y=0; if(s.y<0)s.y=canvas.height;
+          if(s.x>canvas.width || s.x<0) s.dx*=-1;
+          if(s.y>canvas.height || s.y<0) s.dy*=-1;
         });
 
         for(let i=shootingStars.length-1;i>=0;i--){
