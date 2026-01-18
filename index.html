@@ -32,10 +32,16 @@
 <!-- HERO -->
 <section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
   <div data-aos="fade-up">
-    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Welcome to My World</h1>
-    <p class="text-gray-400 text-xl">Cybersecurity | Developer | Creator</p>
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+      I am a <span class="text-white">Computer Science Engineer</span>
+    </h1>
+
+    <h2 class="text-xl md:text-2xl text-gray-400">
+      <span id="rotating-text" class="text-white font-semibold"></span>
+    </h2>
   </div>
 </section>
+
 
 <!-- ABOUT -->
 <section id="about" class="py-32 px-6 bg-gradient-to-b from-black to-gray-900">
@@ -155,5 +161,45 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 800, once: true });</script>
+<script>
+  const words = [
+    "Cybersecurity Aspirant",
+    "Developer",
+    "Problem Solver",
+    "Creative Thinker",
+    "Tech Enthusiast"
+  ];
+
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const speed = 100;
+  const delay = 1500;
+  const textElement = document.getElementById("rotating-text");
+
+  function typeEffect() {
+    const currentWord = words[index];
+
+    if (!isDeleting) {
+      textElement.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentWord.length) {
+        setTimeout(() => isDeleting = true, delay);
+      }
+    } else {
+      textElement.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        index = (index + 1) % words.length;
+      }
+    }
+
+    setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+  }
+
+  typeEffect();
+</script>
+
 </body>
 </html>
