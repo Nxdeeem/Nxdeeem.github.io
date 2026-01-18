@@ -1,43 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nadeem Najumudeen</title>
   <link rel="icon" href="favicon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-    body.fade-in { opacity: 1; }
-
-    canvas#stars-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    .typing::after {
-      content: '|';
-      animation: blink 0.8s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-  </style>
 </head>
+<body class="fade-in">
 
-<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
-  <!-- Stars Canvas -->
+  <!-- STAR CANVAS -->
   <canvas id="stars-canvas"></canvas>
 
   <!-- NAVBAR -->
@@ -52,13 +26,13 @@
         <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
         <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
       </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </nav>
-    <!-- Mobile Menu -->
+    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
       <a href="#hero" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
       <a href="#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
@@ -70,142 +44,116 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Hey, I’m Nadeem</h1>
-    <h2 class="text-2xl md:text-3xl text-gray-300 typing mt-4 mb-10" id="rotating-words"></h2>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="py-24 px-6 text-center max-w-4xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p class="text-gray-300 leading-relaxed text-lg">
-      I'm a passionate computer science enthusiast blending technology, creativity, and problem-solving.
-      I explore startups, web & game development, cybersecurity, and AI-driven solutions.
-      I thrive in teamwork, enjoy building interactive projects, and constantly push the boundaries of what’s possible.
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4">Hey, I’m Nadeem</h1>
+    <p class="text-2xl md:text-3xl mt-2 text-white font-semibold">
+      <span class="typing-text"></span>
     </p>
   </section>
 
-  <!-- TOOLS SECTION -->
-  <section id="tools" class="py-24 px-6 max-w-6xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold text-center mb-12">Tools I Use</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 justify-items-center">
-      <!-- Example tool card -->
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/python.png" alt="Python" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          Python – High-level programming, scripting, automation, and backend logic.
-        </span>
+  <!-- ABOUT ME -->
+  <section id="about" class="py-20 px-4 max-w-4xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6">About Me</h2>
+    <p class="text-gray-300 leading-relaxed text-lg">
+      I’m a passionate Computer Science student and Cybersecurity aspirant who loves designing and building creative solutions.  
+      I enjoy crafting web applications, interactive games, and exploring new tech.  
+      I believe in <strong>critical thinking</strong>, <strong>team collaboration</strong>, and continuous learning to solve real-world problems.  
+      Outside coding, I enjoy gaming and experimenting with new technologies to innovate and create.
+    </p>
+  </section>
+
+  <!-- TOOLS I USE -->
+  <section id="tools" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-10 text-center">Tools I Use</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center items-center">
+      <!-- Example Tool Card -->
+      <div class="tool-card" title="Python - Programming language for web and automation">
+        <img src="icons/python.png" alt="Python">
+        <span>Python</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/javascript.png" alt="JavaScript" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          JavaScript – Frontend interactivity, dynamic websites, and web apps.
-        </span>
+      <div class="tool-card" title="JavaScript - Adds interactivity to websites">
+        <img src="icons/javascript.png" alt="JavaScript">
+        <span>JavaScript</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/html.png" alt="HTML" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          HTML – Structure and layout for responsive websites.
-        </span>
+      <div class="tool-card" title="HTML - Structure of websites">
+        <img src="icons/html.png" alt="HTML">
+        <span>HTML</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/css.png" alt="CSS" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          CSS – Styling, animations, and responsive design.
-        </span>
+      <div class="tool-card" title="CSS - Styling websites">
+        <img src="icons/css.png" alt="CSS">
+        <span>CSS</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/mysql.png" alt="MySQL" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          MySQL – Database management for storing and retrieving data efficiently.
-        </span>
+      <div class="tool-card" title="MySQL - Database management">
+        <img src="icons/mysql.png" alt="MySQL">
+        <span>MySQL</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/bash.png" alt="Bash" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          Bash – Scripting and automation for Linux environments.
-        </span>
+      <div class="tool-card" title="Bash - Command line scripting">
+        <img src="icons/bash.png" alt="Bash">
+        <span>Bash</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/flask.png" alt="Flask" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          Flask – Lightweight Python framework for web apps and APIs.
-        </span>
+      <div class="tool-card" title="Flask - Python backend framework">
+        <img src="icons/flask.png" alt="Flask">
+        <span>Flask</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/react.png" alt="React" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          React – Building interactive and dynamic user interfaces.
-        </span>
+      <div class="tool-card" title="React - Frontend JavaScript library">
+        <img src="icons/react.png" alt="React">
+        <span>React</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/nodejs.png" alt="Node.js" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          Node.js – Backend development using JavaScript, server-side logic.
-        </span>
+      <div class="tool-card" title="Node.js - Backend runtime environment">
+        <img src="icons/nodejs.png" alt="Node.js">
+        <span>Node.js</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/tailwind.png" alt="Tailwind CSS" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          Tailwind CSS – Utility-first framework for fast and responsive design.
-        </span>
+      <div class="tool-card" title="Tailwind CSS - Utility-first CSS framework">
+        <img src="icons/tailwind.png" alt="Tailwind">
+        <span>Tailwind</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/vscode.png" alt="VS Code" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          VS Code – Code editor for programming and web development.
-        </span>
+      <div class="tool-card" title="VS Code - Code editor">
+        <img src="icons/vscode.png" alt="VS Code">
+        <span>VS Code</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/kali.png" alt="Kali Linux" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          Kali Linux – Ethical hacking, penetration testing, and cybersecurity tools.
-        </span>
+      <div class="tool-card" title="Kali Linux - Cybersecurity testing tools">
+        <img src="icons/kali.png" alt="Kali Linux">
+        <span>Kali Linux</span>
       </div>
-      <div class="tool-card flex flex-col items-center group">
-        <img src="icons/github.png" alt="GitHub" class="w-16 h-16 mb-2" />
-        <span class="opacity-0 group-hover:opacity-100 text-center text-gray-200 transition-all">
-          GitHub – Version control and collaboration platform.
-        </span>
+      <div class="tool-card" title="GitHub - Version control and collaboration">
+        <img src="icons/github.png" alt="GitHub">
+        <span>GitHub</span>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="py-24 px-6 max-w-4xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold text-center mb-10">Skills & Strengths</h2>
-    <ul class="text-gray-300 text-lg space-y-4">
-      <li>💻 **Web Design** – Designing intuitive, responsive, and modern interfaces.</li>
-      <li>🧠 **Problem Solving** – Analyzing and tackling challenges efficiently.</li>
-      <li>🤔 **Critical & Logical Thinking** – Structuring solutions and strategies effectively.</li>
-      <li>🤝 **Teamwork & Collaboration** – Coordinating with others for successful projects.</li>
-      <li>🎮 **Game Development** – Creating engaging interactive experiences with user focus.</li>
-    </ul>
+  <!-- SKILLS -->
+  <section id="skills" class="py-20 px-4 max-w-4xl mx-auto" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-10 text-center">Skills</h2>
+    <div class="space-y-4">
+      <div class="skill-card">Web Design – Creating clean, responsive, and interactive websites.</div>
+      <div class="skill-card">Problem Solving – Breaking down complex problems into effective solutions.</div>
+      <div class="skill-card">Critical & Logical Thinking – Analyzing and reasoning to make informed decisions.</div>
+      <div class="skill-card">Teamwork & Collaboration – Working effectively with others to achieve goals.</div>
+    </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="py-24 px-6 max-w-6xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
-        <h3 class="text-xl font-bold mb-3">Human Benchmark</h3>
-        <p class="text-gray-300">Mini-games inspired by Human Benchmark including Aim Trainer, Reaction Time, and Typing Test.</p>
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20 px-4 max-w-5xl mx-auto" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-10 text-center">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="tool-card">
+        <img src="icons/human-benchmark.png" alt="Human Benchmark">
+        <h3 class="font-bold mt-2">Human Benchmark</h3>
+        <p class="text-gray-300 text-sm mt-1">Interactive games to test reaction time, aim, and memory.</p>
       </div>
-      <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
-        <h3 class="text-xl font-bold mb-3">Other Projects</h3>
-        <p class="text-gray-300">Exciting projects coming soon! Stay tuned for web apps and interactive experiences.</p>
+      <div class="tool-card">
+        <h3 class="font-bold mt-2">Other Projects</h3>
+        <p class="text-gray-300 text-sm mt-1">Coming Soon...</p>
       </div>
     </div>
   </section>
 
-  <!-- CV DOWNLOAD BUTTON -->
-  <a href="Nadeem-resume.pdf" download
-     class="fixed bottom-6 right-6 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-500 transition-all duration-300 font-semibold z-50">
-     📄 Download CV
-  </a>
+  <!-- DOWNLOAD CV BUTTON -->
+  <a href="Nadeem-resume.pdf" download class="download-btn">Download CV</a>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 py-6 mt-24 text-center text-gray-400">
+  <footer class="mt-20">
     Designed and Developed by Nadeem 😎
   </footer>
 
@@ -213,115 +161,88 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Fade-in body
+      AOS.init({ duration: 800, once: true });
+
+      // Fade-in
       document.body.classList.add("fade-in");
 
-      // Initialize AOS
-      AOS.init({ duration: 800, once: true, disable: false });
-
-      // Navbar mobile toggle
+      // Mobile menu
       const menuBtn = document.getElementById("menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       menuBtn.addEventListener("click", () => { mobileMenu.classList.toggle("hidden"); });
 
-      // Typing Effect
-      const words = ["Computer Science Engineer","Cybersecurity Aspirant","Web Designer","Prompt Engineer"];
-      const wordElement = document.getElementById("rotating-words");
+      // Typing effect
+      const words = ["Computer Science Engineer", "Cybersecurity Aspirant", "Web Designer", "Prompt Engineer"];
+      const typingText = document.querySelector(".typing-text");
       let wordIndex = 0, charIndex = 0, typing = true;
+      const typeSpeed = 120, eraseSpeed = 60, delay = 1500;
 
       function typeWord() {
-        if(typing){
-          wordElement.textContent = words[wordIndex].substring(0,charIndex+1);
-          charIndex++;
-          if(charIndex === words[wordIndex].length){
-            typing=false;
-            setTimeout(typeWord,1000);
+        if(typing) {
+          if(charIndex < words[wordIndex].length) {
+            typingText.textContent += words[wordIndex][charIndex];
+            charIndex++;
+            setTimeout(typeWord, typeSpeed);
           } else {
-            setTimeout(typeWord,150);
+            typing = false;
+            setTimeout(typeWord, delay);
           }
         } else {
-          wordElement.textContent = words[wordIndex].substring(0,charIndex-1);
-          charIndex--;
-          if(charIndex === 0){
-            typing=true;
-            wordIndex = (wordIndex+1)%words.length;
-            setTimeout(typeWord,200);
+          if(charIndex > 0) {
+            typingText.textContent = words[wordIndex].substring(0, charIndex-1);
+            charIndex--;
+            setTimeout(typeWord, eraseSpeed);
           } else {
-            setTimeout(typeWord,100);
+            typing = true;
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(typeWord, 500);
           }
         }
       }
       typeWord();
 
-      // Stars canvas
-      const canvas = document.getElementById("stars-canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      // STAR CANVAS
+      const canvas = document.getElementById('stars-canvas');
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
 
       const stars = [];
-      for(let i=0;i<150;i++){
-        stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2,dx:(Math.random()-0.5)*0.2,dy:(Math.random()-0.5)*0.2});
+      const numStars = 150;
+      for(let i=0;i<numStars;i++){
+        stars.push({x:Math.random()*w, y:Math.random()*h, r:Math.random()*2+1, dx:Math.random()*0.5-0.25, dy:Math.random()*0.5-0.25});
       }
 
-      const shootingStars = [];
-      function createShootingStar(){
-        shootingStars.push({
-          x: Math.random()*canvas.width,
-          y: Math.random()*canvas.height/2,
-          len: Math.random()*200+100,
-          speed: Math.random()*10+6,
-          angle: Math.random()*Math.PI/6 - Math.PI/12
-        });
-      }
-      setInterval(createShootingStar,2000);
-
-      function animateStars(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-
+      function drawStars(){
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle='white';
         stars.forEach(s=>{
           ctx.beginPath();
           ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-          ctx.fillStyle="white";
           ctx.fill();
           s.x += s.dx; s.y += s.dy;
-          if(s.x>canvas.width)s.x=0; if(s.x<0)s.x=canvas.width;
-          if(s.y>canvas.height)s.y=0; if(s.y<0)s.y=canvas.height;
+          if(s.x<0||s.x>w) s.dx*=-1;
+          if(s.y<0||s.y>h) s.dy*=-1;
         });
-
-        for(let i=shootingStars.length-1;i>=0;i--){
-          let s=shootingStars[i];
-          ctx.beginPath();
-          ctx.moveTo(s.x,s.y);
-          ctx.lineTo(s.x - s.len*Math.cos(s.angle), s.y - s.len*Math.sin(s.angle));
-          ctx.strokeStyle="white";
-          ctx.lineWidth=2;
-          ctx.stroke();
-          s.x += s.speed*Math.cos(s.angle);
-          s.y += s.speed*Math.sin(s.angle);
-          if(s.x>canvas.width || s.y>canvas.height) shootingStars.splice(i,1);
-        }
-
         // Constellation lines
-        const maxDist = 120;
         for(let i=0;i<stars.length;i++){
           for(let j=i+1;j<stars.length;j++){
-            const dx=stars[i].x-stars[j].x, dy=stars[i].y-stars[j].y;
+            const dx=stars[i].x-stars[j].x;
+            const dy=stars[i].y-stars[j].y;
             const dist=Math.sqrt(dx*dx+dy*dy);
-            if(dist<maxDist){
+            if(dist<120){
+              ctx.strokeStyle='rgba(255,255,255,0.1)';
+              ctx.lineWidth=0.5;
               ctx.beginPath();
               ctx.moveTo(stars[i].x,stars[i].y);
               ctx.lineTo(stars[j].x,stars[j].y);
-              ctx.strokeStyle="rgba(255,255,255,"+(1-dist/maxDist)+")";
-              ctx.lineWidth=0.2;
               ctx.stroke();
             }
           }
         }
-
-        requestAnimationFrame(animateStars);
       }
-      animateStars();
+      setInterval(drawStars,30);
+      window.addEventListener('resize',()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
     });
   </script>
 </body>
