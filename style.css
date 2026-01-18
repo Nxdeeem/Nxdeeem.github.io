@@ -1,3 +1,4 @@
+/* ---------- GLOBAL ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +10,10 @@ body {
   background: #050505;
   color: white;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* STAR CANVAS */
+/* ---------- STAR CANVAS ---------- */
 canvas {
   position: fixed;
   top: 0;
@@ -19,17 +21,19 @@ canvas {
   z-index: -1;
 }
 
-/* SECTIONS */
+/* ---------- SECTIONS ---------- */
 section {
   min-height: 100vh;
-  padding: 80px 10%;
+  padding: 120px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  transition: background 0.6s ease;
 }
 
 section:nth-child(even) {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.01);
 }
 
 h1 {
@@ -39,18 +43,36 @@ h1 {
 h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  min-height: 40px;
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 #hero {
   text-align: center;
 }
 
-/* SKILLS */
+#hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 10px;
+}
+
+#hero h1 span {
+  color: #38bdf8;
+}
+
+#hero h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #cbd5f5;
+  min-height: 40px;
+}
+
+/* ---------- SKILLS / TOOLS ---------- */
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
   gap: 25px;
+  margin-top: 30px;
 }
 
 .skill-card {
@@ -58,26 +80,50 @@ h2 {
   padding: 20px;
   border-radius: 15px;
   text-align: center;
-  transition: 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .skill-card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,255,255,0.3);
 }
 
 .skill-card img {
   width: 50px;
+  height: 50px;
   margin-bottom: 10px;
+  transition: transform 0.3s;
 }
 
-/* CONTACT */
+.skill-card img:hover {
+  transform: scale(1.2);
+}
+
+/* ---------- CONTACT ---------- */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 .contact-links a {
-  margin-right: 20px;
   color: #7dd3fc;
   text-decoration: none;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  transition: transform 0.3s, background 0.3s;
 }
 
-/* CV BUTTON */
+.contact-links a:hover {
+  transform: translateY(-4px);
+  background: rgba(0,170,255,0.2);
+}
+
+/* ---------- CV BUTTON ---------- */
 .cv-btn {
   position: fixed;
   bottom: 20px;
@@ -88,11 +134,40 @@ h2 {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  z-index: 1000;
+  transition: transform 0.3s, background 0.3s;
 }
 
-/* FOOTER */
+.cv-btn:hover {
+  transform: translateY(-5px);
+  background: #0284c7;
+}
+
+/* ---------- FOOTER ---------- */
 footer {
   text-align: center;
   padding: 20px;
   background: rgba(0,0,0,0.5);
+  margin-top: 50px;
+  font-weight: 500;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  section {
+    padding: 100px 5%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+  }
 }
