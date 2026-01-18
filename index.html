@@ -1,249 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadeem Najumudeen</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadeem Najumudeen</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+<style>
+html { scroll-behavior: smooth; }
+body { opacity:0; transition:opacity 0.6s ease-in-out; overflow-x:hidden;}
+body.fade-in{opacity:1;}
+/* Hero stars background */
+#stars, #stars2, #stars3 {position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1;}
+.tool-card:hover{transform:scale(1.05);}
+.tool-card{transition:all 0.3s ease;}
+</style>
 </head>
-<body class="fade-in">
+<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans relative">
 
-  <!-- STAR CANVAS -->
-  <canvas id="stars-canvas"></canvas>
+<!-- STARS & CONSTELLATIONS -->
+<canvas id="stars"></canvas>
+<canvas id="stars2"></canvas>
+<canvas id="stars3"></canvas>
 
-  <!-- NAVBAR -->
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-      <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="#hero" class="hover:text-white transition">HOME</a></li>
-        <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
-        <li><a href="#tools" class="hover:text-white transition">TOOLS</a></li>
-        <li><a href="#skills" class="hover:text-white transition">SKILLS</a></li>
-        <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
-        <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </nav>
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
-      <a href="#hero" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-      <a href="#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
-      <a href="#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
-      <a href="#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+<!-- NAVBAR -->
+<header class="bg-gray-900 bg-opacity-80 py-4 fixed top-0 w-full z-50 shadow-md">
+<nav class="container mx-auto px-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold">Nadeem Najumudeen</h1>
+  <ul class="hidden md:flex space-x-6 text-gray-300">
+    <li><a href="#hero" class="hover:text-white transition">HOME</a></li>
+    <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
+    <li><a href="#tools" class="hover:text-white transition">TOOLS</a></li>
+    <li><a href="#skills" class="hover:text-white transition">SKILLS</a></li>
+    <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
+    <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
+  </ul>
+</nav>
+</header>
+
+<!-- HERO SECTION -->
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center pt-24 px-6">
+  <h1 class="text-5xl md:text-6xl font-bold mb-4">Hey, I’m Nadeem</h1>
+  <p class="text-2xl md:text-3xl text-gray-300">
+    <span id="role-text" class="text-white font-semibold"></span>
+  </p>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="px-6 py-20 bg-gradient-to-b from-[#0F172A] to-black">
+  <h2 class="text-4xl font-bold text-center mb-8" data-aos="fade-up">About Me</h2>
+  <p class="text-gray-300 max-w-3xl mx-auto text-center" data-aos="fade-up">
+    I am passionate about **Web Design, Game Development, Cybersecurity, and AI**. 
+    I enjoy building interactive experiences, solving complex problems, and learning new technologies.
+    My goal is to blend creativity with technology to make innovative projects that have real impact.
+  </p>
+</section>
+
+<!-- TOOLS I USE -->
+<section id="tools" class="px-6 py-20">
+  <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">🛠️ Tools I Use</h2>
+  <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8" data-aos="fade-up">
+    <div class="tool-card text-center">
+      <img src="icons/python.png" alt="Python" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">Python</h3>
+      <p class="text-gray-300 text-sm">High-level programming & automation</p>
     </div>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4">Hey, I’m Nadeem</h1>
-    <p class="text-2xl md:text-3xl mt-2 text-white font-semibold">
-      <span class="typing-text"></span>
-    </p>
-  </section>
-
-  <!-- ABOUT ME -->
-  <section id="about" class="py-20 px-4 max-w-4xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p class="text-gray-300 leading-relaxed text-lg">
-      I’m a passionate Computer Science student and Cybersecurity aspirant who loves designing and building creative solutions.  
-      I enjoy crafting web applications, interactive games, and exploring new tech.  
-      I believe in <strong>critical thinking</strong>, <strong>team collaboration</strong>, and continuous learning to solve real-world problems.  
-      Outside coding, I enjoy gaming and experimenting with new technologies to innovate and create.
-    </p>
-  </section>
-
-  <!-- TOOLS I USE -->
-  <section id="tools" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-10 text-center">Tools I Use</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center items-center">
-      <!-- Example Tool Card -->
-      <div class="tool-card" title="Python - Programming language for web and automation">
-        <img src="icons/python.png" alt="Python">
-        <span>Python</span>
-      </div>
-      <div class="tool-card" title="JavaScript - Adds interactivity to websites">
-        <img src="icons/javascript.png" alt="JavaScript">
-        <span>JavaScript</span>
-      </div>
-      <div class="tool-card" title="HTML - Structure of websites">
-        <img src="icons/html.png" alt="HTML">
-        <span>HTML</span>
-      </div>
-      <div class="tool-card" title="CSS - Styling websites">
-        <img src="icons/css.png" alt="CSS">
-        <span>CSS</span>
-      </div>
-      <div class="tool-card" title="MySQL - Database management">
-        <img src="icons/mysql.png" alt="MySQL">
-        <span>MySQL</span>
-      </div>
-      <div class="tool-card" title="Bash - Command line scripting">
-        <img src="icons/bash.png" alt="Bash">
-        <span>Bash</span>
-      </div>
-      <div class="tool-card" title="Flask - Python backend framework">
-        <img src="icons/flask.png" alt="Flask">
-        <span>Flask</span>
-      </div>
-      <div class="tool-card" title="React - Frontend JavaScript library">
-        <img src="icons/react.png" alt="React">
-        <span>React</span>
-      </div>
-      <div class="tool-card" title="Node.js - Backend runtime environment">
-        <img src="icons/nodejs.png" alt="Node.js">
-        <span>Node.js</span>
-      </div>
-      <div class="tool-card" title="Tailwind CSS - Utility-first CSS framework">
-        <img src="icons/tailwind.png" alt="Tailwind">
-        <span>Tailwind</span>
-      </div>
-      <div class="tool-card" title="VS Code - Code editor">
-        <img src="icons/vscode.png" alt="VS Code">
-        <span>VS Code</span>
-      </div>
-      <div class="tool-card" title="Kali Linux - Cybersecurity testing tools">
-        <img src="icons/kali.png" alt="Kali Linux">
-        <span>Kali Linux</span>
-      </div>
-      <div class="tool-card" title="GitHub - Version control and collaboration">
-        <img src="icons/github.png" alt="GitHub">
-        <span>GitHub</span>
-      </div>
+    <div class="tool-card text-center">
+      <img src="icons/javascript.png" alt="JavaScript" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">JavaScript</h3>
+      <p class="text-gray-300 text-sm">Front-end logic & interactive apps</p>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="py-20 px-4 max-w-4xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-10 text-center">Skills</h2>
-    <div class="space-y-4">
-      <div class="skill-card">Web Design – Creating clean, responsive, and interactive websites.</div>
-      <div class="skill-card">Problem Solving – Breaking down complex problems into effective solutions.</div>
-      <div class="skill-card">Critical & Logical Thinking – Analyzing and reasoning to make informed decisions.</div>
-      <div class="skill-card">Teamwork & Collaboration – Working effectively with others to achieve goals.</div>
+    <div class="tool-card text-center">
+      <img src="icons/html.png" alt="HTML" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">HTML</h3>
+      <p class="text-gray-300 text-sm">Website structure & markup</p>
     </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-20 px-4 max-w-5xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-10 text-center">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="tool-card">
-        <img src="icons/human-benchmark.png" alt="Human Benchmark">
-        <h3 class="font-bold mt-2">Human Benchmark</h3>
-        <p class="text-gray-300 text-sm mt-1">Interactive games to test reaction time, aim, and memory.</p>
-      </div>
-      <div class="tool-card">
-        <h3 class="font-bold mt-2">Other Projects</h3>
-        <p class="text-gray-300 text-sm mt-1">Coming Soon...</p>
-      </div>
+    <div class="tool-card text-center">
+      <img src="icons/css.png" alt="CSS" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">CSS</h3>
+      <p class="text-gray-300 text-sm">Styling & layouts</p>
     </div>
-  </section>
+    <div class="tool-card text-center">
+      <img src="icons/react.png" alt="React" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">React</h3>
+      <p class="text-gray-300 text-sm">Front-end library for UI</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/nodejs.png" alt="Node.js" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">Node.js</h3>
+      <p class="text-gray-300 text-sm">Back-end runtime</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/tailwind.png" alt="Tailwind CSS" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">Tailwind CSS</h3>
+      <p class="text-gray-300 text-sm">Rapid UI design framework</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/mysql.png" alt="MySQL" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">MySQL</h3>
+      <p class="text-gray-300 text-sm">Relational database management</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/bash.png" alt="Bash" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">Bash</h3>
+      <p class="text-gray-300 text-sm">Scripting & Linux automation</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/flask.png" alt="Flask" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">Flask</h3>
+      <p class="text-gray-300 text-sm">Python microframework for web</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/vscode.png" alt="VS Code" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">VS Code</h3>
+      <p class="text-gray-300 text-sm">Code editor for all projects</p>
+    </div>
+    <div class="tool-card text-center">
+      <img src="icons/kali.png" alt="Kali Linux" class="w-16 h-16 mx-auto mb-2">
+      <h3 class="font-semibold text-white">Kali Linux</h3>
+      <p class="text-gray-300 text-sm">Pen-testing & cybersecurity</p>
+    </div>
+  </div>
+</section>
 
-  <!-- DOWNLOAD CV BUTTON -->
-  <a href="Nadeem-resume.pdf" download class="download-btn">Download CV</a>
+<!-- SKILLS SECTION -->
+<section id="skills" class="px-6 py-20 bg-gradient-to-b from-black to-gray-900">
+  <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Skills</h2>
+  <div class="max-w-4xl mx-auto space-y-6 text-gray-300 text-lg" data-aos="fade-up">
+    <p><strong>Web Design:</strong> Creating responsive and visually appealing websites with a focus on UX/UI.</p>
+    <p><strong>Problem Solving:</strong> Ability to analyze problems critically and come up with efficient solutions.</p>
+    <p><strong>Critical & Logical Thinking:</strong> Approach challenges with a methodical mindset for optimal results.</p>
+    <p><strong>Teamwork & Collaboration:</strong> Work effectively in a team, communicate clearly, and share ideas.</p>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="mt-20">
-    Designed and Developed by Nadeem 😎
-  </footer>
+<!-- PROJECTS -->
+<section id="projects" class="px-6 py-20">
+  <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Projects</h2>
+  <div class="max-w-4xl mx-auto space-y-12" data-aos="fade-up">
+    <div class="bg-gray-800 rounded-xl p-6 text-center">
+      <h3 class="text-2xl font-semibold mb-2">🎯 Human Benchmark</h3>
+      <p class="text-gray-300">Interactive mini games to test reaction, aim, and typing speed. Stats tracking included.</p>
+    </div>
+    <div class="bg-gray-800 rounded-xl p-6 text-center">
+      <h3 class="text-2xl font-semibold mb-2">🚧 Other Projects</h3>
+      <p class="text-gray-300">Coming soon! Stay tuned for live demos and portfolio updates.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, once: true });
+<!-- CV DOWNLOAD BUTTON -->
+<a href="Nadeem-resume.pdf" download class="fixed bottom-6 right-6 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-500 transition-all z-50">
+  📄 Download CV
+</a>
 
-      // Fade-in
-      document.body.classList.add("fade-in");
+<!-- FOOTER -->
+<footer class="py-6 text-center text-gray-400 bg-gradient-to-t from-gray-900 to-black mt-20">
+  Designed and Developed by Nadeem 😎
+</footer>
 
-      // Mobile menu
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () => { mobileMenu.classList.toggle("hidden"); });
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init({ duration: 800, once: true });
 
-      // Typing effect
-      const words = ["Computer Science Engineer", "Cybersecurity Aspirant", "Web Designer", "Prompt Engineer"];
-      const typingText = document.querySelector(".typing-text");
-      let wordIndex = 0, charIndex = 0, typing = true;
-      const typeSpeed = 120, eraseSpeed = 60, delay = 1500;
+  // Fade-in
+  document.body.classList.add("fade-in");
 
-      function typeWord() {
-        if(typing) {
-          if(charIndex < words[wordIndex].length) {
-            typingText.textContent += words[wordIndex][charIndex];
-            charIndex++;
-            setTimeout(typeWord, typeSpeed);
-          } else {
-            typing = false;
-            setTimeout(typeWord, delay);
-          }
-        } else {
-          if(charIndex > 0) {
-            typingText.textContent = words[wordIndex].substring(0, charIndex-1);
-            charIndex--;
-            setTimeout(typeWord, eraseSpeed);
-          } else {
-            typing = true;
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(typeWord, 500);
-          }
-        }
-      }
-      typeWord();
-
-      // STAR CANVAS
-      const canvas = document.getElementById('stars-canvas');
-      const ctx = canvas.getContext('2d');
-      let w = canvas.width = window.innerWidth;
-      let h = canvas.height = window.innerHeight;
-
-      const stars = [];
-      const numStars = 150;
-      for(let i=0;i<numStars;i++){
-        stars.push({x:Math.random()*w, y:Math.random()*h, r:Math.random()*2+1, dx:Math.random()*0.5-0.25, dy:Math.random()*0.5-0.25});
-      }
-
-      function drawStars(){
-        ctx.clearRect(0,0,w,h);
-        ctx.fillStyle='white';
-        stars.forEach(s=>{
-          ctx.beginPath();
-          ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-          ctx.fill();
-          s.x += s.dx; s.y += s.dy;
-          if(s.x<0||s.x>w) s.dx*=-1;
-          if(s.y<0||s.y>h) s.dy*=-1;
-        });
-        // Constellation lines
-        for(let i=0;i<stars.length;i++){
-          for(let j=i+1;j<stars.length;j++){
-            const dx=stars[i].x-stars[j].x;
-            const dy=stars[i].y-stars[j].y;
-            const dist=Math.sqrt(dx*dx+dy*dy);
-            if(dist<120){
-              ctx.strokeStyle='rgba(255,255,255,0.1)';
-              ctx.lineWidth=0.5;
-              ctx.beginPath();
-              ctx.moveTo(stars[i].x,stars[i].y);
-              ctx.lineTo(stars[j].x,stars[j].y);
-              ctx.stroke();
-            }
-          }
-        }
-      }
-      setInterval(drawStars,30);
-      window.addEventListener('resize',()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
-    });
-  </script>
+  // Hero typing effect
+  const roles = ["Computer Science Engineer", "Cybersecurity Aspirant", "Web Designer", "Prompt Engineer"];
+  const roleText = document.getElementById("role-text");
+  let i=0, j=0, typing=true;
+  function typeRole() {
+    if (typing) {
+      if(j<roles[i].length){ roleText.textContent += roles[i][j]; j++; setTimeout(typeRole,100);}
+      else { typing=false; setTimeout(typeRole,1500);}
+    } else {
+      if(j>0){ roleText.textContent=roles[i].substring(0,j-1); j--; setTimeout(typeRole,50);}
+      else { typing=true; i=(i+1)%roles.length; setTimeout(typeRole,500);}
+    }
+  }
+  typeRole();
+});
+</script>
+<script src="stars.js"></script> <!-- For stars + shooting stars + constellation lines -->
 </body>
 </html>
