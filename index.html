@@ -2,183 +2,184 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to My World</title>
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Devicon (FIXES missing programming icons) -->
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="style.css">
+  <title>Welcome to My World | Nadeem</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="fade-in">
+<body>
 
-  <!-- ⭐ STAR BACKGROUND -->
-  <canvas id="stars-canvas"></canvas>
+<!-- STAR BACKGROUND -->
+<canvas id="stars"></canvas>
 
-  <!-- HEADER -->
-  <header class="fixed top-0 w-full">
-    <nav class="flex justify-between items-center px-8 py-4">
-      <h1 class="text-xl font-bold">Nadeem</h1>
-      <div class="space-x-6 hidden md:block">
-        <a href="#hero">Home</a>
-        <a href="#skills">Skills</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+<!-- HERO -->
+<section id="hero">
+  <h1>Hey, I'm <span>Nadeem</span></h1>
+  <h2>
+    <span id="typing-text"></span>
+  </h2>
+</section>
 
-  <!-- HERO -->
-  <section id="hero">
-    <h1 class="text-4xl font-bold mb-4">Welcome to My World</h1>
-    <p class="text-gray-400">Cybersecurity • Developer • Creator</p>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="text-center">
-    <h2 class="text-3xl font-bold mb-10">Programming Skills</h2>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I’m a Computer Science student passionate about cybersecurity, web development,
+    and building creative digital experiences. I enjoy learning, experimenting,
+    and helping others grow.
+  </p>
+</section>
 
-    <div class="flex justify-center flex-wrap gap-6">
-      <div class="tool-card">
-        <i class="devicon-python-plain colored text-4xl"></i>
-        <span>Python</span>
-      </div>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills & Tools</h2>
 
-      <div class="tool-card">
-        <i class="devicon-c-plain colored text-4xl"></i>
-        <span>C</span>
-      </div>
+  <div class="skill-grid">
 
-      <div class="tool-card">
-        <i class="devicon-javascript-plain colored text-4xl"></i>
-        <span>JavaScript</span>
-      </div>
-
-      <div class="tool-card">
-        <i class="devicon-html5-plain colored text-4xl"></i>
-        <span>HTML</span>
-      </div>
-
-      <div class="tool-card">
-        <i class="devicon-css3-plain colored text-4xl"></i>
-        <span>CSS</span>
-      </div>
+    <div class="skill-card">
+      <img src="icons/python.png">
+      <h3>Python</h3>
+      <p>Scripting, automation, problem solving</p>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Nadeem Najumudeen
-  </footer>
+    <div class="skill-card">
+      <img src="icons/javascript.png">
+      <h3>JavaScript</h3>
+      <p>Interactive web experiences</p>
+    </div>
 
-  <!-- ⭐ CONSTELLATION SCRIPT -->
- <script>
-  const canvas = document.getElementById("stars-canvas");
-  const ctx = canvas.getContext("2d");
+    <div class="skill-card">
+      <img src="icons/html.png">
+      <h3>HTML</h3>
+      <p>Semantic and accessible structure</p>
+    </div>
 
-  let w, h;
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resize);
-  resize();
+    <div class="skill-card">
+      <img src="icons/css.png">
+      <h3>CSS</h3>
+      <p>Modern responsive layouts</p>
+    </div>
 
-  /* ================= STAR SETTINGS ================= */
-  const STAR_COUNT = 160;
-  const CONNECT_DIST = 130;
+    <div class="skill-card">
+      <img src="icons/mysql.png">
+      <h3>MySQL</h3>
+      <p>Relational database management</p>
+    </div>
 
-  const mouse = { x: null, y: null };
+    <div class="skill-card">
+      <img src="icons/bash.png">
+      <h3>Bash</h3>
+      <p>Linux automation & scripting</p>
+    </div>
 
-  window.addEventListener("mousemove", e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
+    <div class="skill-card">
+      <img src="icons/flask.png">
+      <h3>Flask</h3>
+      <p>Backend APIs & microservices</p>
+    </div>
 
-  window.addEventListener("mouseleave", () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
+    <div class="skill-card">
+      <img src="icons/react.png">
+      <h3>React</h3>
+      <p>Component-based UI</p>
+    </div>
 
-  /* ================= STAR OBJECT ================= */
-  const stars = [];
+    <div class="skill-card">
+      <img src="icons/node.png">
+      <h3>Node.js</h3>
+      <p>Server-side JavaScript</p>
+    </div>
 
-  for (let i = 0; i < STAR_COUNT; i++) {
-    stars.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      size: Math.random() * 1.5 + 0.5,
-      depth: Math.random() * 0.6 + 0.4   // ⭐ parallax depth
-    });
-  }
+    <div class="skill-card">
+      <img src="icons/tailwind.png">
+      <h3>Tailwind CSS</h3>
+      <p>Utility-first styling</p>
+    </div>
 
-  /* ================= ANIMATION ================= */
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
+    <div class="skill-card">
+      <img src="icons/kali.png">
+      <h3>Kali Linux</h3>
+      <p>Penetration testing OS</p>
+    </div>
 
-    for (let i = 0; i < stars.length; i++) {
-      const s = stars[i];
+    <div class="skill-card">
+      <img src="icons/nmap.png">
+      <h3>Nmap</h3>
+      <p>Network scanning & enumeration</p>
+    </div>
 
-      // 🌌 Parallax movement
-      s.x += s.vx * s.depth;
-      s.y += s.vy * s.depth;
+    <div class="skill-card">
+      <img src="icons/burpsuite.png">
+      <h3>Burp Suite</h3>
+      <p>Web security testing</p>
+    </div>
 
-      if (s.x < 0 || s.x > w) s.vx *= -1;
-      if (s.y < 0 || s.y > h) s.vy *= -1;
+    <div class="skill-card">
+      <img src="icons/metasploit.png">
+      <h3>Metasploit</h3>
+      <p>Exploitation framework</p>
+    </div>
 
-      // ✨ Draw star
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-      ctx.fillStyle = "#fff";
-      ctx.fill();
+  </div>
+</section>
 
-      // 🔗 Lines between stars
-      for (let j = i + 1; j < stars.length; j++) {
-        const t = stars[j];
-        const dx = s.x - t.x;
-        const dy = s.y - t.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <p>More exciting projects coming soon 🚀</p>
+</section>
 
-        if (dist < CONNECT_DIST) {
-          ctx.strokeStyle = `rgba(255,255,255,${1 - dist / CONNECT_DIST})`;
-          ctx.lineWidth = 0.4;
-          ctx.beginPath();
-          ctx.moveTo(s.x, s.y);
-          ctx.lineTo(t.x, t.y);
-          ctx.stroke();
-        }
-      }
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contacts</h2>
+  <div class="contact-links">
+    <a href="mailto:yourmail@gmail.com">Email</a>
+    <a href="https://linkedin.com">LinkedIn</a>
+    <a href="https://instagram.com">Instagram</a>
+  </div>
+</section>
 
-      // 🖱 Mouse interaction
-      if (mouse.x && mouse.y) {
-        const dxm = s.x - mouse.x;
-        const dym = s.y - mouse.y;
-        const mdist = Math.sqrt(dxm * dxm + dym * dym);
+<!-- CV BUTTON -->
+<a class="cv-btn" href="Nadeem-resume.pdf" download>Download CV</a>
 
-        if (mdist < 140) {
-          ctx.strokeStyle = `rgba(255,255,255,${1 - mdist / 140})`;
-          ctx.lineWidth = 0.6;
-          ctx.beginPath();
-          ctx.moveTo(s.x, s.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-        }
-      }
+<footer>
+  Designed and Developed by Nadeem 😎
+</footer>
+
+<script src="stars.js"></script>
+<script>
+const roles = [
+  "Computer Science Engineer",
+  "Cyber Security Enthusiast",
+  "Web Developer",
+  "Prompt Engineer"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingText = document.getElementById("typing-text");
+
+function typeEffect() {
+  const currentRole = roles[roleIndex];
+
+  if (!isDeleting) {
+    typingText.textContent = currentRole.slice(0, charIndex++);
+    if (charIndex > currentRole.length) {
+      setTimeout(() => isDeleting = true, 1200);
     }
-
-    requestAnimationFrame(animate);
+  } else {
+    typingText.textContent = currentRole.slice(0, charIndex--);
+    if (charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
   }
+  setTimeout(typeEffect, isDeleting ? 60 : 100);
+}
 
-  animate();
+typeEffect();
 </script>
-
 
 </body>
 </html>
