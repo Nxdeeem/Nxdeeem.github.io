@@ -1,176 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nadeem Najumudeen</title>
-<link rel="icon" href="favicon.png" type="image/png" />
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<link rel="stylesheet" href="style.css">
-
-<style>
-html { scroll-behavior: smooth; }
-body { opacity: 0; transition: opacity 0.6s ease-in-out; }
-body.fade-in { opacity: 1; }
-
-/* Scroll indicator animation */
-.scroll-indicator { animation: bounce 1.5s infinite; }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-
-/* Night sky canvas overlay */
-#night-sky { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nadeem Najumudeen</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
+  <!-- NAVBAR -->
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
+      <ul class="hidden md:flex space-x-6 text-gray-300">
+        <li><a href="#home" class="hover:text-white transition">HOME</a></li>
+        <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="#tools" class="hover:text-white transition">TOOLS</a></li>
+        <li><a href="#skills" class="hover:text-white transition">SKILLS</a></li>
+        <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
 
-<!-- NAVBAR -->
-<header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md backdrop-blur-sm">
-<nav class="container mx-auto px-4 flex justify-between items-center">
-  <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-  <ul class="hidden md:flex space-x-6 text-gray-300">
-    <li><a href="#home" class="hover:text-white transition">HOME</a></li>
-    <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
-    <li><a href="#tools" class="hover:text-white transition">TOOLS</a></li>
-    <li><a href="#skills" class="hover:text-white transition">SKILLS</a></li>
-    <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
-    <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
-  </ul>
-  <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
-</nav>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
+      <a href="#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
+      <a href="#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
+      <a href="#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
+      <a href="#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
+      <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+    </div>
+  </header>
 
-<div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
-  <a href="#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-  <a href="#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-  <a href="#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
-  <a href="#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
-  <a href="#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-  <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
-</div>
-</header>
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen relative flex flex-col justify-center items-center text-center px-6 pt-28 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+    <!-- Stars Canvas -->
+    <canvas id="stars-canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
 
-<!-- NIGHT SKY CANVAS -->
-<canvas id="night-sky"></canvas>
+    <div class="relative z-10" data-aos="fade-up">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Hey, I’m Nadeem</h1>
+      <p class="text-xl md:text-2xl text-gray-300">
+        <span id="typed-words" class="text-white font-semibold"></span>
+      </p>
 
-<!-- HERO SECTION -->
-<section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
-  <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Hey, I’m Nadeem</h1>
-  <p class="text-xl md:text-2xl text-gray-300">
-    <span id="rotating-words" class="text-white font-semibold"></span>
-  </p>
-  <div class="mt-10 scroll-indicator text-gray-400 text-sm">⬇ Scroll Down</div>
-</section>
+      <div class="mt-8 flex justify-center space-x-4">
+        <a href="Nadeem_CV.pdf" download class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-semibold transition-all">Download CV</a>
+        <a href="https://github.com/Nxdeeem" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-full font-semibold transition-all">GitHub</a>
+      </div>
 
-<!-- ABOUT ME -->
-<section id="about" class="pt-20 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
-  <h2 class="text-4xl font-bold mb-6">About Me</h2>
-  <p class="text-gray-300 leading-relaxed text-lg">
-    I’m a passionate Computer Science Engineer and Cybersecurity aspirant. I love blending technology with creativity, building web apps, games, and exploring startups.
-    I thrive in solving problems, thinking critically, and learning new tools. I enjoy collaborating with like-minded people to turn ideas into reality.
-    Outside coding, I’m into gaming, tech discussions, and exploring innovative solutions to real-world challenges.
-  </p>
-</section>
+      <!-- GitHub Graph Embed -->
+      <div class="mt-10">
+        <img src="https://ghchart.rshah.org/Nxdeeem" alt="GitHub Contributions Graph" class="mx-auto rounded-lg shadow-lg">
+      </div>
+    </div>
+  </section>
 
-<!-- TOOLS I USE -->
-<section id="tools" class="pt-20 px-6 max-w-5xl mx-auto" data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-center mb-8">💻 Tools I Use</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center text-gray-300">
-    <div class="tool hover:text-white transition" title="Python">🐍</div>
-    <div class="tool hover:text-white transition" title="C">🔧</div>
-    <div class="tool hover:text-white transition" title="Bash">🖥️</div>
-    <div class="tool hover:text-white transition" title="HTML">📄</div>
-    <div class="tool hover:text-white transition" title="JavaScript">🧠</div>
-    <div class="tool hover:text-white transition" title="CSS">🎨</div>
-    <div class="tool hover:text-white transition" title="VS Code">📝</div>
-    <div class="tool hover:text-white transition" title="GitHub">🐙</div>
-    <div class="tool hover:text-white transition" title="React">⚛️</div>
-    <div class="tool hover:text-white transition" title="Node.js">🖥️</div>
-  </div>
-</section>
+  <!-- ABOUT ME -->
+  <section id="about" class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-6 py-20">
+    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-6">About Me</h2>
+      <p class="text-gray-300 text-lg leading-relaxed mb-6">
+        I’m a computer science engineer and cybersecurity aspirant passionate about creating engaging web experiences and exploring innovative tech solutions.  
+        I love web design, game development, and problem-solving. I enjoy collaborating with others, critical thinking, and applying logic to real-world challenges.  
+        My goal is to combine creativity with technology to build impactful and interactive applications.
+      </p>
+    </div>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills" class="pt-20 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-6">🎯 Skills</h2>
-  <ul class="list-disc list-inside text-gray-300 space-y-3 text-left max-w-xl mx-auto">
-    <li><strong>Web Design:</strong> Creating responsive, visually appealing, and user-friendly websites.</li>
-    <li><strong>Problem Solving:</strong> Analyzing challenges and designing logical solutions efficiently.</li>
-    <li><strong>Critical & Logical Thinking:</strong> Breaking down complex problems into manageable parts.</li>
-    <li><strong>Teamwork & Collaboration:</strong> Working effectively with others to achieve shared goals.</li>
-    <li><strong>Creativity:</strong> Applying innovative thinking to design and development projects.</li>
-  </ul>
-</section>
+  <!-- TOOLS I USE -->
+  <section id="tools" class="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-6 py-20">
+    <div class="max-w-6xl mx-auto" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-12 text-center">Tools I Use</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 justify-items-center">
+        <!-- Example Tool -->
+        <div class="flex flex-col items-center space-y-3 group">
+          <img src="https://img.icons8.com/color/96/000000/python.png" alt="Python" class="w-16 h-16">
+          <p class="text-gray-300 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">Python – Programming & automation</p>
+        </div>
+        <div class="flex flex-col items-center space-y-3 group">
+          <img src="https://img.icons8.com/color/96/000000/javascript.png" alt="JavaScript" class="w-16 h-16">
+          <p class="text-gray-300 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">JavaScript – Web interactivity & dynamic content</p>
+        </div>
+        <div class="flex flex-col items-center space-y-3 group">
+          <img src="https://img.icons8.com/color/96/000000/html-5.png" alt="HTML" class="w-16 h-16">
+          <p class="text-gray-300 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">HTML – Structuring web pages</p>
+        </div>
+        <div class="flex flex-col items-center space-y-3 group">
+          <img src="https://img.icons8.com/color/96/000000/css3.png" alt="CSS" class="w-16 h-16">
+          <p class="text-gray-300 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">CSS – Styling & layouts</p>
+        </div>
+        <!-- Add more tools as needed -->
+      </div>
+    </div>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="pt-20 px-6 min-h-screen text-center" data-aos="fade-up">
-  <h2 class="text-4xl font-bold mb-6">🚀 Projects</h2>
-  <p class="text-gray-300">Coming soon: Human Benchmark and other interactive projects!</p>
-</section>
+  <!-- SKILLS -->
+  <section id="skills" class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-6 py-20">
+    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-8">Skills</h2>
+      <ul class="text-gray-300 text-lg space-y-4 text-left md:text-center">
+        <li><strong>Web Design:</strong> Creating visually appealing and user-friendly websites.</li>
+        <li><strong>Problem Solving:</strong> Breaking down complex challenges and finding efficient solutions.</li>
+        <li><strong>Critical & Logical Thinking:</strong> Applying structured reasoning to solve technical and business problems.</li>
+        <li><strong>Teamwork & Collaboration:</strong> Working effectively with others to achieve shared goals.</li>
+      </ul>
+    </div>
+  </section>
 
-<!-- CONTACT SECTION -->
-<section id="contact" class="pt-20 px-6 bg-gray-900 text-white py-20" data-aos="fade-up">
-  <h2 class="text-4xl font-bold mb-8 text-center">CONTACT</h2>
-  <div class="max-w-3xl mx-auto space-y-6 text-lg text-center">
-    <div class="hover:text-blue-400 transition"><a href="mailto:nadeemnajumudeen@gmail.com">📧 nadeemnajumudeen@gmail.com</a></div>
-    <div class="hover:text-blue-500 transition"><a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank">🔗 LinkedIn</a></div>
-    <div class="hover:text-pink-400 transition"><a href="https://www.instagram.com/___nxdeem___" target="_blank">📸 Instagram</a></div>
-    <div class="hover:text-gray-400 transition"><a href="https://github.com/Nxdeeem" target="_blank">💻 GitHub</a></div>
-  </div>
-</section>
+  <!-- PROJECTS -->
+  <section id="projects" class="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-6 py-20">
+    <div class="max-w-6xl mx-auto" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-12 text-center">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Human Benchmark Project -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform">
+          <h3 class="text-2xl font-bold mb-4">🎯 Human Benchmark</h3>
+          <p class="text-gray-300 mb-4">A collection of mini games to measure reaction, aim, and typing skills.</p>
+          <a href="#" class="text-blue-400 underline hover:text-blue-300">View Project</a>
+        </div>
 
-<footer class="bg-gray-800 py-4 text-center text-gray-400">© 2026 Nadeem Najumudeen</footer>
+        <!-- Coming Soon -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform">
+          <h3 class="text-2xl font-bold mb-4">🚧 More Projects Coming Soon</h3>
+          <p class="text-gray-300">Stay tuned for new projects, games, and interactive web apps!</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-// ROTATING HERO WORDS
-const words = ["Web Designer","Game Developer","Cybersecurity Aspirant","Problem Solver","Creative Thinker"];
-let i = 0;
-const wordSpan = document.getElementById("rotating-words");
-function rotateWords(){ wordSpan.textContent = words[i]; i=(i+1)%words.length; }
-rotateWords(); setInterval(rotateWords, 2500);
+  <!-- CONTACT -->
+  <section id="contact" class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-6 py-20">
+    <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-10 text-white">CONTACTS</h2>
+      <div class="space-y-6 text-lg">
+        <div class="flex items-center justify-center space-x-3 hover:text-blue-400 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" />
+          <a href="mailto:nadeemnajumudeen@gmail.com" class="underline">nadeemnajumudeen@gmail.com</a>
+        </div>
+        <div class="flex items-center justify-center space-x-3 hover:text-blue-500 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" />
+          <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline">LinkedIn</a>
+        </div>
+        <div class="flex items-center justify-center space-x-3 hover:text-pink-400 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" />
+          <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline">@___nxdeem___</a>
+        </div>
+        <div class="flex items-center justify-center space-x-3 hover:text-gray-400 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" />
+          <a href="https://github.com/Nxdeeem" target="_blank" class="underline">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// AOS INIT
-AOS.init({ duration: 800, once: true });
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
+    &copy; 2026 Nadeem Najumudeen
+  </footer>
 
-// FADE IN
-document.body.classList.add("fade-in");
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Initialize AOS
+      AOS.init({ duration: 800, once: true });
 
-// MOBILE MENU
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-// NIGHT SKY EFFECT
-const canvas = document.getElementById("night-sky");
-const ctx = canvas.getContext("2d");
-let w = canvas.width = window.innerWidth;
-let h = canvas.height = window.innerHeight;
-const stars = [];
-const shootingStars = [];
+      // Typed.js hero animation
+      const typed = new Typed('#typed-words', {
+        strings: ["Web Designer", "Game Developer", "Cybersecurity Aspirant", "Problem Solver", "Creative Thinker"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        backDelay: 1500,
+        loop: true
+      });
 
-function random(min,max){ return Math.random()*(max-min)+min; }
+      // Stars canvas
+      const canvas = document.getElementById("stars-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-// Stars
-for(let i=0;i<150;i++){ stars.push({x:random(0,w),y:random(0,h),r:random(0.5,1.5)}); }
+      const stars = [];
+      for(let i=0;i<150;i++){
+        stars.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*canvas.height,
+          r: Math.random()*1.2,
+          dx: (Math.random()-0.5)*0.2,
+          dy: (Math.random()-0.5)*0.2
+        });
+      }
 
-// Shooting Stars
-function createShootingStar(){ shootingStars.push({x:random(0,w),y:random(0,h/2),len:random(50,150),speed:random(10,20),angle:random(-0.3,0.3)}); }
-setInterval(createShootingStar,3000);
-
-// Draw
-function animateStars(){
-  ctx.clearRect(0,0,w,h);
-  stars.forEach(s=>{ ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle="white"; ctx.fill(); });
-  shootingStars.forEach((s,i)=>{ ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x+s.len*Math.cos(s.angle),s.y+s.len*Math.sin(s.angle)); ctx.strokeStyle="white"; ctx.stroke(); s.x+=s.speed*Math.cos(s.angle); s.y+=s.speed*Math.sin(s.angle); if(s.x> w || s.y>h) shootingStars.splice(i,1); });
-  requestAnimationFrame(animateStars);
-}
-animateStars();
-
-window.addEventListener("resize",()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
-</script>
+      function animateStars(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        stars.forEach(s=>{
+          ctx.beginPath();
+          ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+          ctx.fillStyle="white";
+          ctx.fill();
+          s.x+=s.dx;
+          s.y+=s.dy;
+          if(s.x>canvas.width) s.x=0;
+          if(s.x<0) s.x=canvas.width;
+          if(s.y>canvas.height) s.y=0;
+          if(s.y<0) s.y=canvas.height;
+        });
+        requestAnimationFrame(animateStars);
+      }
+      animateStars();
+    });
+  </script>
 </body>
 </html>
