@@ -1,79 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Nadeem Najumudeen</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
+  <!-- Stars Canvas -->
+  <canvas id="stars-canvas"></canvas>
 
+  <!-- NAVBAR -->
   <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
     <nav class="container mx-auto px-4 flex justify-between items-center">
       <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
       <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="index.html#home" class="hover:text-white transition">HOME</a></li>
+        <li><a href="index.html#hero" class="hover:text-white transition">HOME</a></li>
         <li><a href="index.html#about" class="hover:text-white transition">ABOUT</a></li>
         <li><a href="index.html#tools" class="hover:text-white transition">TOOLS</a></li>
         <li><a href="index.html#skills" class="hover:text-white transition">SKILLS</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="index.html#projects" class="hover:text-white transition">PROJECTS</a></li>
         <li><a href="contact.html" class="text-white font-semibold transition">CONTACT</a></li>
       </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
+      <a href="index.html#hero" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
+      <a href="index.html#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="index.html#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
+      <a href="index.html#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
+      <a href="index.html#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
+      <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
+    </div>
   </header>
 
-  <section class="min-h-screen relative flex flex-col justify-center items-center text-center px-6 pt-28 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
-    <canvas id="stars-canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
-    <div class="relative z-10">
-      <h2 class="text-4xl font-bold mb-10 text-white">CONTACT ME</h2>
-      <div class="space-y-6 text-lg">
-        <div><a href="mailto:nadeemnajumudeen@gmail.com" class="underline hover:text-blue-400">Email: nadeemnajumudeen@gmail.com</a></div>
-        <div><a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a></div>
-        <div><a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline hover:text-pink-400">Instagram</a></div>
-        <div><a href="https://github.com/Nxdeeem" target="_blank" class="underline hover:text-gray-400">GitHub</a></div>
-      </div>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
+    <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">CONTACT ME</h2>
+    <p class="text-gray-300 mb-12 text-lg" data-aos="fade-up" data-aos-delay="100">
+      Feel free to reach out through any of the platforms below!
+    </p>
+    <div class="flex flex-wrap justify-center gap-8" data-aos="fade-up" data-aos-delay="200">
+      <a href="mailto:nadeem@example.com" class="hover:text-white transition flex flex-col items-center">
+        <img src="icons/email.png" class="w-12 h-12 mb-2" alt="Email">
+        Email
+      </a>
+      <a href="https://www.linkedin.com/in/nadeem" target="_blank" class="hover:text-white transition flex flex-col items-center">
+        <img src="icons/linkedin.png" class="w-12 h-12 mb-2" alt="LinkedIn">
+        LinkedIn
+      </a>
+      <a href="https://github.com/Nxdeeem" target="_blank" class="hover:text-white transition flex flex-col items-center">
+        <img src="icons/github.png" class="w-12 h-12 mb-2" alt="GitHub">
+        GitHub
+      </a>
+      <a href="https://www.instagram.com/nadeem" target="_blank" class="hover:text-white transition flex flex-col items-center">
+        <img src="icons/instagram.png" class="w-12 h-12 mb-2" alt="Instagram">
+        Instagram
+      </a>
     </div>
   </section>
 
-  <footer class="bg-gray-800 py-4 text-center text-gray-400">&copy; 2026 Nadeem Najumudeen</footer>
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 py-6 mt-24 text-center text-gray-400">
+    Designed and Developed by Nadeem 😎
+  </footer>
 
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+      AOS.init({ duration: 800, once: true, disable: false });
 
-    // Stars canvas
-    const canvas = document.getElementById("stars-canvas");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
 
-    const stars = [];
-    for(let i=0;i<150;i++){
-      stars.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.2, dx:(Math.random()-0.5)*0.2, dy:(Math.random()-0.5)*0.2});
-    }
+      // Stars canvas
+      const canvas = document.getElementById("stars-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-    function animateStars(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      stars.forEach(s=>{
-        ctx.beginPath();
-        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-        ctx.fillStyle="white";
-        ctx.fill();
-        s.x+=s.dx; s.y+=s.dy;
-        if(s.x>canvas.width)s.x=0; if(s.x<0)s.x=canvas.width;
-        if(s.y>canvas.height)s.y=0; if(s.y<0)s.y=canvas.height;
-      });
-      requestAnimationFrame(animateStars);
-    }
-    animateStars();
+      const stars = [];
+      for(let i=0;i<150;i++){
+        stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2,dx:(Math.random()-0.5)*0.2,dy:(Math.random()-0.5)*0.2});
+      }
+
+      const shootingStars = [];
+      function createShootingStar(){
+        shootingStars.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*canvas.height/2,
+          len: Math.random()*200+100,
+          speed: Math.random()*10+6,
+          angle: Math.random()*Math.PI/6 - Math.PI/12
+        });
+      }
+      setInterval(createShootingStar,2000);
+
+      function animateStars(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        stars.forEach(s=>{
+          ctx.beginPath();
+          ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+          ctx.fillStyle="white";
+          ctx.fill();
+          s.x += s.dx; s.y += s.dy;
+          if(s.x>canvas.width)s.x=0; if(s.x<0)s.x=canvas.width;
+          if(s.y>canvas.height)s.y=0; if(s.y<0)s.y=canvas.height;
+        });
+
+        for(let i=shootingStars.length-1;i>=0;i--){
+          let s=shootingStars[i];
+          ctx.beginPath();
+          ctx.moveTo(s.x,s.y);
+          ctx.lineTo(s.x - s.len*Math.cos(s.angle), s.y - s.len*Math.sin(s.angle));
+          ctx.strokeStyle="white";
+          ctx.lineWidth=2;
+          ctx.stroke();
+          s.x += s.speed*Math.cos(s.angle);
+          s.y += s.speed*Math.sin(s.angle);
+          if(s.x>canvas.width || s.y>canvas.height) shootingStars.splice(i,1);
+        }
+
+        // Constellation lines
+        const maxDist = 120;
+        for(let i=0;i<stars.length;i++){
+          for(let j=i+1;j<stars.length;j++){
+            const dx=stars[i].x-stars[j].x, dy=stars[i].y-stars[j].y;
+            const dist=Math.sqrt(dx*dx+dy*dy);
+            if(dist<maxDist){
+              ctx.beginPath();
+              ctx.moveTo(stars[i].x,stars[i].y);
+              ctx.lineTo(stars[j].x,stars[j].y);
+              ctx.strokeStyle="rgba(255,255,255,"+(1-dist/maxDist)+")";
+              ctx.lineWidth=0.2;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animateStars);
+      }
+      animateStars();
+    });
   </script>
 </body>
 </html>
