@@ -1,31 +1,50 @@
-/* ---------- GLOBAL ---------- */
+/* ================= GLOBAL ================= */
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #000;
-  color: #fff;
   margin: 0;
-  padding: 0;
-  transition: opacity 0.6s ease-in-out, background-color 0.3s ease-in-out;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
   overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
 }
+
 body.fade-in {
   opacity: 1;
 }
 
-/* ---------- HEADER ---------- */
+/* ================= STAR CANVAS ================= */
+#stars-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ================= HEADER ================= */
 header {
-  backdrop-filter: blur(10px);
-  background: rgba(15, 23, 42, 0.85);
-  transition: background 0.3s ease;
+  backdrop-filter: blur(12px);
+  background: rgba(10, 15, 30, 0.8);
   z-index: 1000;
 }
+
 nav a {
+  color: #d1d5db;
+  font-weight: 500;
   position: relative;
   transition: color 0.3s ease;
 }
+
+nav a:hover {
+  color: #fff;
+}
+
 nav a::after {
   content: "";
   position: absolute;
@@ -33,78 +52,29 @@ nav a::after {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background-color: #fff;
+  background: #fff;
   transition: width 0.3s ease;
 }
+
 nav a:hover::after {
   width: 100%;
 }
 
-/* ---------- MOBILE MENU ---------- */
-#mobile-menu {
-  animation: fadeSlide 0.3s ease forwards;
-}
-@keyframes fadeSlide {
-  from { opacity:0; transform: translateY(-10px); }
-  to { opacity:1; transform: translateY(0); }
+/* ================= SECTIONS ================= */
+section {
+  padding: 6rem 1.5rem;
+  position: relative;
 }
 
-/* ---------- SECTIONS ---------- */
-section {
-  transition: all 0.6s ease-in-out;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-section h2, section h3 {
+h1, h2, h3 {
   color: #fff;
 }
-section p {
-  color: #ccc;
+
+p {
+  color: #cbd5f5;
 }
 
-/* ---------- BUTTONS ---------- */
-button, a.btn, .back-btn, .download-btn {
-  transition: all 0.3s ease-in-out;
-}
-button:hover, a.btn:hover, .back-btn:hover, .download-btn:hover {
-  transform: scale(1.05);
-}
-
-/* ---------- TOOLS CARDS ---------- */
-.tool-card {
-  background: rgba(20,30,50,0.7);
-  border-radius: 1rem;
-  padding: 1rem;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.tool-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  background: rgba(50,70,100,0.8);
-}
-.tool-card img {
-  width: 40px;
-  height: 40px;
-}
-
-/* ---------- SKILLS ---------- */
-.skill-card {
-  background: rgba(20,30,50,0.7);
-  border-radius: 1rem;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.skill-card:hover {
-  transform: translateY(-3px);
-  background: rgba(50,70,100,0.8);
-}
-
-/* ---------- HERO ---------- */
+/* ================= HERO ================= */
 #hero {
   min-height: 100vh;
   display: flex;
@@ -112,84 +82,95 @@ button:hover, a.btn:hover, .back-btn:hover, .download-btn:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
-#hero .typing-text {
+
+.typing-text {
   font-weight: 700;
   font-size: 2rem;
-  color: #fff;
-  display: inline-block;
-  border-right: 2px solid #fff;
-  white-space: nowrap;
-  overflow: hidden;
+  border-right: 2px solid white;
+  padding-right: 4px;
 }
 
-/* ---------- CONTACT ---------- */
+/* ================= TOOL CARDS ================= */
+.tool-card {
+  background: rgba(25, 35, 65, 0.7);
+  border-radius: 16px;
+  padding: 1rem;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  background: rgba(55, 75, 120, 0.85);
+}
+
+.tool-card img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ================= SKILLS ================= */
+.skill-card {
+  background: rgba(25, 35, 65, 0.7);
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  background: rgba(55, 75, 120, 0.85);
+}
+
+/* ================= CONTACT ================= */
 #contact a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-#contact a:hover {
-  transform: translateY(-3px);
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* ---------- FOOTER ---------- */
+#contact a:hover {
+  transform: translateY(-6px) scale(1.1);
+  color: #38bdf8;
+}
+
+/* ================= BUTTON ================= */
+.download-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.download-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ================= FOOTER ================= */
 footer {
-  border-top: 1px solid #1e293b;
-  background: linear-gradient(to right, #0f172a, #000);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  background: linear-gradient(to right, #020617, #000);
   padding: 2rem;
   text-align: center;
   font-size: 0.9rem;
 }
 
-/* ---------- STAR CANVAS ---------- */
-#stars-canvas {
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
-  pointer-events:none;
-}
-
-/* ---------- AOS FADE ---------- */
-[data-aos] {
-  opacity: 0;
-  transition-property: opacity, transform;
-}
-[data-aos].aos-animate {
-  opacity: 1;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  h1, h2, h3 {
-    font-size: 1.5rem;
-  }
-  #mobile-menu {
-    width: 100%;
-    right: 0;
-    top: 64px;
-    text-align: center;
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
   .tool-card { width: 120px; }
-}
-
-/* ---------- DOWNLOAD CV BUTTON ---------- */
-.download-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: #1f2937;
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-  z-index: 100;
-}
-.download-btn:hover {
-  background-color: #f8fafc;
-  color: #000;
 }
