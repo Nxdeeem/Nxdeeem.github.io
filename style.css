@@ -1,176 +1,98 @@
-/* ================= GLOBAL ================= */
-html {
-  scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #000;
-  color: #fff;
+  background: #050505;
+  color: white;
   overflow-x: hidden;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
 }
 
-body.fade-in {
-  opacity: 1;
-}
-
-/* ================= STAR CANVAS ================= */
-#stars-canvas {
+/* STAR CANVAS */
+canvas {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* ================= HEADER ================= */
-header {
-  backdrop-filter: blur(12px);
-  background: rgba(10, 15, 30, 0.8);
-  z-index: 1000;
-}
-
-nav a {
-  color: #d1d5db;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #fff;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
+  top: 0;
   left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  transition: width 0.3s ease;
+  z-index: -1;
 }
 
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section {
-  padding: 6rem 1.5rem;
-  position: relative;
-}
-
-h1, h2, h3 {
-  color: #fff;
-}
-
-p {
-  color: #cbd5f5;
-}
-
-/* ================= HERO ================= */
-#hero {
   min-height: 100vh;
+  padding: 80px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+section:nth-child(even) {
+  background: rgba(255,255,255,0.02);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* HERO */
+#hero {
   text-align: center;
 }
 
-.typing-text {
-  font-weight: 700;
-  font-size: 2rem;
-  border-right: 2px solid white;
-  padding-right: 4px;
+/* SKILLS */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 25px;
 }
 
-/* ================= TOOL CARDS ================= */
-.tool-card {
-  background: rgba(25, 35, 65, 0.7);
-  border-radius: 16px;
-  padding: 1rem;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.tool-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  background: rgba(55, 75, 120, 0.85);
-}
-
-.tool-card img {
-  width: 40px;
-  height: 40px;
-}
-
-/* ================= SKILLS ================= */
 .skill-card {
-  background: rgba(25, 35, 65, 0.7);
-  border-radius: 14px;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  transition: transform 0.3s ease, background 0.3s ease;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.3s;
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
-  background: rgba(55, 75, 120, 0.85);
+  transform: translateY(-8px);
 }
 
-/* ================= CONTACT ================= */
-#contact a {
-  font-size: 2.5rem;
-  transition: transform 0.3s ease, color 0.3s ease;
+.skill-card img {
+  width: 50px;
+  margin-bottom: 10px;
 }
 
-#contact a:hover {
-  transform: translateY(-6px) scale(1.1);
-  color: #38bdf8;
+/* CONTACT */
+.contact-links a {
+  margin-right: 20px;
+  color: #7dd3fc;
+  text-decoration: none;
 }
 
-/* ================= BUTTON ================= */
-.download-btn {
+/* CV BUTTON */
+.cv-btn {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  z-index: 100;
+  bottom: 20px;
+  right: 20px;
+  background: #0ea5e9;
+  padding: 12px 18px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.download-btn:hover {
-  background: #fff;
-  color: #000;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer {
-  border-top: 1px solid rgba(255,255,255,0.15);
-  background: linear-gradient(to right, #020617, #000);
-  padding: 2rem;
   text-align: center;
-  font-size: 0.9rem;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  .tool-card { width: 120px; }
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
 }
