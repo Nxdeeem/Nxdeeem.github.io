@@ -1,48 +1,195 @@
-/* ---------- GLOBAL SETTINGS ---------- */
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; margin:0; padding:0; transition: opacity 0.6s ease-in-out, background-color 0.3s ease-in-out; color:#fff; background-color:#000; }
-body.fade-in { opacity:1; }
+/* ---------- GLOBAL ---------- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.6s ease-in-out, background-color 0.3s ease-in-out;
+  overflow-x: hidden;
+}
+body.fade-in {
+  opacity: 1;
+}
 
-/* ---------- NAVBAR ---------- */
-header { backdrop-filter: blur(10px); background: rgba(15,23,42,0.85); transition: background 0.3s ease; }
-nav a { position: relative; transition: color 0.3s ease; }
-nav a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background-color:#fff; transition:width 0.3s ease; }
-nav a:hover::after { width:100%; }
+/* ---------- HEADER ---------- */
+header {
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.85);
+  transition: background 0.3s ease;
+  z-index: 1000;
+}
+nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
 
 /* ---------- MOBILE MENU ---------- */
-#mobile-menu { animation: fadeSlide 0.3s ease forwards; }
-@keyframes fadeSlide { from { opacity:0; transform:translateY(-10px);} to { opacity:1; transform:translateY(0);} }
+#mobile-menu {
+  animation: fadeSlide 0.3s ease forwards;
+}
+@keyframes fadeSlide {
+  from { opacity:0; transform: translateY(-10px); }
+  to { opacity:1; transform: translateY(0); }
+}
 
 /* ---------- SECTIONS ---------- */
-section { transition: all 0.6s ease-in-out; }
+section {
+  transition: all 0.6s ease-in-out;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+section h2, section h3 {
+  color: #fff;
+}
+section p {
+  color: #ccc;
+}
 
-/* ---------- TOOLS HOVER ---------- */
-.tool { font-size:2rem; cursor:pointer; transition: transform 0.3s ease, color 0.3s ease; }
-.tool:hover { transform: scale(1.2); color: #fff; }
+/* ---------- BUTTONS ---------- */
+button, a.btn, .back-btn, .download-btn {
+  transition: all 0.3s ease-in-out;
+}
+button:hover, a.btn:hover, .back-btn:hover, .download-btn:hover {
+  transform: scale(1.05);
+}
 
-/* ---------- ACCORDION ---------- */
-.accordion-header { cursor:pointer; transition: background-color 0.3s ease; }
-.accordion-header:hover { background-color: #334155; }
-.accordion-content { max-height:0; overflow:hidden; transition:all 0.4s ease; }
-.accordion-content.active { max-height:1000px; }
+/* ---------- TOOLS CARDS ---------- */
+.tool-card {
+  background: rgba(20,30,50,0.7);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.tool-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(50,70,100,0.8);
+}
+.tool-card img {
+  width: 40px;
+  height: 40px;
+}
 
-/* ---------- FADE-IN ON SCROLL ---------- */
-[data-aos] { opacity:0; transition-property:opacity, transform; }
-[data-aos].aos-animate { opacity:1; }
+/* ---------- SKILLS ---------- */
+.skill-card {
+  background: rgba(20,30,50,0.7);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-3px);
+  background: rgba(50,70,100,0.8);
+}
 
-/* ---------- CONTACT LINKS ---------- */
-#contact a { transition: color 0.3s ease, transform 0.3s ease; }
-#contact a:hover { transform: translateY(-2px); }
+/* ---------- HERO ---------- */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#hero .typing-text {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #fff;
+  display: inline-block;
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ---------- CONTACT ---------- */
+#contact a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+#contact a:hover {
+  transform: translateY(-3px);
+}
 
 /* ---------- FOOTER ---------- */
-footer { border-top:1px solid #1e293b; background: linear-gradient(to right, #0f172a, #000); }
+footer {
+  border-top: 1px solid #1e293b;
+  background: linear-gradient(to right, #0f172a, #000);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
 
-/* ---------- STARS & NIGHT SKY ---------- */
-canvas#night-sky { display:block; z-index:-1; position:fixed; top:0; left:0; }
+/* ---------- STAR CANVAS ---------- */
+#stars-canvas {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* ---------- AOS FADE ---------- */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+}
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width:768px){
-  h1,h2 { font-size:1.8rem; }
-  .container { padding:0 1rem; }
-  #mobile-menu { width:100%; right:0; top:64px; text-align:center; }
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.5rem;
+  }
+  #mobile-menu {
+    width: 100%;
+    right: 0;
+    top: 64px;
+    text-align: center;
+  }
+  .tool-card { width: 120px; }
+}
+
+/* ---------- DOWNLOAD CV BUTTON ---------- */
+.download-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #1f2937;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  z-index: 100;
+}
+.download-btn:hover {
+  background-color: #f8fafc;
+  color: #000;
 }
