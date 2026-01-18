@@ -10,13 +10,9 @@ Live at: https://nxdeeem.github.io
 
 ├── index.html
 
-├── about.html
-
 ├── projects.html
 
 ├── favicon.png
-
-├── profile.jpg
 
 ├── README.md
 
