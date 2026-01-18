@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Nadeem Najumudeen</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { opacity: 0; transition: opacity 0.6s ease-in-out; }
+    body.fade-in { opacity: 1; }
+
+    /* Hero stars background */
+    .hero-section { position: relative; background: radial-gradient(ellipse at bottom, #020617 0%, #000 100%); overflow: hidden; }
+    #stars, #stars2, #stars3 { position: absolute; top:0; left:0; right:0; bottom:0; display:block; background:transparent; }
+    #stars { width:1px; height:1px; box-shadow: 100px 200px white, 300px 400px white, 600px 150px white, 900px 300px white, 1200px 500px white; animation: animStars 50s linear infinite; }
+    #stars2 { width:2px; height:2px; box-shadow: 200px 600px white, 500px 800px white, 900px 700px white, 1300px 400px white, 1600px 900px white; animation: animStars 100s linear infinite; }
+    #stars3 { width:3px; height:3px; box-shadow: 400px 300px white, 700px 100px white, 1100px 600px white, 1500px 800px white; animation: animStars 150s linear infinite; }
+    @keyframes animStars { from { transform: translateY(0); } to { transform: translateY(-2000px); } }
+
+    #contact a { transition: color 0.3s ease, transform 0.3s ease; }
+    #contact a:hover { transform: translateY(-2px); }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
+  <!-- NAVBAR -->
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
+      <ul class="hidden md:flex space-x-6 text-gray-300">
+        <li><a href="index.html" class="hover:text-white transition">HOME</a></li>
+        <li><a href="about.html" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="contact.html" class="text-white font-semibold">CONTACT</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-40">
+      <a href="index.html" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
+      <a href="about.html" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
+      <a href="projects.html" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
+      <a href="contact.html" class="block px-4 py-2 bg-gray-700 font-semibold">CONTACT</a>
+    </div>
+  </header>
+
+  <!-- CONTACT HERO -->
+  <section class="hero-section min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <div class="relative z-10" data-aos="fade-up">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Get in Touch</h1>
+      <p class="text-gray-300 mb-8">Feel free to connect via email or social platforms</p>
+
+      <div id="contact" class="space-y-6 text-lg">
+        <div class="flex items-center justify-center space-x-3 hover:text-blue-400 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/new-post.png" alt="Email" />
+          <a href="mailto:nadeemnajumudeen@gmail.com" class="underline">nadeemnajumudeen@gmail.com</a>
+        </div>
+        <div class="flex items-center justify-center space-x-3 hover:text-blue-500 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/linkedin.png" alt="LinkedIn" />
+          <a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline">LinkedIn</a>
+        </div>
+        <div class="flex items-center justify-center space-x-3 hover:text-pink-400 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/instagram-new.png" alt="Instagram" />
+          <a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline">@___nxdeem___</a>
+        </div>
+        <div class="flex items-center justify-center space-x-3 hover:text-gray-400 transition duration-300">
+          <img src="https://img.icons8.com/ios-filled/25/ffffff/github.png" alt="GitHub" />
+          <a href="https://github.com/Nxdeeem" target="_blank" class="underline">GitHub</a>
+        </div>
+      </div>
+
+      <div class="mt-10">
+        <a href="index.html" class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg border border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold">
+          ⬅ Back Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">
+    &copy; 2025 Nadeem Najumudeen
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800, once: true });
+      document.body.classList.add("fade-in");
+
+      // Mobile Menu
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    });
+  </script>
+</body>
+</html>
