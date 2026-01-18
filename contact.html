@@ -1,107 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact - Nadeem Najumudeen</title>
-<link rel="icon" href="favicon.png" type="image/png" />
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<link rel="stylesheet" href="style.css">
-
-<style>
-html { scroll-behavior: smooth; }
-body { opacity: 0; transition: opacity 0.6s ease-in-out; }
-body.fade-in { opacity: 1; }
-
-#night-sky { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Nadeem Najumudeen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-gradient-to-b from-black to-gray-900 text-white font-sans">
+  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
+      <ul class="hidden md:flex space-x-6 text-gray-300">
+        <li><a href="index.html#home" class="hover:text-white transition">HOME</a></li>
+        <li><a href="index.html#about" class="hover:text-white transition">ABOUT</a></li>
+        <li><a href="index.html#tools" class="hover:text-white transition">TOOLS</a></li>
+        <li><a href="index.html#skills" class="hover:text-white transition">SKILLS</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">PROJECTS</a></li>
+        <li><a href="contact.html" class="text-white font-semibold transition">CONTACT</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </header>
 
-<!-- NAVBAR -->
-<header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md backdrop-blur-sm">
-<nav class="container mx-auto px-4 flex justify-between items-center">
-  <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-  <ul class="hidden md:flex space-x-6 text-gray-300">
-    <li><a href="index.html#home" class="hover:text-white transition">HOME</a></li>
-    <li><a href="index.html#about" class="hover:text-white transition">ABOUT</a></li>
-    <li><a href="index.html#tools" class="hover:text-white transition">TOOLS</a></li>
-    <li><a href="index.html#skills" class="hover:text-white transition">SKILLS</a></li>
-    <li><a href="index.html#projects" class="hover:text-white transition">PROJECTS</a></li>
-    <li><a href="contact.html" class="text-white font-semibold">CONTACT</a></li>
-  </ul>
-  <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
-</nav>
+  <section class="min-h-screen relative flex flex-col justify-center items-center text-center px-6 pt-28 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+    <canvas id="stars-canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
+    <div class="relative z-10">
+      <h2 class="text-4xl font-bold mb-10 text-white">CONTACT ME</h2>
+      <div class="space-y-6 text-lg">
+        <div><a href="mailto:nadeemnajumudeen@gmail.com" class="underline hover:text-blue-400">Email: nadeemnajumudeen@gmail.com</a></div>
+        <div><a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a></div>
+        <div><a href="https://www.instagram.com/___nxdeem___" target="_blank" class="underline hover:text-pink-400">Instagram</a></div>
+        <div><a href="https://github.com/Nxdeeem" target="_blank" class="underline hover:text-gray-400">GitHub</a></div>
+      </div>
+    </div>
+  </section>
 
-<div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
-  <a href="index.html#home" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-  <a href="index.html#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-  <a href="index.html#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
-  <a href="index.html#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
-  <a href="index.html#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-  <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700 font-semibold">CONTACT</a>
-</div>
-</header>
+  <footer class="bg-gray-800 py-4 text-center text-gray-400">&copy; 2026 Nadeem Najumudeen</footer>
 
-<!-- NIGHT SKY CANVAS -->
-<canvas id="night-sky"></canvas>
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
 
-<!-- CONTACT SECTION -->
-<section id="contact" class="pt-32 px-6 text-center max-w-3xl mx-auto" data-aos="fade-up">
-  <h2 class="text-4xl font-bold mb-8">CONTACT ME</h2>
-  <p class="text-gray-300 mb-8 leading-relaxed">
-    I’m always open to collaboration, discussion, or just a friendly chat about tech, gaming, and cybersecurity!
-  </p>
-  <div class="space-y-6 text-lg">
-    <div class="hover:text-blue-400 transition"><a href="mailto:nadeemnajumudeen@gmail.com">📧 nadeemnajumudeen@gmail.com</a></div>
-    <div class="hover:text-blue-500 transition"><a href="https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank">🔗 LinkedIn</a></div>
-    <div class="hover:text-pink-400 transition"><a href="https://www.instagram.com/___nxdeem___" target="_blank">📸 Instagram</a></div>
-    <div class="hover:text-gray-400 transition"><a href="https://github.com/Nxdeeem" target="_blank">💻 GitHub</a></div>
-  </div>
-</section>
+    // Stars canvas
+    const canvas = document.getElementById("stars-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-<footer class="bg-gray-800 py-4 text-center text-gray-400">© 2026 Nadeem Najumudeen</footer>
+    const stars = [];
+    for(let i=0;i<150;i++){
+      stars.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.2, dx:(Math.random()-0.5)*0.2, dy:(Math.random()-0.5)*0.2});
+    }
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-// FADE IN
-document.body.classList.add("fade-in");
-
-// MOBILE MENU
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-menuBtn.addEventListener("click",()=>{ mobileMenu.classList.toggle("hidden"); });
-
-// NIGHT SKY EFFECT
-const canvas = document.getElementById("night-sky");
-const ctx = canvas.getContext("2d");
-let w = canvas.width = window.innerWidth;
-let h = canvas.height = window.innerHeight;
-const stars = [];
-const shootingStars = [];
-
-function random(min,max){ return Math.random()*(max-min)+min; }
-for(let i=0;i<200;i++){ stars.push({x:random(0,w),y:random(0,h),r:random(0.5,2)}); }
-function createShootingStar(){ shootingStars.push({x:random(0,w),y:random(0,h/2),len:random(50,150),speed:random(10,20),angle:random(-0.3,0.3)}); }
-setInterval(createShootingStar,3000);
-
-function animateStars(){
-  ctx.clearRect(0,0,w,h);
-  stars.forEach(s=>{ ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle="white"; ctx.fill(); });
-  shootingStars.forEach((s,i)=>{ ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x+s.len*Math.cos(s.angle),s.y+s.len*Math.sin(s.angle)); ctx.strokeStyle="white"; ctx.stroke(); s.x+=s.speed*Math.cos(s.angle); s.y+=s.speed*Math.sin(s.angle); if(s.x>w || s.y>h) shootingStars.splice(i,1); });
-  requestAnimationFrame(animateStars);
-}
-animateStars();
-window.addEventListener("resize",()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
-
-// AOS INIT
-AOS.init({ duration: 800, once: true });
-</script>
+    function animateStars(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      stars.forEach(s=>{
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle="white";
+        ctx.fill();
+        s.x+=s.dx; s.y+=s.dy;
+        if(s.x>canvas.width)s.x=0; if(s.x<0)s.x=canvas.width;
+        if(s.y>canvas.height)s.y=0; if(s.y<0)s.y=canvas.height;
+      });
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+  </script>
 </body>
 </html>
