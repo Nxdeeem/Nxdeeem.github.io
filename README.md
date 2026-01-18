@@ -7,6 +7,7 @@ Live at: [https://nxdeeem.github.io](https://nxdeeem.github.io)
 
 ## 📁 Project Structure
 📦 root/
+
 ├── index.html # Home page with rotating hero text and night-sky effect
 ├── about.html # About Me section with skills, goals, and descriptions
 ├── projects.html # Projects showcase including Human Benchmark
