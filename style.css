@@ -1,91 +1,56 @@
-/* ---------- GLOBAL ---------- */
-html {
-  scroll-behavior: smooth;
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #000;
-  color: #fff;
-}
-
-/* ---------- NAVBAR LINKS ---------- */
-nav a {
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: white;
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ---------- SECTION REVEAL ---------- */
-.section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ---------- PROFILE IMAGE ---------- */
-img.rounded-full:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.2);
-  transition: all 0.4s ease;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  border-top: 1px solid #1e293b;
-}
-
-/* ---------- SKILL CARDS ---------- */
 .skill-card {
-  background: #1f2933;
-  border-radius: 14px;
-  padding: 20px;
+  background: #0f172a;
+  padding: 1.5rem;
+  border-radius: 1rem;
   text-align: center;
   transition: all 0.3s ease;
-  cursor: default;
+  border: 1px solid #1e293b;
 }
 
-.skill-card h3 {
-  margin-top: 10px;
+.skill-card span {
+  font-size: 2rem;
+}
+
+.skill-card h4 {
+  margin-top: 0.5rem;
   font-weight: 600;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: all 0.3s ease;
 }
 
 .skill-card p {
-  font-size: 0.85rem;
-  color: #9ca3af;
+  font-size: 0.9rem;
+  color: #94a3b8;
   opacity: 0;
-  transform: translateY(6px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-6px);
-  background: #111827;
+  background: #020617;
 }
 
-.skill-card:hover h3,
 .skill-card:hover p {
   opacity: 1;
-  transform: translateY(0);
+}
+
+.project-card {
+  background: #020617;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid #1e293b;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card .icons {
+  margin-top: 1rem;
+  font-size: 1.4rem;
 }
