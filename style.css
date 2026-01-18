@@ -54,3 +54,13 @@
   margin-top: 1rem;
   font-size: 1.4rem;
 }
+#rotating-text::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
