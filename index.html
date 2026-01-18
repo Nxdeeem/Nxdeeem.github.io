@@ -1,249 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadeem Najumudeen</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to My World</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Devicon (FIXES missing programming icons) -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="fade-in">
 
-  <!-- STAR CANVAS -->
+  <!-- ⭐ STAR BACKGROUND -->
   <canvas id="stars-canvas"></canvas>
 
-  <!-- NAVBAR -->
-  <header class="bg-gray-900 py-4 fixed top-0 w-full z-50 shadow-md">
-    <nav class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-white">Nadeem Najumudeen</h1>
-      <ul class="hidden md:flex space-x-6 text-gray-300">
-        <li><a href="#hero" class="hover:text-white transition">HOME</a></li>
-        <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
-        <li><a href="#tools" class="hover:text-white transition">TOOLS</a></li>
-        <li><a href="#skills" class="hover:text-white transition">SKILLS</a></li>
-        <li><a href="#projects" class="hover:text-white transition">PROJECTS</a></li>
-        <li><a href="contact.html" class="hover:text-white transition">CONTACT</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full">
+    <nav class="flex justify-between items-center px-8 py-4">
+      <h1 class="text-xl font-bold">Nadeem</h1>
+      <div class="space-x-6 hidden md:block">
+        <a href="#hero">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </nav>
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="md:hidden hidden absolute right-4 top-16 bg-gray-800 text-white rounded-md shadow-lg w-44">
-      <a href="#hero" class="block px-4 py-2 hover:bg-gray-700">HOME</a>
-      <a href="#about" class="block px-4 py-2 hover:bg-gray-700">ABOUT</a>
-      <a href="#tools" class="block px-4 py-2 hover:bg-gray-700">TOOLS</a>
-      <a href="#skills" class="block px-4 py-2 hover:bg-gray-700">SKILLS</a>
-      <a href="#projects" class="block px-4 py-2 hover:bg-gray-700">PROJECTS</a>
-      <a href="contact.html" class="block px-4 py-2 hover:bg-gray-700">CONTACT</a>
-    </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4">Hey, I’m Nadeem</h1>
-    <p class="text-2xl md:text-3xl mt-2 text-white font-semibold">
-      <span class="typing-text"></span>
-    </p>
-  </section>
-
-  <!-- ABOUT ME -->
-  <section id="about" class="py-20 px-4 max-w-4xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p class="text-gray-300 leading-relaxed text-lg">
-      I’m a passionate Computer Science student and Cybersecurity aspirant who loves designing and building creative solutions.  
-      I enjoy crafting web applications, interactive games, and exploring new tech.  
-      I believe in <strong>critical thinking</strong>, <strong>team collaboration</strong>, and continuous learning to solve real-world problems.  
-      Outside coding, I enjoy gaming and experimenting with new technologies to innovate and create.
-    </p>
-  </section>
-
-  <!-- TOOLS I USE -->
-  <section id="tools" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-10 text-center">Tools I Use</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center items-center">
-      <!-- Example Tool Card -->
-      <div class="tool-card" title="Python - Programming language for web and automation">
-        <img src="icons/python.png" alt="Python">
-        <span>Python</span>
-      </div>
-      <div class="tool-card" title="JavaScript - Adds interactivity to websites">
-        <img src="icons/javascript.png" alt="JavaScript">
-        <span>JavaScript</span>
-      </div>
-      <div class="tool-card" title="HTML - Structure of websites">
-        <img src="icons/html.png" alt="HTML">
-        <span>HTML</span>
-      </div>
-      <div class="tool-card" title="CSS - Styling websites">
-        <img src="icons/css.png" alt="CSS">
-        <span>CSS</span>
-      </div>
-      <div class="tool-card" title="MySQL - Database management">
-        <img src="icons/mysql.png" alt="MySQL">
-        <span>MySQL</span>
-      </div>
-      <div class="tool-card" title="Bash - Command line scripting">
-        <img src="icons/bash.png" alt="Bash">
-        <span>Bash</span>
-      </div>
-      <div class="tool-card" title="Flask - Python backend framework">
-        <img src="icons/flask.png" alt="Flask">
-        <span>Flask</span>
-      </div>
-      <div class="tool-card" title="React - Frontend JavaScript library">
-        <img src="icons/react.png" alt="React">
-        <span>React</span>
-      </div>
-      <div class="tool-card" title="Node.js - Backend runtime environment">
-        <img src="icons/nodejs.png" alt="Node.js">
-        <span>Node.js</span>
-      </div>
-      <div class="tool-card" title="Tailwind CSS - Utility-first CSS framework">
-        <img src="icons/tailwind.png" alt="Tailwind">
-        <span>Tailwind</span>
-      </div>
-      <div class="tool-card" title="VS Code - Code editor">
-        <img src="icons/vscode.png" alt="VS Code">
-        <span>VS Code</span>
-      </div>
-      <div class="tool-card" title="Kali Linux - Cybersecurity testing tools">
-        <img src="icons/kali.png" alt="Kali Linux">
-        <span>Kali Linux</span>
-      </div>
-      <div class="tool-card" title="GitHub - Version control and collaboration">
-        <img src="icons/github.png" alt="GitHub">
-        <span>GitHub</span>
-      </div>
-    </div>
+  <!-- HERO -->
+  <section id="hero">
+    <h1 class="text-4xl font-bold mb-4">Welcome to My World</h1>
+    <p class="text-gray-400">Cybersecurity • Developer • Creator</p>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-20 px-4 max-w-4xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-10 text-center">Skills</h2>
-    <div class="space-y-4">
-      <div class="skill-card">Web Design – Creating clean, responsive, and interactive websites.</div>
-      <div class="skill-card">Problem Solving – Breaking down complex problems into effective solutions.</div>
-      <div class="skill-card">Critical & Logical Thinking – Analyzing and reasoning to make informed decisions.</div>
-      <div class="skill-card">Teamwork & Collaboration – Working effectively with others to achieve goals.</div>
+  <section id="skills" class="text-center">
+    <h2 class="text-3xl font-bold mb-10">Programming Skills</h2>
+
+    <div class="flex justify-center flex-wrap gap-6">
+      <div class="tool-card">
+        <i class="devicon-python-plain colored text-4xl"></i>
+        <span>Python</span>
+      </div>
+
+      <div class="tool-card">
+        <i class="devicon-c-plain colored text-4xl"></i>
+        <span>C</span>
+      </div>
+
+      <div class="tool-card">
+        <i class="devicon-javascript-plain colored text-4xl"></i>
+        <span>JavaScript</span>
+      </div>
+
+      <div class="tool-card">
+        <i class="devicon-html5-plain colored text-4xl"></i>
+        <span>HTML</span>
+      </div>
+
+      <div class="tool-card">
+        <i class="devicon-css3-plain colored text-4xl"></i>
+        <span>CSS</span>
+      </div>
     </div>
   </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-20 px-4 max-w-5xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-10 text-center">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="tool-card">
-        <img src="icons/human-benchmark.png" alt="Human Benchmark">
-        <h3 class="font-bold mt-2">Human Benchmark</h3>
-        <p class="text-gray-300 text-sm mt-1">Interactive games to test reaction time, aim, and memory.</p>
-      </div>
-      <div class="tool-card">
-        <h3 class="font-bold mt-2">Other Projects</h3>
-        <p class="text-gray-300 text-sm mt-1">Coming Soon...</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- DOWNLOAD CV BUTTON -->
-  <a href="Nadeem-resume.pdf" download class="download-btn">Download CV</a>
 
   <!-- FOOTER -->
-  <footer class="mt-20">
-    Designed and Developed by Nadeem 😎
+  <footer>
+    © 2026 Nadeem Najumudeen
   </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- ⭐ CONSTELLATION SCRIPT -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, once: true });
+    const canvas = document.getElementById("stars-canvas");
+    const ctx = canvas.getContext("2d");
 
-      // Fade-in
-      document.body.classList.add("fade-in");
+    let stars = [];
+    const COUNT = 120;
+    const MAX_DIST = 120;
 
-      // Mobile menu
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () => { mobileMenu.classList.toggle("hidden"); });
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
 
-      // Typing effect
-      const words = ["Computer Science Engineer", "Cybersecurity Aspirant", "Web Designer", "Prompt Engineer"];
-      const typingText = document.querySelector(".typing-text");
-      let wordIndex = 0, charIndex = 0, typing = true;
-      const typeSpeed = 120, eraseSpeed = 60, delay = 1500;
+    for (let i = 0; i < COUNT; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3
+      });
+    }
 
-      function typeWord() {
-        if(typing) {
-          if(charIndex < words[wordIndex].length) {
-            typingText.textContent += words[wordIndex][charIndex];
-            charIndex++;
-            setTimeout(typeWord, typeSpeed);
-          } else {
-            typing = false;
-            setTimeout(typeWord, delay);
-          }
-        } else {
-          if(charIndex > 0) {
-            typingText.textContent = words[wordIndex].substring(0, charIndex-1);
-            charIndex--;
-            setTimeout(typeWord, eraseSpeed);
-          } else {
-            typing = true;
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(typeWord, 500);
-          }
-        }
-      }
-      typeWord();
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // STAR CANVAS
-      const canvas = document.getElementById('stars-canvas');
-      const ctx = canvas.getContext('2d');
-      let w = canvas.width = window.innerWidth;
-      let h = canvas.height = window.innerHeight;
+      stars.forEach(s => {
+        s.x += s.vx;
+        s.y += s.vy;
 
-      const stars = [];
-      const numStars = 150;
-      for(let i=0;i<numStars;i++){
-        stars.push({x:Math.random()*w, y:Math.random()*h, r:Math.random()*2+1, dx:Math.random()*0.5-0.25, dy:Math.random()*0.5-0.25});
-      }
+        if (s.x < 0 || s.x > canvas.width) s.vx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.vy *= -1;
 
-      function drawStars(){
-        ctx.clearRect(0,0,w,h);
-        ctx.fillStyle='white';
-        stars.forEach(s=>{
-          ctx.beginPath();
-          ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-          ctx.fill();
-          s.x += s.dx; s.y += s.dy;
-          if(s.x<0||s.x>w) s.dx*=-1;
-          if(s.y<0||s.y>h) s.dy*=-1;
-        });
-        // Constellation lines
-        for(let i=0;i<stars.length;i++){
-          for(let j=i+1;j<stars.length;j++){
-            const dx=stars[i].x-stars[j].x;
-            const dy=stars[i].y-stars[j].y;
-            const dist=Math.sqrt(dx*dx+dy*dy);
-            if(dist<120){
-              ctx.strokeStyle='rgba(255,255,255,0.1)';
-              ctx.lineWidth=0.5;
-              ctx.beginPath();
-              ctx.moveTo(stars[i].x,stars[i].y);
-              ctx.lineTo(stars[j].x,stars[j].y);
-              ctx.stroke();
-            }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = "#fff";
+        ctx.fill();
+      });
+
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[i].x - stars[j].x;
+          const dy = stars[i].y - stars[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < MAX_DIST) {
+            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / MAX_DIST})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.stroke();
           }
         }
       }
-      setInterval(drawStars,30);
-      window.addEventListener('resize',()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; });
-    });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
+
 </body>
 </html>
