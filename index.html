@@ -30,17 +30,25 @@
 </header>
 
 <!-- HERO -->
-<section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
-  <div data-aos="fade-up">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-      I am a <span class="text-white">Computer Science Engineer</span>
+<section id="home" class="hero-section min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden">
+  
+  <!-- Stars Background -->
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+
+  <div class="relative z-10" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+      Hey, I'm <span class="text-white">Nadeem</span>
     </h1>
 
-    <h2 class="text-xl md:text-2xl text-gray-400">
+    <h2 class="text-xl md:text-3xl text-gray-300">
       <span id="rotating-text" class="text-white font-semibold"></span>
     </h2>
   </div>
+
 </section>
+
 
 
 <!-- ABOUT -->
@@ -162,44 +170,44 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 800, once: true });</script>
 <script>
-  const words = [
+  const roles = [
+    "Computer Science Engineer",
     "Cybersecurity Aspirant",
     "Developer",
     "Problem Solver",
-    "Creative Thinker",
-    "Tech Enthusiast"
+    "Creative Thinker"
   ];
 
-  let index = 0;
+  let roleIndex = 0;
   let charIndex = 0;
-  let isDeleting = false;
-  const speed = 100;
-  const delay = 1500;
-  const textElement = document.getElementById("rotating-text");
+  let deleting = false;
+  const speed = 90;
+  const holdDelay = 1500;
 
-  function typeEffect() {
-    const currentWord = words[index];
+  const text = document.getElementById("rotating-text");
 
-    if (!isDeleting) {
-      textElement.textContent = currentWord.substring(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === currentWord.length) {
-        setTimeout(() => isDeleting = true, delay);
+  function rotateText() {
+    const current = roles[roleIndex];
+
+    if (!deleting) {
+      text.textContent = current.slice(0, ++charIndex);
+      if (charIndex === current.length) {
+        setTimeout(() => deleting = true, holdDelay);
       }
     } else {
-      textElement.textContent = currentWord.substring(0, charIndex - 1);
-      charIndex--;
+      text.textContent = current.slice(0, --charIndex);
       if (charIndex === 0) {
-        isDeleting = false;
-        index = (index + 1) % words.length;
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
       }
     }
 
-    setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+    setTimeout(rotateText, deleting ? speed / 2 : speed);
   }
 
-  typeEffect();
+  rotateText();
 </script>
+
 
 </body>
 </html>
