@@ -1,206 +1,235 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hey, I'm Nadeem | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-<!-- STAR BACKGROUND -->
-<canvas id="stars"></canvas>
-
-<!-- HERO SECTION -->
-<section id="hero">
-  <h1>Hey, I'm <span>Nadeem</span></h1>
-  <h2><span id="typing-text"></span></h2>
-</section>
-
-<!-- ABOUT SECTION -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I’m a passionate Computer Science student and Cybersecurity enthusiast.
-    I love exploring creative web designs, building interactive apps, and learning
-    new technologies. I’m a problem solver, team player, and always up for a challenge.
-    When I’m not coding, I experiment with gaming projects, startups, and tech innovations.
-  </p>
-</section>
-
-<!-- TOOLS SECTION -->
-<section id="tools">
-  <h2>Tools I Use</h2>
-  <div class="skill-grid">
-    <div class="skill-card">
-      <img src="python.png" alt="Python">
-      <h3>Python</h3>
-      <p>Scripting, automation, and data analysis</p>
-    </div>
-    <div class="skill-card">
-      <img src="javascript.png" alt="JavaScript">
-      <h3>JavaScript</h3>
-      <p>Interactive web experiences and front-end logic</p>
-    </div>
-    <div class="skill-card">
-      <img src="html.png" alt="HTML">
-      <h3>HTML</h3>
-      <p>Semantic structure for accessible websites</p>
-    </div>
-    <div class="skill-card">
-      <img src="css.png" alt="CSS">
-      <h3>CSS</h3>
-      <p>Responsive layouts and modern styling</p>
-    </div>
-    <div class="skill-card">
-      <img src="mysql.png" alt="MySQL">
-      <h3>MySQL</h3>
-      <p>Database management and queries</p>
-    </div>
-    <div class="skill-card">
-      <img src="bash.png" alt="Bash">
-      <h3>Bash</h3>
-      <p>Linux scripting and automation</p>
-    </div>
-    <div class="skill-card">
-      <img src="flask.png" alt="Flask">
-      <h3>Flask</h3>
-      <p>Backend APIs and microservices</p>
-    </div>
-    <div class="skill-card">
-      <img src="react.png" alt="React">
-      <h3>React</h3>
-      <p>Component-based front-end development</p>
-    </div>
-    <div class="skill-card">
-      <img src="node.png" alt="Node.js">
-      <h3>Node.js</h3>
-      <p>Server-side JavaScript applications</p>
-    </div>
-    <div class="skill-card">
-      <img src="tailwind.png" alt="Tailwind CSS">
-      <h3>Tailwind CSS</h3>
-      <p>Utility-first styling for modern UI</p>
-    </div>
-    <div class="skill-card">
-      <img src="kali.png" alt="Kali Linux">
-      <h3>Kali Linux</h3>
-      <p>Penetration testing and security assessments</p>
-    </div>
-    <div class="skill-card">
-      <img src="nmap.png" alt="Nmap">
-      <h3>Nmap</h3>
-      <p>Network scanning and enumeration</p>
-    </div>
-    <div class="skill-card">
-      <img src="burpsuite.png" alt="Burp Suite">
-      <h3>Burp Suite</h3>
-      <p>Web application security testing</p>
-    </div>
-    <div class="skill-card">
-      <img src="metasploit.png" alt="Metasploit">
-      <h3>Metasploit</h3>
-      <p>Exploitation framework for penetration testing</p>
-    </div>
-    <div class="skill-card">
-      <img src="vscode.png" alt="VS Code">
-      <h3>VS Code</h3>
-      <p>Code editing and project management</p>
-    </div>
-  </div>
-</section>
-
-<!-- PERSONAL SKILLS SECTION -->
-<section id="skills">
-  <h2>Personal Skills</h2>
-  <p>
-  - Strong in problem-solving, critical and logical thinking, teamwork, and collaboration.
-  </p>
-  <p>
-  - Skilled in web design, UI/UX, and creating interactive, user-friendly digital experiences.
-  </p>
-  <p>
-  - Collaboration and teamwork are at the heart of my work — I love brainstorming, sharing knowledge,
-    and building projects with others.
-  </p>
-  <p>
-  - I enjoy experimenting with innovative ideas and turning them into practical, creative solutions.
-  </p>
-  <p>
-  - Constantly curious, I’m always learning new technologies and finding ways to make projects 
-      more engaging, efficient, and meaningful.
-  </p>
-</section>
-
-<!-- PROJECTS SECTION -->
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="skill-grid">
-    <div class="skill-card">
-      
-      <h3>Human Benchmark</h3>
-      <p>Interactive mini-games for reaction time, aim, and typing skills tracking</p>
-    </div>
-    <div class="skill-card">
-    
-      <h3>More Projects</h3>
-      <p>Exciting projects coming soon 🚀</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT SECTION -->
-<section id="contact">
-  <h2>Contacts</h2>
-  <div class="contact-links">
-    <a href="mailto:nadeemnajumudeen@gmail.com">Email</a>
-    <a href="https://linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/___nxdeem___/#" target="_blank">Instagram</a>
-  </div>
-</section>
-
-<!-- CV DOWNLOAD BUTTON -->
-<a class="cv-btn" href="CV.pdf" download>Download CV</a>
-
-<!-- FOOTER -->
-<footer>
-  Designed and Developed by Nadeem 😎
-</footer>
-
-<!-- SCRIPTS -->
-<script src="stars.js"></script>
-<script>
-const roles = [
-  "Computer Science Engineer",
-  "Cyber Security Enthusiast",
-  "Web Designer",
-  "Prompt Engineer"
-];
-
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingText = document.getElementById("typing-text");
-
-function typeEffect() {
-  const currentRole = roles[roleIndex];
-
-  if (!isDeleting) {
-    typingText.textContent = currentRole.slice(0, charIndex++);
-    if (charIndex > currentRole.length) {
-      setTimeout(() => isDeleting = true, 1200);
-    }
-  } else {
-    typingText.textContent = currentRole.slice(0, charIndex--);
-    if (charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-    }
-  }
-  setTimeout(typeEffect, isDeleting ? 60 : 100);
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+:root {
+  --sky: #38bdf8;
+  --violet: #818cf8;
+  --purple: #a78bfa;
+  --bg: #04050f;
+  --bg2: rgba(255,255,255,0.03);
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --radius: 16px;
+  --radius-sm: 10px;
 }
-
-typeEffect();
-</script>
-</body>
-</html>
+ 
+html { scroll-behavior: smooth; }
+ 
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+ 
+/* ===================== STAR CANVAS ===================== */
+#stars {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+ 
+/* ===================== NAVBAR ===================== */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 8%;
+  transition: background 0.4s, backdrop-filter 0.4s, padding 0.3s, border-bottom 0.3s;
+}
+ 
+#navbar.scrolled {
+  background: rgba(4,5,15,0.85);
+  backdrop-filter: blur(20px);
+  padding: 14px 8%;
+  border-bottom: 1px solid var(--border);
+}
+ 
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: white;
+}
+ 
+.dot { color: var(--sky); }
+ 
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: color 0.2s;
+  position: relative;
+}
+ 
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--sky);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+ 
+.nav-links a:hover,
+.nav-links a.active { color: white; }
+ 
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+ 
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+ 
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+ 
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+ 
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+ 
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(4,5,15,0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 8%;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+ 
+  .nav-links.open { display: flex; }
+  .nav-links a { margin-left: 0; font-size: 1rem; }
+}
+ 
+/* ===================== SECTIONS ===================== */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 130px 8%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+ 
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 0.75rem;
+}
+ 
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(135deg, #fff 60%, var(--muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+ 
+/* ===================== HERO ===================== */
+#hero {
+  text-align: center;
+  align-items: center;
+  gap: 0;
+}
+ 
+.hero-content { max-width: 750px; }
+ 
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  background: rgba(56,189,248,0.1);
+  border: 1px solid rgba(56,189,248,0.25);
+  color: var(--sky);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: pulse-badge 2.5s ease-in-out infinite;
+}
+ 
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56,189,248,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(56,189,248,0); }
+}
+ 
+#hero h1 {
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+ 
+.gradient-text {
+  background: linear-gradient(135deg, var(--sky), var(--violet), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+ 
+#hero h2 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--muted);
+  min-height: 50px;
+  margin-top: 0.5rem;
+}
+ 
+.cursor {
+  display: inline-block;
+  color: var(--sky);
+  animation: blink 0.9s step-end infinite;
+}
+ 
+@keyframes blink { 50% { opacity: 0; } }
+ 
