@@ -233,3 +233,322 @@ section {
  
 @keyframes blink { 50% { opacity: 0; } }
  
+.hero-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 1rem;
+  letter-spacing: 0.5px;
+}
+ 
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+ 
+.btn-primary {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--sky), var(--violet));
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+ 
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(56,189,248,0.35);
+}
+ 
+.btn-ghost {
+  padding: 13px 32px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+ 
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-3px);
+}
+ 
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px; height: 38px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+ 
+.scroll-dot {
+  width: 4px; height: 8px;
+  background: var(--sky);
+  border-radius: 4px;
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+ 
+@keyframes scroll-bounce { 0%,100%{transform:translateY(0);opacity:1} 80%{transform:translateY(12px);opacity:0} }
+ 
+/* ===================== ABOUT ===================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+ 
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+ 
+.about-text strong { color: var(--sky); font-weight: 600; }
+ 
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+ 
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+ 
+.stat-card:hover {
+  border-color: rgba(56,189,248,0.3);
+  transform: translateY(-4px);
+}
+ 
+.stat-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sky);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+ 
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+ 
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+ 
+/* ===================== TOOLS TABS ===================== */
+.tools-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+ 
+.tab-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+ 
+.tab-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+ 
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--sky), var(--violet));
+  border-color: transparent;
+  color: white;
+}
+ 
+/* ===================== SKILL GRID ===================== */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+}
+ 
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.06), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+ 
+.skill-card:hover { transform: translateY(-8px); }
+.skill-card:hover::before { opacity: 1; }
+ 
+.skill-icon-wrap {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.skill-icon-wrap i { font-size: 2.5rem; }
+ 
+.skill-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+}
+ 
+.skill-card p {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+ 
+.skill-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: auto;
+}
+ 
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--sky), var(--violet));
+  border-radius: 3px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+ 
+.skill-fill.animate { width: inherit !important; }
+ 
+/* ===================== PERSONAL SKILLS ===================== */
+.personal-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+ 
+.ps-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.3s, border-color 0.3s;
+}
+ 
+.ps-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56,189,248,0.25);
+}
+ 
+.ps-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+ 
+.ps-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+ 
+.ps-card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+ 
+/* ===================== PROJECTS ===================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+ 
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+ 
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(56,189,248,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+ 
+.project-coming { border-style: dashed; }
+ 
+.project-top {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+ 
+.project-tag {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(56,189,248,0.12);
+  color: var(--sky);
+  border: 1px solid rgba(56,189,248,0.2);
+}
+ 
+.project-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.3px;
+}
