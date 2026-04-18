@@ -1,6 +1,6 @@
 /* ===================== RESET & BASE ===================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
 :root {
   --sky: #38bdf8;
   --violet: #818cf8;
@@ -14,9 +14,9 @@
   --radius: 16px;
   --radius-sm: 10px;
 }
- 
+
 html { scroll-behavior: smooth; }
- 
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -24,7 +24,7 @@ body {
   overflow-x: hidden;
   line-height: 1.7;
 }
- 
+
 /* ===================== STAR CANVAS ===================== */
 #stars {
   position: fixed;
@@ -32,7 +32,7 @@ body {
   z-index: 0;
   pointer-events: none;
 }
- 
+
 /* ===================== NAVBAR ===================== */
 #navbar {
   position: fixed;
@@ -41,29 +41,29 @@ body {
   padding: 20px 8%;
   transition: background 0.4s, backdrop-filter 0.4s, padding 0.3s, border-bottom 0.3s;
 }
- 
+
 #navbar.scrolled {
   background: rgba(4,5,15,0.85);
   backdrop-filter: blur(20px);
   padding: 14px 8%;
   border-bottom: 1px solid var(--border);
 }
- 
+
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
- 
+
 .nav-logo {
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   color: white;
 }
- 
+
 .dot { color: var(--sky); }
- 
+
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
@@ -73,7 +73,7 @@ body {
   transition: color 0.2s;
   position: relative;
 }
- 
+
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -83,14 +83,13 @@ body {
   border-radius: 2px;
   transition: width 0.3s;
 }
- 
+
 .nav-links a:hover,
 .nav-links a.active { color: white; }
- 
+
 .nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
- 
-/* Hamburger */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -100,7 +99,7 @@ body {
   cursor: pointer;
   padding: 4px;
 }
- 
+
 .hamburger span {
   display: block;
   width: 24px; height: 2px;
@@ -108,14 +107,14 @@ body {
   border-radius: 2px;
   transition: transform 0.3s, opacity 0.3s;
 }
- 
+
 .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
- 
+
 @media (max-width: 768px) {
   .hamburger { display: flex; }
- 
+
   .nav-links {
     display: none;
     position: absolute;
@@ -127,11 +126,11 @@ body {
     flex-direction: column;
     gap: 1.2rem;
   }
- 
+
   .nav-links.open { display: flex; }
   .nav-links a { margin-left: 0; font-size: 1rem; }
 }
- 
+
 /* ===================== SECTIONS ===================== */
 section {
   position: relative;
@@ -142,18 +141,18 @@ section {
   flex-direction: column;
   justify-content: center;
 }
- 
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
- 
+
 [data-reveal].revealed {
   opacity: 1;
   transform: translateY(0);
 }
- 
+
 .section-label {
   font-size: 0.75rem;
   font-weight: 600;
@@ -162,7 +161,7 @@ section {
   color: var(--sky);
   margin-bottom: 0.75rem;
 }
- 
+
 .section-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
@@ -173,16 +172,16 @@ section {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
- 
+
 /* ===================== HERO ===================== */
 #hero {
   text-align: center;
   align-items: center;
   gap: 0;
 }
- 
+
 .hero-content { max-width: 750px; }
- 
+
 .hero-badge {
   display: inline-block;
   padding: 6px 16px;
@@ -195,12 +194,12 @@ section {
   margin-bottom: 1.5rem;
   animation: pulse-badge 2.5s ease-in-out infinite;
 }
- 
+
 @keyframes pulse-badge {
   0%, 100% { box-shadow: 0 0 0 0 rgba(56,189,248,0.3); }
   50% { box-shadow: 0 0 0 8px rgba(56,189,248,0); }
 }
- 
+
 #hero h1 {
   font-size: clamp(2.8rem, 8vw, 5rem);
   font-weight: 800;
@@ -209,14 +208,14 @@ section {
   color: white;
   margin-bottom: 0.5rem;
 }
- 
+
 .gradient-text {
   background: linear-gradient(135deg, var(--sky), var(--violet), var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
- 
+
 #hero h2 {
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: 400;
@@ -224,22 +223,22 @@ section {
   min-height: 50px;
   margin-top: 0.5rem;
 }
- 
+
 .cursor {
   display: inline-block;
   color: var(--sky);
   animation: blink 0.9s step-end infinite;
 }
- 
+
 @keyframes blink { 50% { opacity: 0; } }
- 
+
 .hero-sub {
   color: var(--muted);
   font-size: 1rem;
   margin-top: 1rem;
   letter-spacing: 0.5px;
 }
- 
+
 .hero-cta {
   display: flex;
   gap: 16px;
@@ -247,7 +246,7 @@ section {
   margin-top: 2.5rem;
   flex-wrap: wrap;
 }
- 
+
 .btn-primary {
   padding: 14px 32px;
   background: linear-gradient(135deg, var(--sky), var(--violet));
@@ -258,12 +257,12 @@ section {
   font-size: 0.95rem;
   transition: transform 0.2s, box-shadow 0.2s;
 }
- 
+
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(56,189,248,0.35);
 }
- 
+
 .btn-ghost {
   padding: 13px 32px;
   border: 1px solid var(--border);
@@ -274,14 +273,13 @@ section {
   font-size: 0.95rem;
   transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
- 
+
 .btn-ghost:hover {
   border-color: rgba(255,255,255,0.25);
   background: rgba(255,255,255,0.05);
   transform: translateY(-3px);
 }
- 
-/* Scroll indicator */
+
 .scroll-indicator {
   position: absolute;
   bottom: 40px;
@@ -294,16 +292,16 @@ section {
   justify-content: center;
   padding-top: 6px;
 }
- 
+
 .scroll-dot {
   width: 4px; height: 8px;
   background: var(--sky);
   border-radius: 4px;
   animation: scroll-bounce 1.8s ease-in-out infinite;
 }
- 
+
 @keyframes scroll-bounce { 0%,100%{transform:translateY(0);opacity:1} 80%{transform:translateY(12px);opacity:0} }
- 
+
 /* ===================== ABOUT ===================== */
 .about-grid {
   display: grid;
@@ -311,21 +309,21 @@ section {
   gap: 3rem;
   align-items: start;
 }
- 
+
 .about-text p {
   color: var(--muted);
   margin-bottom: 1rem;
   font-size: 1.05rem;
 }
- 
+
 .about-text strong { color: var(--sky); font-weight: 600; }
- 
+
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
- 
+
 .stat-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -336,12 +334,12 @@ section {
   gap: 4px;
   transition: border-color 0.2s, transform 0.2s;
 }
- 
+
 .stat-card:hover {
   border-color: rgba(56,189,248,0.3);
   transform: translateY(-4px);
 }
- 
+
 .stat-num {
   font-size: 1.8rem;
   font-weight: 700;
@@ -349,17 +347,17 @@ section {
   letter-spacing: -1px;
   line-height: 1;
 }
- 
+
 .stat-label {
   font-size: 0.8rem;
   color: var(--muted);
   font-weight: 500;
 }
- 
+
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; }
 }
- 
+
 /* ===================== TOOLS TABS ===================== */
 .tools-tabs {
   display: flex;
@@ -367,7 +365,7 @@ section {
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
- 
+
 .tab-btn {
   padding: 8px 20px;
   border-radius: 50px;
@@ -379,22 +377,22 @@ section {
   cursor: pointer;
   transition: all 0.2s;
 }
- 
+
 .tab-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
- 
+
 .tab-btn.active {
   background: linear-gradient(135deg, var(--sky), var(--violet));
   border-color: transparent;
   color: white;
 }
- 
+
 /* ===================== SKILL GRID ===================== */
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 20px;
 }
- 
+
 .skill-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -409,7 +407,7 @@ section {
   position: relative;
   overflow: hidden;
 }
- 
+
 .skill-card::before {
   content: '';
   position: absolute;
@@ -418,10 +416,10 @@ section {
   opacity: 0;
   transition: opacity 0.3s;
 }
- 
+
 .skill-card:hover { transform: translateY(-8px); }
 .skill-card:hover::before { opacity: 1; }
- 
+
 .skill-icon-wrap {
   font-size: 2.5rem;
   margin-bottom: 12px;
@@ -430,23 +428,23 @@ section {
   align-items: center;
   justify-content: center;
 }
- 
+
 .skill-icon-wrap i { font-size: 2.5rem; }
- 
+
 .skill-card h3 {
   font-size: 0.95rem;
   font-weight: 600;
   color: white;
   margin-bottom: 6px;
 }
- 
+
 .skill-card p {
   font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.5;
   margin-bottom: 12px;
 }
- 
+
 .skill-bar {
   width: 100%;
   height: 3px;
@@ -455,7 +453,7 @@ section {
   overflow: hidden;
   margin-top: auto;
 }
- 
+
 .skill-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--sky), var(--violet));
@@ -463,16 +461,16 @@ section {
   width: 0;
   transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
 }
- 
+
 .skill-fill.animate { width: inherit !important; }
- 
+
 /* ===================== PERSONAL SKILLS ===================== */
 .personal-skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
- 
+
 .ps-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -480,37 +478,37 @@ section {
   padding: 1.75rem 1.5rem;
   transition: transform 0.3s, border-color 0.3s;
 }
- 
+
 .ps-card:hover {
   transform: translateY(-6px);
   border-color: rgba(56,189,248,0.25);
 }
- 
+
 .ps-icon {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
- 
+
 .ps-card h3 {
   font-size: 1.05rem;
   font-weight: 600;
   color: white;
   margin-bottom: 0.5rem;
 }
- 
+
 .ps-card p {
   font-size: 0.88rem;
   color: var(--muted);
   line-height: 1.6;
 }
- 
+
 /* ===================== PROJECTS ===================== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
 }
- 
+
 .project-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -521,21 +519,21 @@ section {
   gap: 12px;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
- 
+
 .project-card:hover {
   transform: translateY(-8px);
   border-color: rgba(56,189,248,0.3);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
- 
+
 .project-coming { border-style: dashed; }
- 
+
 .project-top {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
- 
+
 .project-tag {
   padding: 4px 12px;
   border-radius: 50px;
@@ -545,33 +543,33 @@ section {
   color: var(--sky);
   border: 1px solid rgba(56,189,248,0.2);
 }
- 
+
 .project-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
   color: white;
   letter-spacing: -0.3px;
 }
- 
+
 .project-card p {
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.65;
   flex: 1;
 }
- 
+
 .project-footer {
   padding-top: 12px;
   border-top: 1px solid var(--border);
 }
- 
+
 .project-tech {
   font-size: 0.78rem;
   color: var(--violet);
   font-weight: 500;
   letter-spacing: 0.5px;
 }
- 
+
 /* ===================== CONTACT ===================== */
 .contact-sub {
   color: var(--muted);
@@ -579,13 +577,13 @@ section {
   max-width: 500px;
   margin-bottom: 2.5rem;
 }
- 
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
- 
+
 .contact-card {
   display: flex;
   align-items: center;
@@ -601,25 +599,25 @@ section {
   transition: transform 0.2s, border-color 0.2s, background 0.2s;
   min-width: 160px;
 }
- 
+
 .contact-card:hover {
   transform: translateY(-4px);
   border-color: rgba(56,189,248,0.3);
   background: rgba(56,189,248,0.06);
   color: white;
 }
- 
+
 .contact-icon { font-size: 1.2rem; }
- 
+
 .contact-arrow {
   margin-left: auto;
   color: var(--muted);
   font-size: 1rem;
   transition: transform 0.2s;
 }
- 
+
 .contact-card:hover .contact-arrow { transform: translate(2px, -2px); color: var(--sky); }
- 
+
 /* ===================== CV BUTTON ===================== */
 .cv-btn {
   position: fixed;
@@ -640,18 +638,18 @@ section {
   transition: transform 0.2s, box-shadow 0.2s;
   animation: pulse-cv 3s ease-in-out infinite;
 }
- 
+
 @keyframes pulse-cv {
   0%,100%{box-shadow:0 8px 24px rgba(56,189,248,0.3)}
   50%{box-shadow:0 8px 36px rgba(56,189,248,0.55)}
 }
- 
+
 .cv-btn:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(56,189,248,0.45);
   animation: none;
 }
- 
+
 /* ===================== FOOTER ===================== */
 footer {
   position: relative;
@@ -667,10 +665,10 @@ footer {
   gap: 1rem;
   flex-wrap: wrap;
 }
- 
+
 footer strong { color: var(--text); }
 .footer-year { color: rgba(255,255,255,0.2); }
- 
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
   section { padding: 100px 5%; }
