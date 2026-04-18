@@ -12,15 +12,11 @@ Live at: [https://nxdeeem.github.io](https://nxdeeem.github.io)
 
 ├── about.html # About Me section with skills, goals, and descriptions
 
-├── projects.html # Projects showcase including Human Benchmark
-
 ├── contact.html # Contact page with working links
 
 ├── style.css # Custom CSS and Tailwind CSS utilities
 
 ├── favicon.png # Website favicon
-
-└── assets/ # Any additional images/icons
 
 ---
 
