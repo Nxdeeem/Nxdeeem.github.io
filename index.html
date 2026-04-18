@@ -1,554 +1,536 @@
-/* ===================== RESET & BASE ===================== */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
-:root {
-  --sky: #38bdf8;
-  --violet: #818cf8;
-  --purple: #a78bfa;
-  --bg: #04050f;
-  --bg2: rgba(255,255,255,0.03);
-  --card: rgba(255,255,255,0.04);
-  --border: rgba(255,255,255,0.08);
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --radius: 16px;
-  --radius-sm: 10px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hey, I'm Nadeem | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
+
+<!-- STAR BACKGROUND -->
+<canvas id="stars"></canvas>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">Nadeem<span class="dot">.</span></div>
+    <div class="nav-links" id="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#tools">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">👋 Available for opportunities</div>
+    <h1>Hey, I'm <span class="gradient-text">Nadeem</span></h1>
+    <h2><span id="typing-text"></span><span class="cursor">|</span></h2>
+    <p class="hero-sub">CS Student · Cybersecurity Enthusiast · Builder of cool things</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" data-reveal>
+  <div class="section-label">01 / About</div>
+  <h2 class="section-title">About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a passionate <strong>Computer Science student</strong> and <strong>Cybersecurity enthusiast</strong>.
+        I love exploring creative web designs, building interactive apps, and learning
+        new technologies.
+      </p>
+      <p>
+        I'm a problem solver, team player, and always up for a challenge.
+        When I'm not coding, I experiment with gaming projects, startups, and tech innovations.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Tools Mastered</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Curiosity</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">CS</span>
+        <span class="stat-label">Degree in Progress</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Learning Mode</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS SECTION -->
+<section id="tools" data-reveal>
+  <div class="section-label">02 / Skills</div>
+  <h2 class="section-title">Tools I Use</h2>
+
+  <div class="tools-tabs">
+    <button class="tab-btn active" data-tab="all">All</button>
+    <button class="tab-btn" data-tab="web">Web Dev</button>
+    <button class="tab-btn" data-tab="security">Security</button>
+    <button class="tab-btn" data-tab="lang">Languages</button>
+  </div>
+
+  <div class="skill-grid" id="skill-grid">
+
+    <div class="skill-card" data-cat="lang" data-color="#3776AB">
+      <div class="skill-icon-wrap">
+        <i class="devicon-python-plain colored"></i>
+      </div>
+      <h3>Python</h3>
+      <p>Scripting, automation, and data analysis</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web lang" data-color="#F7DF1E">
+      <div class="skill-icon-wrap">
+        <i class="devicon-javascript-plain colored"></i>
+      </div>
+      <h3>JavaScript</h3>
+      <p>Interactive web experiences and front-end logic</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#E34F26">
+      <div class="skill-icon-wrap">
+        <i class="devicon-html5-plain colored"></i>
+      </div>
+      <h3>HTML</h3>
+      <p>Semantic structure for accessible websites</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#1572B6">
+      <div class="skill-icon-wrap">
+        <i class="devicon-css3-plain colored"></i>
+      </div>
+      <h3>CSS</h3>
+      <p>Responsive layouts and modern styling</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="lang" data-color="#4479A1">
+      <div class="skill-icon-wrap">
+        <i class="devicon-mysql-plain colored"></i>
+      </div>
+      <h3>MySQL</h3>
+      <p>Database management and queries</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="lang security" data-color="#4EAA25">
+      <div class="skill-icon-wrap">
+        <i class="devicon-bash-plain colored"></i>
+      </div>
+      <h3>Bash</h3>
+      <p>Linux scripting and automation</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#000000">
+      <div class="skill-icon-wrap">
+        <i class="devicon-flask-original colored"></i>
+      </div>
+      <h3>Flask</h3>
+      <p>Backend APIs and microservices</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#61DAFB">
+      <div class="skill-icon-wrap">
+        <i class="devicon-react-original colored"></i>
+      </div>
+      <h3>React</h3>
+      <p>Component-based front-end development</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#339933">
+      <div class="skill-icon-wrap">
+        <i class="devicon-nodejs-plain colored"></i>
+      </div>
+      <h3>Node.js</h3>
+      <p>Server-side JavaScript applications</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#06B6D4">
+      <div class="skill-icon-wrap">
+        <i class="devicon-tailwindcss-plain colored"></i>
+      </div>
+      <h3>Tailwind CSS</h3>
+      <p>Utility-first styling for modern UI</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="security" data-color="#557C94">
+      <div class="skill-icon-wrap">
+        <i class="devicon-linux-plain colored"></i>
+      </div>
+      <h3>Kali Linux</h3>
+      <p>Penetration testing and security assessments</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="security" data-color="#00aaff">
+      <div class="skill-icon-wrap" style="font-size:2rem;">🔍</div>
+      <h3>Nmap</h3>
+      <p>Network scanning and enumeration</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="security" data-color="#FF6633">
+      <div class="skill-icon-wrap" style="font-size:2rem;">🕷️</div>
+      <h3>Burp Suite</h3>
+      <p>Web application security testing</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="security" data-color="#2196F3">
+      <div class="skill-icon-wrap" style="font-size:2rem;">💀</div>
+      <h3>Metasploit</h3>
+      <p>Exploitation framework for penetration testing</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+    </div>
+
+    <div class="skill-card" data-cat="web" data-color="#007ACC">
+      <div class="skill-icon-wrap">
+        <i class="devicon-vscode-plain colored"></i>
+      </div>
+      <h3>VS Code</h3>
+      <p>Code editing and project management</p>
+      <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PERSONAL SKILLS SECTION -->
+<section id="skills" data-reveal>
+  <div class="section-label">03 / Qualities</div>
+  <h2 class="section-title">Personal Skills</h2>
+  <div class="personal-skills-grid">
+    <div class="ps-card">
+      <div class="ps-icon">🧩</div>
+      <h3>Problem Solving</h3>
+      <p>Strong critical and logical thinking. I break down complex problems into manageable pieces.</p>
+    </div>
+    <div class="ps-card">
+      <div class="ps-icon">🎨</div>
+      <h3>UI / UX Design</h3>
+      <p>Skilled in creating interactive, user-friendly, and visually engaging digital experiences.</p>
+    </div>
+    <div class="ps-card">
+      <div class="ps-icon">🤝</div>
+      <h3>Team Collaboration</h3>
+      <p>I love brainstorming, sharing knowledge, and building projects alongside others.</p>
+    </div>
+    <div class="ps-card">
+      <div class="ps-icon">💡</div>
+      <h3>Innovation</h3>
+      <p>Turning experimental ideas into practical, creative, and impactful solutions.</p>
+    </div>
+    <div class="ps-card">
+      <div class="ps-icon">📚</div>
+      <h3>Continuous Learning</h3>
+      <p>Constantly curious — always learning new technologies and improving my craft.</p>
+    </div>
+    <div class="ps-card">
+      <div class="ps-icon">🔐</div>
+      <h3>Security Mindset</h3>
+      <p>I approach development and systems thinking defensively — security is never an afterthought.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" data-reveal>
+  <div class="section-label">04 / Work</div>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-tag">Interactive</span>
+        <span class="project-tag">JavaScript</span>
+      </div>
+      <h3>Human Benchmark</h3>
+      <p>Interactive mini-games for reaction time, aim, and typing skills tracking. Measures and logs cognitive performance metrics over time.</p>
+      <div class="project-footer">
+        <span class="project-tech">JS · CSS · Canvas API</span>
+      </div>
+    </div>
+    <div class="project-card project-coming">
+      <div class="project-top">
+        <span class="project-tag">Coming Soon</span>
+      </div>
+      <h3>More Projects 🚀</h3>
+      <p>Exciting new builds in the pipeline — stay tuned for cybersecurity tools, web apps, and more.</p>
+      <div class="project-footer">
+        <span class="project-tech">TBA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" data-reveal>
+  <div class="section-label">05 / Say Hi</div>
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="contact-sub">I'm always open to new opportunities, collaborations, or just a good conversation about tech.</p>
+  <div class="contact-links">
+    <a href="mailto:nadeemnajumudeen@gmail.com" class="contact-card">
+      <span class="contact-icon">✉️</span>
+      <span class="contact-label">Email</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a href="https://linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="contact-card">
+      <span class="contact-icon">💼</span>
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a href="https://github.com/Nxdeeem" target="_blank" class="contact-card">
+      <span class="contact-icon">💻</span>
+      <span class="contact-label">GitHub</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a href="https://www.instagram.com/___nxdeem___/" target="_blank" class="contact-card">
+      <span class="contact-icon">📸</span>
+      <span class="contact-label">Instagram</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- CV DOWNLOAD BUTTON -->
+<a class="cv-btn" href="CV.pdf" download>
+  <span>Download CV</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <span>Designed &amp; Developed by <strong>Nadeem</strong> 😎</span>
+  <span class="footer-year">© 2026</span>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
+
+const mouse = { x: w / 2, y: h / 2 };
+const stars = [];
+const shootingStars = [];
+const numStars = 160;
+
+for (let i = 0; i < numStars; i++) {
+  stars.push({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    radius: Math.random() * 1.8 + 0.3,
+    vx: (Math.random() - 0.5) * 0.12,
+    vy: (Math.random() - 0.5) * 0.12,
+    alpha: Math.random() * 0.5 + 0.5,
+    twinkle: Math.random() * 0.02
+  });
 }
- 
-html { scroll-behavior: smooth; }
- 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  overflow-x: hidden;
-  line-height: 1.7;
+
+window.addEventListener("mousemove", e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+window.addEventListener("resize", () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+
+function createShootingStar() {
+  const colors = ['#ffffff', '#38bdf8', '#818cf8', '#a78bfa'];
+  shootingStars.push({
+    x: Math.random() * w * 0.7,
+    y: Math.random() * h * 0.4,
+    len: Math.random() * 120 + 60,
+    speed: Math.random() * 12 + 6,
+    angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3,
+    alpha: 1,
+    color: colors[Math.floor(Math.random() * colors.length)]
+  });
 }
- 
-/* ===================== STAR CANVAS ===================== */
-#stars {
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 0;
-  pointer-events: none;
-}
- 
-/* ===================== NAVBAR ===================== */
-#navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 20px 8%;
-  transition: background 0.4s, backdrop-filter 0.4s, padding 0.3s, border-bottom 0.3s;
-}
- 
-#navbar.scrolled {
-  background: rgba(4,5,15,0.85);
-  backdrop-filter: blur(20px);
-  padding: 14px 8%;
-  border-bottom: 1px solid var(--border);
-}
- 
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
- 
-.nav-logo {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: white;
-}
- 
-.dot { color: var(--sky); }
- 
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-left: 2rem;
-  transition: color 0.2s;
-  position: relative;
-}
- 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 2px;
-  background: var(--sky);
-  border-radius: 2px;
-  transition: width 0.3s;
-}
- 
-.nav-links a:hover,
-.nav-links a.active { color: white; }
- 
-.nav-links a:hover::after,
-.nav-links a.active::after { width: 100%; }
- 
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
- 
-.hamburger span {
-  display: block;
-  width: 24px; height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
- 
-.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
- 
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
- 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: rgba(4,5,15,0.97);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 8%;
-    flex-direction: column;
-    gap: 1.2rem;
+
+function animateStars() {
+  ctx.clearRect(0, 0, w, h);
+  stars.forEach(s => {
+    const dx = (mouse.x - w / 2) * 0.0003;
+    const dy = (mouse.y - h / 2) * 0.0003;
+    s.x += s.vx + dx;
+    s.y += s.vy + dy;
+    s.alpha += s.twinkle;
+    if (s.alpha > 1 || s.alpha < 0.3) s.twinkle *= -1;
+    if (s.x < 0) s.x = w; if (s.x > w) s.x = 0;
+    if (s.y < 0) s.y = h; if (s.y > h) s.y = 0;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+    ctx.fill();
+  });
+
+  for (let i = 0; i < stars.length; i++) {
+    for (let j = i + 1; j < stars.length; j++) {
+      const dx = stars[i].x - stars[j].x;
+      const dy = stars[i].y - stars[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 110) {
+        ctx.strokeStyle = `rgba(100,180,255,${(1 - dist / 110) * 0.25})`;
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(stars[i].x, stars[i].y);
+        ctx.lineTo(stars[j].x, stars[j].y);
+        ctx.stroke();
+      }
+    }
   }
- 
-  .nav-links.open { display: flex; }
-  .nav-links a { margin-left: 0; font-size: 1rem; }
+
+  stars.forEach(s => {
+    const dxm = s.x - mouse.x;
+    const dym = s.y - mouse.y;
+    const mdist = Math.sqrt(dxm * dxm + dym * dym);
+    if (mdist < 120) {
+      ctx.strokeStyle = `rgba(56,189,248,${(1 - mdist / 120) * 0.6})`;
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(mouse.x, mouse.y);
+      ctx.stroke();
+    }
+  });
+
+  shootingStars.forEach((ss, idx) => {
+    ctx.save();
+    ctx.globalAlpha = ss.alpha;
+    const grad = ctx.createLinearGradient(
+      ss.x, ss.y,
+      ss.x - Math.cos(ss.angle) * ss.len,
+      ss.y - Math.sin(ss.angle) * ss.len
+    );
+    grad.addColorStop(0, ss.color);
+    grad.addColorStop(1, 'transparent');
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(ss.x, ss.y);
+    ctx.lineTo(ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
+    ctx.stroke();
+    ctx.restore();
+    ss.x += Math.cos(ss.angle) * ss.speed;
+    ss.y += Math.sin(ss.angle) * ss.speed;
+    ss.alpha -= 0.015;
+    if (ss.alpha <= 0 || ss.x > w || ss.y > h) shootingStars.splice(idx, 1);
+  });
+
+  if (Math.random() < 0.003) createShootingStar();
+  requestAnimationFrame(animateStars);
 }
- 
-/* ===================== SECTIONS ===================== */
-section {
-  position: relative;
-  z-index: 1;
-  padding: 130px 8%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+animateStars();
+
+const roles = ["Computer Science Engineer","Cyber Security Enthusiast","Web Designer","Prompt Engineer"];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
+const typingText = document.getElementById("typing-text");
+
+function typeEffect() {
+  const currentRole = roles[roleIndex];
+  typingText.textContent = isDeleting ? currentRole.slice(0, charIndex--) : currentRole.slice(0, charIndex++);
+  if (!isDeleting && charIndex > currentRole.length) { setTimeout(() => isDeleting = true, 1500); }
+  else if (isDeleting && charIndex === 0) { isDeleting = false; roleIndex = (roleIndex + 1) % roles.length; }
+  setTimeout(typeEffect, isDeleting ? 55 : 95);
 }
- 
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
- 
-[data-reveal].revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
- 
-.section-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--sky);
-  margin-bottom: 0.75rem;
-}
- 
-.section-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 2.5rem;
-  background: linear-gradient(135deg, #fff 60%, var(--muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
- 
-/* ===================== HERO ===================== */
-#hero {
-  text-align: center;
-  align-items: center;
-  gap: 0;
-}
- 
-.hero-content { max-width: 750px; }
- 
-.hero-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 50px;
-  background: rgba(56,189,248,0.1);
-  border: 1px solid rgba(56,189,248,0.25);
-  color: var(--sky);
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  animation: pulse-badge 2.5s ease-in-out infinite;
-}
- 
-@keyframes pulse-badge {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(56,189,248,0.3); }
-  50% { box-shadow: 0 0 0 8px rgba(56,189,248,0); }
-}
- 
-#hero h1 {
-  font-size: clamp(2.8rem, 8vw, 5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -2px;
-  color: white;
-  margin-bottom: 0.5rem;
-}
- 
-.gradient-text {
-  background: linear-gradient(135deg, var(--sky), var(--violet), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
- 
-#hero h2 {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 400;
-  color: var(--muted);
-  min-height: 50px;
-  margin-top: 0.5rem;
-}
- 
-.cursor {
-  display: inline-block;
-  color: var(--sky);
-  animation: blink 0.9s step-end infinite;
-}
- 
-@keyframes blink { 50% { opacity: 0; } }
- 
-.hero-sub {
-  color: var(--muted);
-  font-size: 1rem;
-  margin-top: 1rem;
-  letter-spacing: 0.5px;
-}
- 
-.hero-cta {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
-}
- 
-.btn-primary {
-  padding: 14px 32px;
-  background: linear-gradient(135deg, var(--sky), var(--violet));
-  color: #fff;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
- 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(56,189,248,0.35);
-}
- 
-.btn-ghost {
-  padding: 13px 32px;
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-}
- 
-.btn-ghost:hover {
-  border-color: rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.05);
-  transform: translateY(-3px);
-}
- 
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 24px; height: 38px;
-  border: 2px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-}
- 
-.scroll-dot {
-  width: 4px; height: 8px;
-  background: var(--sky);
-  border-radius: 4px;
-  animation: scroll-bounce 1.8s ease-in-out infinite;
-}
- 
-@keyframes scroll-bounce { 0%,100%{transform:translateY(0);opacity:1} 80%{transform:translateY(12px);opacity:0} }
- 
-/* ===================== ABOUT ===================== */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
- 
-.about-text p {
-  color: var(--muted);
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
-}
- 
-.about-text strong { color: var(--sky); font-weight: 600; }
- 
-.about-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
- 
-.stat-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  transition: border-color 0.2s, transform 0.2s;
-}
- 
-.stat-card:hover {
-  border-color: rgba(56,189,248,0.3);
-  transform: translateY(-4px);
-}
- 
-.stat-num {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--sky);
-  letter-spacing: -1px;
-  line-height: 1;
-}
- 
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-weight: 500;
-}
- 
-@media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; }
-}
- 
-/* ===================== TOOLS TABS ===================== */
-.tools-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
- 
-.tab-btn {
-  padding: 8px 20px;
-  border-radius: 50px;
-  border: 1px solid var(--border);
-  background: none;
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
- 
-.tab-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
- 
-.tab-btn.active {
-  background: linear-gradient(135deg, var(--sky), var(--violet));
-  border-color: transparent;
-  color: white;
-}
- 
-/* ===================== SKILL GRID ===================== */
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 20px;
-}
- 
-.skill-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: default;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  position: relative;
-  overflow: hidden;
-}
- 
-.skill-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.06), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
- 
-.skill-card:hover { transform: translateY(-8px); }
-.skill-card:hover::before { opacity: 1; }
- 
-.skill-icon-wrap {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
- 
-.skill-icon-wrap i { font-size: 2.5rem; }
- 
-.skill-card h3 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 6px;
-}
- 
-.skill-card p {
-  font-size: 0.78rem;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
- 
-.skill-bar {
-  width: 100%;
-  height: 3px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-top: auto;
-}
- 
-.skill-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--sky), var(--violet));
-  border-radius: 3px;
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-}
- 
-.skill-fill.animate { width: inherit !important; }
- 
-/* ===================== PERSONAL SKILLS ===================== */
-.personal-skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
- 
-.ps-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.75rem 1.5rem;
-  transition: transform 0.3s, border-color 0.3s;
-}
- 
-.ps-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(56,189,248,0.25);
-}
- 
-.ps-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
- 
-.ps-card h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 0.5rem;
-}
- 
-.ps-card p {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
- 
-/* ===================== PROJECTS ===================== */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-}
- 
-.project-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
- 
-.project-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(56,189,248,0.3);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
- 
-.project-coming { border-style: dashed; }
- 
-.project-top {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
- 
-.project-tag {
-  padding: 4px 12px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(56,189,248,0.12);
-  color: var(--sky);
-  border: 1px solid rgba(56,189,248,0.2);
-}
- 
-.project-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: -0.3px;
-}
+typeEffect();
+
+const navbar = document.getElementById("navbar");
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  hamburger.classList.toggle("active");
+});
+
+const sections = document.querySelectorAll("section[id]");
+const navAs = document.querySelectorAll(".nav-links a");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+  navAs.forEach(a => { a.classList.toggle("active", a.getAttribute("href") === "#" + current); });
+});
+
+const reveals = document.querySelectorAll("[data-reveal]");
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("revealed"); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(r => revealObs.observe(r));
+
+const tabBtns = document.querySelectorAll(".tab-btn");
+const skillCards = document.querySelectorAll(".skill-card");
+
+tabBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    tabBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const tab = btn.dataset.tab;
+    skillCards.forEach(card => {
+      const cats = card.dataset.cat || "";
+      const show = tab === "all" || cats.includes(tab);
+      card.style.display = show ? "flex" : "none";
+      card.style.flexDirection = show ? "column" : "";
+    });
+  });
+});
+
+skillCards.forEach(card => {
+  const color = card.dataset.color || "#38bdf8";
+  card.addEventListener("mouseenter", () => {
+    card.style.boxShadow = `0 8px 32px ${color}55, 0 0 0 1px ${color}33`;
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.boxShadow = "";
+  });
+});
+
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll(".skill-fill").forEach(bar => {
+        bar.style.width = bar.style.width;
+        bar.classList.add("animate");
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll(".skill-card").forEach(c => barObs.observe(c));
+</script>
+</body>
+</html>
