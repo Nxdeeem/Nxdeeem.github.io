@@ -1,92 +1,112 @@
 # 🖥️ Personal Portfolio Website – Nadeem Najumudeen
 
-Welcome to the source code for my personal website: **"Welcome to My World"**  
-Live at: [https://nxdeeem.github.io](https://nxdeeem.github.io)
+Welcome to the source code of my personal portfolio website:
+
+### **“Welcome to My World”**
+
+🔗 **Live Website:** https://nxdeeem.github.io
 
 ---
 
 ## 📁 Project Structure
+
+```
 📦 root/
-
-├── index.html # Home page with rotating hero text and night-sky effect
-
-├── about.html # About Me section with skills, goals, and descriptions
-
-├── contact.html # Contact page with working links
-
-├── style.css # Custom CSS and Tailwind CSS utilities
-
-├── favicon.png # Website favicon
+├── index.html      # Home page (hero section + animations)
+├── about.html      # About Me, skills, and goals
+├── contact.html    # Contact links and social profiles
+├── style.css       # Custom styles + Tailwind utilities
+├── favicon.png     # Website icon
+```
 
 ---
 
 ## 🌐 Technologies Used
 
-- **HTML5** – Structure of the website  
-- **CSS3 & Tailwind CSS** – Styling, layout, and responsive design  
-- **JavaScript** – Interactivity, rotating words, animations  
-- **AOS (Animate on Scroll)** – Smooth scroll-based fade animations  
-- **Icons8 Icons** – Platform icons (email, GitHub, LinkedIn, Instagram)  
-- **Responsive Design** – Mobile-friendly using Tailwind utility classes  
+* **HTML5** – Website structure
+* **CSS3 + Tailwind CSS** – Styling and responsive design
+* **JavaScript** – Interactivity and dynamic elements
+* **AOS (Animate on Scroll)** – Scroll-based animations
+* **Icons8** – Social and platform icons
 
 ---
 
-## 🎯 Key Features
+## 🎯 Features
 
-### Home Page
-- ✨ **Rotating Hero Text:** "Hey, I'm Nadeem" with words like *Cybersecurity Aspirant, Developer, Problem Solver, Creative Thinker* rotating dynamically  
-- 🌌 **Night-Sky Effect:** Animated stars of different sizes in the background  
-- 🖤 Dark/Techy theme with gradient background  
-- 🧩 Smooth **fade-in / fade-out page transitions**  
-- 🧭 Hamburger menu for mobile view  
+### 🏠 Home Page
 
-### About Page
-- 🧠 **Expanded Skills Section:** Programming languages, web development, backend, frontend, UI/UX tools, code editors  
-- 🖱️ **Hover over icons** to reveal skill names  
-- 🎯 **Goals Section:** Clear career and learning goals  
-- 💻 Clean, tech-inspired layout without a profile picture  
-
-### Projects Page
-- 🚀 **Human Benchmark Project:** Interactive project showcase  
-- 🖼️ Cool, modern project cards with icons and animations  
-- ⬅ **Back Home button** for easy navigation  
-
-### Contact Page
-- 📬 Fully functional contact links: Email, GitHub, LinkedIn, Instagram  
-- 🖤 Night-sky effect matches Home page  
-- ⬅ **Back Home button**  
-- ✅ Fixed broken link issue  
-
-### Additional Features
-- 🌓 Theme switcher (optional for future updates)  
-- 🖼️ Profile hover card (About page optional, currently removed)  
-- 📱 Fully mobile responsive  
-- 🔗 External links with smooth hover animations  
+* ✨ Dynamic **rotating hero text**
+* 🌌 Animated **night-sky background effect**
+* 🎨 Clean dark-themed UI with gradients
+* 🔄 Smooth **page transitions (fade-in / fade-out)**
+* 📱 Responsive **hamburger menu**
 
 ---
 
-## 🔮 Future Additions
-- Add **live project showcases** with demos  
-- FPS Game Benchmark App integration  
-- Blog or journal section for tech projects and tutorials  
+### 👨‍💻 About Page
+
+* 🧠 Structured **skills section**
+
+  * Programming
+  * Web Development
+  * Backend & Frontend
+  * Tools & Editors
+* 🖱️ Interactive **hover-based skill display**
+* 🎯 Clearly defined **career goals**
+* 💻 Minimal, tech-focused layout
 
 ---
 
-## 💡 Notes
-- All animations are lightweight and smooth using **AOS** and CSS transitions  
-- The website is optimized for both desktop and mobile view  
-- All links are verified for **GitHub Pages deployment**  
+### 🚀 Projects Page
+
+* 🧩 Project showcase with **modern card UI**
+* 🎮 Featured **Human Benchmark-style project**
+* 🎨 Smooth animations and hover effects
+* 🔙 Easy navigation with **Back Home button**
 
 ---
 
-## 📞 Contact
-Feel free to connect via the following:
+### 📬 Contact Page
 
-- Email: [nadeemnajumudeen@gmail.com](mailto:nadeemnajumudeen@gmail.com)  
-- LinkedIn: [https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/](https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/)  
-- GitHub: [https://github.com/Nxdeeem](https://github.com/Nxdeeem)  
-- Instagram: [@___nxdeem___]([https://www.instagram.com/___nxdeem___](https://www.instagram.com/___nxdeem___/#)
+* 🔗 Direct links to **Email, GitHub, LinkedIn, Instagram**
+* 🌌 Consistent night-sky theme
+* ✅ Fully functional and tested links
+* 🔙 Back navigation for better UX
 
 ---
 
-**Made with ❤️ and ⚡ tech enthusiasm by Nadeem Najumudeen**
+## ⚙️ Additional Highlights
+
+* 📱 Fully **mobile responsive**
+* ⚡ Lightweight animations using CSS & AOS
+* 🎨 Consistent dark UI across all pages
+* 🔗 Smooth hover and interaction effects
+* 🚀 Optimized for **GitHub Pages deployment**
+
+---
+
+## 🔮 Future Improvements
+
+* 🚀 Live project demos and previews
+* 🎮 FPS Game Benchmark App integration
+* ✍️ Tech blog / learning journal
+* 🌓 Dark/Light mode toggle enhancement
+
+---
+
+## 📞 Connect With Me
+
+* 📧 Email: [nadeemnajumudeen@gmail.com](mailto:nadeemnajumudeen@gmail.com)
+* 💼 LinkedIn: https://www.linkedin.com/in/nadeem-najumudeen-b6b731325/
+* 💻 GitHub: https://github.com/Nxdeeem
+* 📸 Instagram: https://www.instagram.com/___nxdeem___
+
+---
+
+## 💡 About This Project
+
+This portfolio is a reflection of my journey as a **Computer Science student and cybersecurity enthusiast**, built to showcase my skills, projects, and continuous learning mindset.
+
+---
+
+### ⚡ Built with passion, curiosity, and a love for tech
