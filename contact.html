@@ -1,155 +1,156 @@
-/* ===================== RESET & BASE ===================== */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
-:root {
-  --sky: #38bdf8;
-  --violet: #818cf8;
-  --purple: #a78bfa;
-  --bg: #04050f;
-  --bg2: rgba(255,255,255,0.03);
-  --card: rgba(255,255,255,0.04);
-  --border: rgba(255,255,255,0.08);
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --radius: 16px;
-  --radius-sm: 10px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Nadeem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- STAR BACKGROUND -->
+<canvas id="stars"></canvas>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo">Nadeem<span class="dot">.</span></div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="min-height:100vh; align-items:flex-start; justify-content:center; opacity:1; transform:none;">
+  <div class="section-label">Say Hi</div>
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="contact-sub">I'm always open to new opportunities, collaborations, or just a good conversation about tech.</p>
+
+  <div class="contact-links" style="margin-bottom: 3rem;">
+    <a href="mailto:nadeemnajumudeen@gmail.com" class="contact-card">
+      <span class="contact-icon">✉️</span>
+      <span class="contact-label">Email Me</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a href="https://github.com/Nxdeeem" target="_blank" class="contact-card">
+      <span class="contact-icon"><i class="devicon-github-original" style="font-size:1.2rem;"></i></span>
+      <span class="contact-label">GitHub</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a href="https://linkedin.com/in/nadeem-najumudeen-b6b731325/" target="_blank" class="contact-card">
+      <span class="contact-icon"><i class="devicon-linkedin-plain colored" style="font-size:1.2rem;"></i></span>
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a href="https://www.instagram.com/___nxdeem___/" target="_blank" class="contact-card">
+      <span class="contact-icon">📸</span>
+      <span class="contact-label">Instagram</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Designed &amp; Developed by <strong>Nadeem</strong> 😎</span>
+  <span class="footer-year">© 2026</span>
+</footer>
+
+<script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
+const mouse = { x: w/2, y: h/2 };
+const stars = [];
+const shootingStars = [];
+
+for (let i = 0; i < 160; i++) {
+  stars.push({
+    x: Math.random()*w, y: Math.random()*h,
+    radius: Math.random()*1.8+0.3,
+    vx: (Math.random()-0.5)*0.12, vy: (Math.random()-0.5)*0.12,
+    alpha: Math.random()*0.5+0.5, twinkle: Math.random()*0.02
+  });
 }
- 
-html { scroll-behavior: smooth; }
- 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  overflow-x: hidden;
-  line-height: 1.7;
+
+window.addEventListener("mousemove", e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+window.addEventListener("resize", () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+
+function createShootingStar() {
+  const colors = ['#ffffff','#38bdf8','#818cf8','#a78bfa'];
+  shootingStars.push({
+    x: Math.random()*w*0.7, y: Math.random()*h*0.4,
+    len: Math.random()*120+60, speed: Math.random()*12+6,
+    angle: Math.PI/4+(Math.random()-0.5)*0.3, alpha: 1,
+    color: colors[Math.floor(Math.random()*colors.length)]
+  });
 }
- 
-/* ===================== STAR CANVAS ===================== */
-#stars {
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 0;
-  pointer-events: none;
-}
- 
-/* ===================== NAVBAR ===================== */
-#navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 20px 8%;
-  transition: background 0.4s, backdrop-filter 0.4s, padding 0.3s, border-bottom 0.3s;
-}
- 
-#navbar.scrolled {
-  background: rgba(4,5,15,0.85);
-  backdrop-filter: blur(20px);
-  padding: 14px 8%;
-  border-bottom: 1px solid var(--border);
-}
- 
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
- 
-.nav-logo {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: white;
-}
- 
-.dot { color: var(--sky); }
- 
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-left: 2rem;
-  transition: color 0.2s;
-  position: relative;
-}
- 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 2px;
-  background: var(--sky);
-  border-radius: 2px;
-  transition: width 0.3s;
-}
- 
-.nav-links a:hover,
-.nav-links a.active { color: white; }
- 
-.nav-links a:hover::after,
-.nav-links a.active::after { width: 100%; }
- 
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
- 
-.hamburger span {
-  display: block;
-  width: 24px; height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
- 
-.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
- 
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
- 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: rgba(4,5,15,0.97);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 8%;
-    flex-direction: column;
-    gap: 1.2rem;
+
+function animate() {
+  ctx.clearRect(0,0,w,h);
+  stars.forEach(s => {
+    s.x += s.vx + (mouse.x-w/2)*0.0003;
+    s.y += s.vy + (mouse.y-h/2)*0.0003;
+    s.alpha += s.twinkle;
+    if (s.alpha>1||s.alpha<0.3) s.twinkle*=-1;
+    if (s.x<0) s.x=w; if (s.x>w) s.x=0;
+    if (s.y<0) s.y=h; if (s.y>h) s.y=0;
+    ctx.beginPath(); ctx.arc(s.x,s.y,s.radius,0,Math.PI*2);
+    ctx.fillStyle=`rgba(255,255,255,${s.alpha})`; ctx.fill();
+  });
+  for (let i=0;i<stars.length;i++) {
+    for (let j=i+1;j<stars.length;j++) {
+      const dx=stars[i].x-stars[j].x, dy=stars[i].y-stars[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if (dist<110) {
+        ctx.strokeStyle=`rgba(100,180,255,${(1-dist/110)*0.25})`;
+        ctx.lineWidth=0.5; ctx.beginPath();
+        ctx.moveTo(stars[i].x,stars[i].y); ctx.lineTo(stars[j].x,stars[j].y); ctx.stroke();
+      }
+    }
   }
- 
-  .nav-links.open { display: flex; }
-  .nav-links a { margin-left: 0; font-size: 1rem; }
+  stars.forEach(s => {
+    const dxm=s.x-mouse.x, dym=s.y-mouse.y;
+    const mdist=Math.sqrt(dxm*dxm+dym*dym);
+    if (mdist<120) {
+      ctx.strokeStyle=`rgba(56,189,248,${(1-mdist/120)*0.6})`;
+      ctx.lineWidth=0.8; ctx.beginPath();
+      ctx.moveTo(s.x,s.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+    }
+  });
+  shootingStars.forEach((ss,idx) => {
+    ctx.save(); ctx.globalAlpha=ss.alpha;
+    const grad=ctx.createLinearGradient(ss.x,ss.y,ss.x-Math.cos(ss.angle)*ss.len,ss.y-Math.sin(ss.angle)*ss.len);
+    grad.addColorStop(0,ss.color); grad.addColorStop(1,'transparent');
+    ctx.strokeStyle=grad; ctx.lineWidth=2; ctx.beginPath();
+    ctx.moveTo(ss.x,ss.y); ctx.lineTo(ss.x-Math.cos(ss.angle)*ss.len,ss.y-Math.sin(ss.angle)*ss.len); ctx.stroke(); ctx.restore();
+    ss.x+=Math.cos(ss.angle)*ss.speed; ss.y+=Math.sin(ss.angle)*ss.speed; ss.alpha-=0.015;
+    if (ss.alpha<=0||ss.x>w||ss.y>h) shootingStars.splice(idx,1);
+  });
+  if (Math.random()<0.003) createShootingStar();
+  requestAnimationFrame(animate);
 }
- 
-/* ===================== SECTIONS ===================== */
-section {
-  position: relative;
-  z-index: 1;
-  padding: 130px 8%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
- 
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
- 
-[data-reveal].revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+animate();
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  hamburger.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
