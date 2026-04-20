@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Port Scanner | Nadeem</title>
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    body {
+      background: #020617;
+      color: #00ff9f;
+      font-family: monospace;
+      text-align: center;
+      padding: 50px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      background: black;
+      border: 1px solid #00ff9f;
+      color: #00ff9f;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #00ff9f;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+    }
+
+    .open { color: #00ff9f; }
+    .closed { color: red; }
+  </style>
+</head>
+
+<body>
+
+<h1>🌐 Port Scanner</h1>
+
+<input type="text" id="target" placeholder="Enter IP or domain">
+<button onclick="scan()">Scan</button>
+
+<div class="result" id="result"></div>
+
+<a href="../../projects.html">← Back</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
