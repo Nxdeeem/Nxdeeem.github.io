@@ -100,11 +100,17 @@
 
 <script>
 function isValidIP(ip) {
-  return /^(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}$/.test(ip);
+  const parts = ip.split(".");
+  if (parts.length !== 4) return false;
+
+  return parts.every(p => {
+    const num = Number(p);
+    return p !== "" && num >= 0 && num <= 255;
+  });
 }
 
 function isValidDomain(domain) {
-  return /^[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(domain);
+  return domain.includes(".") && domain.length > 3;
 }
 
 function scan() {
@@ -115,16 +121,23 @@ function scan() {
   result.innerHTML = "";
   bar.style.width = "0%";
 
-  // ❌ validation
+  // VALIDATION
   if (!isValidIP(input) && !isValidDomain(input)) {
     result.innerHTML = `<p class="error">❌ Invalid IP or domain</p>`;
     return;
   }
 
-  const ports = [21, 22, 80, 443, 3306, 8080];
-  let i = 0;
+  const ports = [
+    { port: 21, service: "FTP" },
+    { port: 22, service: "SSH" },
+    { port: 80, service: "HTTP" },
+    { port: 443, service: "HTTPS" },
+    { port: 3306, service: "MySQL" },
+    { port: 8080, service: "Proxy" }
+  ];
 
-  result.innerHTML = "<p>Scanning...</p>";
+  let i = 0;
+  result.innerHTML = "<p>Scanning target...</p>";
 
   const interval = setInterval(() => {
     if (i >= ports.length) {
@@ -132,13 +145,12 @@ function scan() {
       return;
     }
 
-    const port = ports[i];
-
-    // realistic randomness
-    const isOpen = Math.random() > 0.5;
+    const p = ports[i];
+    const isOpen = Math.random() > 0.4;
 
     result.innerHTML += `
-      <p>Port ${port}: 
+      <p>
+        Port ${p.port} (${p.service}): 
         <span class="${isOpen ? "open" : "closed"}">
           ${isOpen ? "OPEN" : "CLOSED"}
         </span>
@@ -146,9 +158,8 @@ function scan() {
     `;
 
     bar.style.width = ((i + 1) / ports.length) * 100 + "%";
-
     i++;
-  }, 600);
+  }, 500);
 }
 </script>
 
