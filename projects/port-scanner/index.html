@@ -4,35 +4,80 @@
   <meta charset="UTF-8">
   <title>Port Scanner | Nadeem</title>
 
-  <!-- REMOVE main CSS -->
-  <!-- <link rel="stylesheet" href="../../style.css"> -->
-
   <style>
     body {
       background: #020617;
-      color: #00ff9f;
-      font-family: monospace;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: auto;
+      background: #0f172a;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(56,189,248,0.2);
     }
 
     input {
+      width: 70%;
       padding: 10px;
-      width: 250px;
-      background: black;
-      border: 1px solid #00ff9f;
-      color: #00ff9f;
+      background: #020617;
+      border: 1px solid #38bdf8;
+      color: white;
+      border-radius: 6px;
+      outline: none;
     }
 
     button {
-      padding: 10px 20px;
-      background: #00ff9f;
+      padding: 10px 15px;
+      margin-left: 10px;
+      background: #38bdf8;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .open { color: #00ff9f; }
-    .closed { color: red; }
+    .progress {
+      height: 6px;
+      background: #1e293b;
+      margin-top: 15px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      background: #38bdf8;
+      transition: width 0.3s;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .open { color: #22c55e; }
+    .closed { color: #ef4444; }
+    .error { color: #f87171; text-align: center; }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #38bdf8;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -40,24 +85,70 @@
 
 <h1>🌐 Port Scanner</h1>
 
-<input type="text" id="target" placeholder="Enter IP or domain">
-<button onclick="scan()">Scan</button>
+<div class="box">
+  <input type="text" id="target" placeholder="Enter IP or domain">
+  <button onclick="scan()">Scan</button>
 
-<div id="result"></div>
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<a href="../../index.html">← Back to Portfolio</a>
 
 <script>
-function scan() {
-  const result = document.getElementById("result");
-  result.innerHTML = "Scanning...";
+function isValidIP(ip) {
+  return /^(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}$/.test(ip);
+}
 
-  setTimeout(() => {
-    result.innerHTML = `
-      <p>Port 22: <span class="open">Open</span></p>
-      <p>Port 80: <span class="open">Open</span></p>
-      <p>Port 443: <span class="open">Open</span></p>
-      <p>Port 3306: <span class="closed">Closed</span></p>
+function isValidDomain(domain) {
+  return /^[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(domain);
+}
+
+function scan() {
+  const input = document.getElementById("target").value.trim();
+  const result = document.getElementById("result");
+  const bar = document.getElementById("bar");
+
+  result.innerHTML = "";
+  bar.style.width = "0%";
+
+  // ❌ validation
+  if (!isValidIP(input) && !isValidDomain(input)) {
+    result.innerHTML = `<p class="error">❌ Invalid IP or domain</p>`;
+    return;
+  }
+
+  const ports = [21, 22, 80, 443, 3306, 8080];
+  let i = 0;
+
+  result.innerHTML = "<p>Scanning...</p>";
+
+  const interval = setInterval(() => {
+    if (i >= ports.length) {
+      clearInterval(interval);
+      return;
+    }
+
+    const port = ports[i];
+
+    // realistic randomness
+    const isOpen = Math.random() > 0.5;
+
+    result.innerHTML += `
+      <p>Port ${port}: 
+        <span class="${isOpen ? "open" : "closed"}">
+          ${isOpen ? "OPEN" : "CLOSED"}
+        </span>
+      </p>
     `;
-  }, 1500);
+
+    bar.style.width = ((i + 1) / ports.length) * 100 + "%";
+
+    i++;
+  }, 600);
 }
 </script>
 
