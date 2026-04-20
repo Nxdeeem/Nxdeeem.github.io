@@ -1,194 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Password Analyzer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  background: #020617;
-  color: #00ff9f;
-  font-family: "Courier New", monospace;
-  text-align: center;
-  padding: 50px;
-}
+  <title>Password Analyzer | Nadeem</title>
 
-/* Title */
-h1 {
-  text-shadow: 0 0 15px #00ff9f;
-  margin-bottom: 30px;
-}
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../../style.css">
 
-/* Input */
-.input-box {
-  position: relative;
-  display: inline-block;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-input {
-  background: black;
-  border: 1px solid #00ff9f;
-  color: #00ff9f;
-  padding: 12px;
-  width: 280px;
-  outline: none;
-  font-family: inherit;
-}
+  <!-- Favicon -->
+  <link rel="icon" href="../../favicon.png" type="image/png">
 
-input:focus {
-  box-shadow: 0 0 10px #00ff9f;
-}
+  <!-- Your styles (keep only ONE style block) -->
+  <style>
+    body {
+      background: #020617;
+      color: #00ff9f;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding: 50px;
+    }
 
-/* Toggle button */
-.toggle {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #00ff9f;
-}
+    h1 {
+      text-shadow: 0 0 15px #00ff9f;
+      margin-bottom: 30px;
+    }
 
-/* Meter */
-.meter {
-  width: 300px;
-  height: 10px;
-  background: #111;
-  margin: 20px auto;
-  border-radius: 5px;
-  overflow: hidden;
-}
+    .input-box {
+      position: relative;
+      display: inline-block;
+    }
 
-.meter-fill {
-  height: 100%;
-  width: 0%;
-  transition: 0.4s ease;
-  box-shadow: 0 0 10px currentColor;
-}
+    input {
+      background: black;
+      border: 1px solid #00ff9f;
+      color: #00ff9f;
+      padding: 12px;
+      width: 280px;
+      outline: none;
+      font-family: inherit;
+    }
 
-/* Text */
-.info {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #94a3b8;
-}
+    input:focus {
+      box-shadow: 0 0 10px #00ff9f;
+    }
 
-strong {
-  color: #00ff9f;
-}
+    .toggle {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #00ff9f;
+    }
 
-/* Feedback list */
-#tips {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #f87171;
-}
-</style>
+    .meter {
+      width: 300px;
+      height: 10px;
+      background: #111;
+      margin: 20px auto;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: 0.4s ease;
+      box-shadow: 0 0 10px currentColor;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    strong {
+      color: #00ff9f;
+    }
+
+    #tips {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #f87171;
+    }
+  </style>
 </head>
-
-<body>
-
-<h1>🔐 Password Analyzer</h1>
-
-<div class="input-box">
-  <input type="password" id="password" placeholder="Enter password..." />
-  <span class="toggle" onclick="togglePassword()">👁️</span>
-</div>
-
-<div class="meter">
-  <div class="meter-fill" id="meter"></div>
-</div>
-
-<p id="strength"></p>
-<p class="info" id="entropy"></p>
-<p class="info" id="crack"></p>
-<p id="tips"></p>
-
-<script>
-const input = document.getElementById("password");
-const meter = document.getElementById("meter");
-
-input.addEventListener("input", analyze);
-
-function analyze() {
-  const pwd = input.value;
-
-  let charset = 0;
-  let tips = [];
-
-  if (/[a-z]/.test(pwd)) charset += 26;
-  else tips.push("Add lowercase letters");
-
-  if (/[A-Z]/.test(pwd)) charset += 26;
-  else tips.push("Add uppercase letters");
-
-  if (/[0-9]/.test(pwd)) charset += 10;
-  else tips.push("Add numbers");
-
-  if (/[^a-zA-Z0-9]/.test(pwd)) charset += 32;
-  else tips.push("Add symbols");
-
-  if (pwd.length < 8) tips.push("Use at least 8 characters");
-
-  const entropy = pwd.length * Math.log2(charset || 1);
-
-  let strength = "";
-  let color = "";
-  let width = 0;
-
-  if (entropy < 28) {
-    strength = "Weak 💀";
-    color = "#ef4444";
-    width = 25;
-  } else if (entropy < 50) {
-    strength = "Medium ⚠️";
-    color = "#f97316";
-    width = 50;
-  } else if (entropy < 80) {
-    strength = "Strong 🔐";
-    color = "#eab308";
-    width = 75;
-  } else {
-    strength = "Very Strong 🟢";
-    color = "#00ff9f";
-    width = 100;
-  }
-
-  meter.style.width = width + "%";
-  meter.style.background = color;
-  meter.style.boxShadow = `0 0 12px ${color}`;
-
-  document.getElementById("strength").innerHTML =
-    "Strength: <strong>" + strength + "</strong>";
-
-  document.getElementById("entropy").innerText =
-    "Entropy: " + entropy.toFixed(2) + " bits";
-
-  document.getElementById("crack").innerText =
-    "Estimated crack time: " + estimateTime(entropy);
-
-  document.getElementById("tips").innerText =
-    tips.length ? "⚠️ " + tips.join(" • ") : "✔️ Good password";
-}
-
-function estimateTime(entropy) {
-  const guessesPerSecond = 1e10;
-  const seconds = Math.pow(2, entropy) / guessesPerSecond;
-
-  if (seconds < 1) return "Instantly 💀";
-  if (seconds < 60) return seconds.toFixed(1) + " seconds";
-  if (seconds < 3600) return Math.floor(seconds / 60) + " minutes";
-  if (seconds < 86400) return Math.floor(seconds / 3600) + " hours";
-  if (seconds < 31536000) return Math.floor(seconds / 86400) + " days";
-
-  return Math.floor(seconds / 31536000) + " years 🔐";
-}
-
-/* Show / Hide Password */
-function togglePassword() {
-  input.type = input.type === "password" ? "text" : "password";
-}
-</script>
-
-</body>
-</html>
