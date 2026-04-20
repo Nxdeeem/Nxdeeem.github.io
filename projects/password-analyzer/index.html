@@ -1,60 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Password Analyzer | Nadeem</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="../../style.css">
+  <!-- REMOVE main CSS for now -->
+  <!-- <link rel="stylesheet" href="../../style.css"> -->
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Favicon -->
-  <link rel="icon" href="../../favicon.png" type="image/png">
-
-  <!-- Your styles (keep only ONE style block) -->
   <style>
     body {
       background: #020617;
       color: #00ff9f;
-      font-family: "Courier New", monospace;
+      font-family: monospace;
       text-align: center;
       padding: 50px;
     }
 
-    h1 {
-      text-shadow: 0 0 15px #00ff9f;
-      margin-bottom: 30px;
-    }
-
-    .input-box {
-      position: relative;
-      display: inline-block;
-    }
-
     input {
+      padding: 10px;
+      width: 280px;
       background: black;
       border: 1px solid #00ff9f;
-      color: #00ff9f;
-      padding: 12px;
-      width: 280px;
-      outline: none;
-      font-family: inherit;
-    }
-
-    input:focus {
-      box-shadow: 0 0 10px #00ff9f;
-    }
-
-    .toggle {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      cursor: pointer;
-      font-size: 14px;
       color: #00ff9f;
     }
 
@@ -63,31 +29,41 @@
       height: 10px;
       background: #111;
       margin: 20px auto;
-      border-radius: 5px;
-      overflow: hidden;
     }
 
     .meter-fill {
       height: 100%;
       width: 0%;
-      transition: 0.4s ease;
-      box-shadow: 0 0 10px currentColor;
-    }
-
-    .info {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #94a3b8;
-    }
-
-    strong {
-      color: #00ff9f;
-    }
-
-    #tips {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #f87171;
     }
   </style>
 </head>
+
+<body>
+
+<h1>🔐 Password Analyzer</h1>
+
+<input type="password" id="password" placeholder="Enter password...">
+
+<div class="meter">
+  <div class="meter-fill" id="meter"></div>
+</div>
+
+<p id="strength"></p>
+
+<script>
+const input = document.getElementById("password");
+const meter = document.getElementById("meter");
+
+input.addEventListener("input", () => {
+  const pwd = input.value;
+  let strength = pwd.length;
+
+  meter.style.width = (strength * 10) + "%";
+
+  document.getElementById("strength").innerText =
+    strength < 5 ? "Weak" : strength < 10 ? "Medium" : "Strong";
+});
+</script>
+
+</body>
+</html>
