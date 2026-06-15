@@ -85,15 +85,6 @@ Welcome to the source code of my personal portfolio website:
 
 ---
 
-## 🔮 Future Improvements
-
-* 🚀 Live project demos and previews
-* 🎮 FPS Game Benchmark App integration
-* ✍️ Tech blog / learning journal
-* 🌓 Dark/Light mode toggle enhancement
-
----
-
 ## 📞 Connect With Me
 
 * 📧 Email: [nadeemnajumudeen@gmail.com](mailto:nadeemnajumudeen@gmail.com)
